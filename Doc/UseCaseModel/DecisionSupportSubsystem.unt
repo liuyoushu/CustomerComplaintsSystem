@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:UNIT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLSubsystem" guid="Pw4FJL/Z206a3i/5xDfV9QAA">
+<XPD:ATTR name="Name" type="string">决策支持子系统</XPD:ATTR>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:UNIT>
