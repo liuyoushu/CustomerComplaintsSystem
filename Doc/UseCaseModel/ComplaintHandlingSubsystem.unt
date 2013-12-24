@@ -9,7 +9,7 @@
 <XPD:ATTR name="Name" type="string">投诉处理子系统</XPD:ATTR>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLUseCaseDiagram" guid="dBq0yz+iW0uwkTL6YKT3pQAA">
-<XPD:ATTR name="Name" type="string">投诉子系统</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">投诉子系统用例图</XPD:ATTR>
 <XPD:REF name="DiagramOwner">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLUseCaseDiagramView" guid="s7HkQ3TnNUCnbBweY8+aIwAA">
 <XPD:REF name="Diagram">dBq0yz+iW0uwkTL6YKT3pQAA</XPD:REF>
