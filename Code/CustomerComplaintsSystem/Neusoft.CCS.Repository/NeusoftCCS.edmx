@@ -1,0 +1,1223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Neusoft.CCS.Repository.DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NeusoftCCSRepositoryDataModelStoreContainer">
+          <EntitySet Name="Business" EntityType="Neusoft.CCS.Repository.DataModel.Store.Business" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CaseInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="Neusoft.CCS.Repository.DataModel.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Complainer" EntityType="Neusoft.CCS.Repository.DataModel.Store.Complainer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComplaintDisposeAndFeedbackInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ComplaintDisposeAndFeedbackInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComplaintInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ComplaintInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComplaintReturnVisitInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ComplaintReturnVisitInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Department" EntityType="Neusoft.CCS.Repository.DataModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImportantEvent_Center" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImportantEvent_Department" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImportantEvent_Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Position" EntityType="Neusoft.CCS.Repository.DataModel.Store.Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CASEINFO_SPECIALHA_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_CASEINFO_SPECIALHA_IMPORTAN">
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CASEINFO_START_COMPLAIN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_CASEINFO_START_COMPLAIN">
+            <End Role="Complainer" EntitySet="Complainer" />
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_HAVE_DEPARTME" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPANY_HAVE_DEPARTME">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_COMPLAINT_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_COMPLAINT_BUSINESS">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="ComplaintInfo" EntitySet="ComplaintInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_FEEDBACK_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_FEEDBACK_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ComplaintDisposeAndFeedbackInfo" EntitySet="ComplaintDisposeAndFeedbackInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_RECEIVE_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_RECEIVE_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ComplaintInfo" EntitySet="ComplaintInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_RETURNVIS_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_RETURNVIS_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ComplaintReturnVisitInfo" EntitySet="ComplaintReturnVisitInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_受理 填写_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_受理 填写_STAFF">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ComplaintDisposeAndFeedbackInfo" EntitySet="ComplaintDisposeAndFeedbackInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_投诉回访_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_COMPLAIN_投诉回访_STAFF">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ComplaintReturnVisitInfo" EntitySet="ComplaintReturnVisitInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTME_MANAGE_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.Store.FK_DEPARTME_MANAGE_BUSINESS">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_ASSIGN_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_ASSIGN_IMPORTAN">
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_DESIGNATE_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_DESIGNATE_IMPORTAN">
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_SPECIALHA_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_SPECIALHA_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_特殊处理_员工_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_特殊处理_员工_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_特殊处理_部门负责_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_特殊处理_部门负责_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_重大事件处理_STAFF">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件总处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_重大事件总处理_STAFF">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件部门处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_重大事件部门处理_STAFF">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STAFF_BELONG_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.Store.FK_STAFF_BELONG_BUSINESS">
+            <End Role="Business" EntitySet="Business" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STAFF_OCCUPY_POSITION" Association="Neusoft.CCS.Repository.DataModel.Store.FK_STAFF_OCCUPY_POSITION">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="BussinessID" />
+          </Key>
+          <Property Name="BussinessID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BussinessName" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="BussinessDescribe" Type="text" />
+        </EntityType>
+        <EntityType Name="CaseInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Com_ID" Type="int" Nullable="false" />
+          <Property Name="IptEvt_C_ID" Type="int" />
+          <Property Name="ArchiveDate" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Province" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="County" Type="varchar" MaxLength="20" />
+          <Property Name="DetailedAddress" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SuperiorComID" Type="int" />
+        </EntityType>
+        <EntityType Name="Complainer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ComplaintDisposeAndFeedbackInfo">
+          <Key>
+            <PropertyRef Name="CptDF_ID" />
+          </Key>
+          <Property Name="CptDF_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CptDF_Solution" Type="text" Nullable="false" />
+          <Property Name="CptDF_Content" Type="text" Nullable="false" />
+          <Property Name="CptDF_Satisfaction" Type="int" Nullable="false" />
+          <Property Name="CptDF_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="CptDF_EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComplaintInfo">
+          <Key>
+            <PropertyRef Name="Cpt_InfoID" />
+          </Key>
+          <Property Name="Cpt_InfoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="BussinessID" Type="int" />
+          <Property Name="Cpt_Way" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Cpt_Date" Type="datetime" Nullable="false" />
+          <Property Name="Cpt_Area" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cpt_Class" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Cpt_Describe" Type="text" Nullable="false" />
+          <Property Name="Cpt_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="Cpt_EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComplaintReturnVisitInfo">
+          <Key>
+            <PropertyRef Name="CptReVst_ID" />
+          </Key>
+          <Property Name="CptReVst_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="CptReVst_Date" Type="datetime" Nullable="false" />
+          <Property Name="CptReVst_Content" Type="text" Nullable="false" />
+          <Property Name="CptReVst_IsSolved" Type="bit" Nullable="false" />
+          <Property Name="CptReVst_CptReason" Type="text" Nullable="false" />
+          <Property Name="CptReVst_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="CptReVst_EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BussinessID" Type="int" Nullable="false" />
+          <Property Name="DepartmentName" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="Describe" Type="text" Nullable="false" />
+          <Property Name="DepartmentPhoneNum" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="DepartmentRemark" Type="text" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Center">
+          <Key>
+            <PropertyRef Name="IptEvt_C_ID" />
+          </Key>
+          <Property Name="IptEvt_C_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IptEvt_C_Solution" Type="text" Nullable="false" />
+          <Property Name="IptEvt_C_BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_C_EndDate" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_C_Conclusion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Department">
+          <Key>
+            <PropertyRef Name="IptEvt_D_ID" />
+          </Key>
+          <Property Name="IptEvt_D_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="IptEvt_C_ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IptEvt_D_Duty" Type="text" Nullable="false" />
+          <Property Name="IptEvt_D_Conclusion" Type="text" Nullable="false" />
+          <Property Name="IptEvt_D_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_D_EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Staff">
+          <Key>
+            <PropertyRef Name="IptEvt_S_ID" />
+          </Key>
+          <Property Name="IptEvt_S_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IptEvt_D_ID" Type="int" Nullable="false" />
+          <Property Name="IptEvt_S_Content" Type="text" Nullable="false" />
+          <Property Name="IptEvt_S_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_S_EndTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Post_Name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="Post_Content" Type="text" Nullable="false" />
+          <Property Name="Post_Remark" Type="text" />
+          <Property Name="Post_SuperiorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Stf_ID" />
+          </Key>
+          <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="BussinessID" Type="int" />
+          <Property Name="Post_ID" Type="int" />
+          <Property Name="Stf_Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Stf_Gender" Type="tinyint" Nullable="false" />
+          <Property Name="Stf_Age" Type="int" Nullable="false" />
+          <Property Name="Stf_IdentifyCardNum" Type="char" Nullable="false" MaxLength="18" />
+          <Property Name="Stf_EntryTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CASEINFO_SPECIALHA_IMPORTAN">
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" Multiplicity="0..1" />
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Center">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Principal>
+            <Dependent Role="CaseInfo">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CASEINFO_START_COMPLAIN">
+          <End Role="Complainer" Type="Neusoft.CCS.Repository.DataModel.Store.Complainer" Multiplicity="1" />
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complainer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CaseInfo">
+              <PropertyRef Name="Com_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_HAVE_DEPARTME">
+          <End Role="Department" Type="Neusoft.CCS.Repository.DataModel.Store.Department" Multiplicity="1" />
+          <End Role="Company" Type="Neusoft.CCS.Repository.DataModel.Store.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_COMPLAINT_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Store.Business" Multiplicity="0..1" />
+          <End Role="ComplaintInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="ComplaintInfo">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_FEEDBACK_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintDisposeAndFeedbackInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintDisposeAndFeedbackInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintDisposeAndFeedbackInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_RECEIVE_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_RETURNVIS_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintReturnVisitInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintReturnVisitInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintReturnVisitInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_受理 填写_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="1" />
+          <End Role="ComplaintDisposeAndFeedbackInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintDisposeAndFeedbackInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ComplaintDisposeAndFeedbackInfo">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_投诉回访_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="1" />
+          <End Role="ComplaintReturnVisitInfo" Type="Neusoft.CCS.Repository.DataModel.Store.ComplaintReturnVisitInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ComplaintReturnVisitInfo">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTME_MANAGE_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Store.Business" Multiplicity="1" />
+          <End Role="Department" Type="Neusoft.CCS.Repository.DataModel.Store.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_ASSIGN_IMPORTAN">
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Center">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_DESIGNATE_IMPORTAN">
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Department">
+              <PropertyRef Name="IptEvt_D_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="IptEvt_D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_SPECIALHA_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Center">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_特殊处理_员工_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_特殊处理_部门负责_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件总处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Center">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件部门处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STAFF_BELONG_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Store.Business" Multiplicity="0..1" />
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STAFF_OCCUPY_POSITION">
+          <End Role="Position" Type="Neusoft.CCS.Repository.DataModel.Store.Position" Multiplicity="0..1" />
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Neusoft.CCS.Repository.DataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NeusoftCCSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Businesses" EntityType="Neusoft.CCS.Repository.DataModel.Business" />
+          <EntitySet Name="CaseInfoes" EntityType="Neusoft.CCS.Repository.DataModel.CaseInfo" />
+          <EntitySet Name="Companies" EntityType="Neusoft.CCS.Repository.DataModel.Company" />
+          <EntitySet Name="Complainers" EntityType="Neusoft.CCS.Repository.DataModel.Complainer" />
+          <EntitySet Name="ComplaintDisposeAndFeedbackInfoes" EntityType="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo" />
+          <EntitySet Name="ComplaintInfoes" EntityType="Neusoft.CCS.Repository.DataModel.ComplaintInfo" />
+          <EntitySet Name="ComplaintReturnVisitInfoes" EntityType="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" />
+          <EntitySet Name="Departments" EntityType="Neusoft.CCS.Repository.DataModel.Department" />
+          <EntitySet Name="ImportantEvent_Center" EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" />
+          <EntitySet Name="ImportantEvent_Department" EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" />
+          <EntitySet Name="ImportantEvent_Staff" EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" />
+          <EntitySet Name="Positions" EntityType="Neusoft.CCS.Repository.DataModel.Position" />
+          <EntitySet Name="Staffs" EntityType="Neusoft.CCS.Repository.DataModel.Staff" />
+          <AssociationSet Name="FK_COMPLAIN_COMPLAINT_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="ComplaintInfo" EntitySet="ComplaintInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DEPARTME_MANAGE_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.FK_DEPARTME_MANAGE_BUSINESS">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STAFF_BELONG_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_BELONG_BUSINESS">
+            <End Role="Business" EntitySet="Businesses" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CASEINFO_SPECIALHA_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_SPECIALHA_IMPORTAN">
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CASEINFO_START_COMPLAIN" Association="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_START_COMPLAIN">
+            <End Role="Complainer" EntitySet="Complainers" />
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_FEEDBACK_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_FEEDBACK_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ComplaintDisposeAndFeedbackInfo" EntitySet="ComplaintDisposeAndFeedbackInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_RECEIVE_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ComplaintInfo" EntitySet="ComplaintInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_RETURNVIS_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RETURNVIS_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ComplaintReturnVisitInfo" EntitySet="ComplaintReturnVisitInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_SPECIALHA_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_特殊处理_员工_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_特殊处理_部门负责_CASEINFO" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPANY_HAVE_DEPARTME" Association="Neusoft.CCS.Repository.DataModel.FK_COMPANY_HAVE_DEPARTME">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_受理_填写_STAFF" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_受理_填写_STAFF">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="ComplaintDisposeAndFeedbackInfo" EntitySet="ComplaintDisposeAndFeedbackInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMPLAIN_投诉回访_STAFF" Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_投诉回访_STAFF">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="ComplaintReturnVisitInfo" EntitySet="ComplaintReturnVisitInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_ASSIGN_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_ASSIGN_IMPORTAN">
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件总处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件总处理_STAFF">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="ImportantEvent_Center" EntitySet="ImportantEvent_Center" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_DESIGNATE_IMPORTAN" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_DESIGNATE_IMPORTAN">
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件部门处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMPORTAN_重大事件处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="ImportantEvent_Staff" EntitySet="ImportantEvent_Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STAFF_OCCUPY_POSITION" Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Business">
+          <Key>
+            <PropertyRef Name="BussinessID" />
+          </Key>
+          <Property Name="BussinessID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BussinessName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="BussinessDescribe" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ComplaintInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" FromRole="Business" ToRole="ComplaintInfo" />
+          <NavigationProperty Name="Departments" Relationship="Neusoft.CCS.Repository.DataModel.FK_DEPARTME_MANAGE_BUSINESS" FromRole="Business" ToRole="Department" />
+          <NavigationProperty Name="Staffs" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_BELONG_BUSINESS" FromRole="Business" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="CaseInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Com_ID" Type="Int32" Nullable="false" />
+          <Property Name="IptEvt_C_ID" Type="Int32" />
+          <Property Name="ArchiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ImportantEvent_Center" Relationship="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_SPECIALHA_IMPORTAN" FromRole="CaseInfo" ToRole="ImportantEvent_Center" />
+          <NavigationProperty Name="Complainer" Relationship="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_START_COMPLAIN" FromRole="CaseInfo" ToRole="Complainer" />
+          <NavigationProperty Name="ComplaintDisposeAndFeedbackInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_FEEDBACK_CASEINFO" FromRole="CaseInfo" ToRole="ComplaintDisposeAndFeedbackInfo" />
+          <NavigationProperty Name="ComplaintInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO" FromRole="CaseInfo" ToRole="ComplaintInfo" />
+          <NavigationProperty Name="ComplaintReturnVisitInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RETURNVIS_CASEINFO" FromRole="CaseInfo" ToRole="ComplaintReturnVisitInfo" />
+          <NavigationProperty Name="ImportantEvent_Center1" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Center" />
+          <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Staff" />
+          <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Department" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Province" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="County" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DetailedAddress" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SuperiorComID" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPANY_HAVE_DEPARTME" FromRole="Company" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Complainer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="Email" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CaseInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_START_COMPLAIN" FromRole="Complainer" ToRole="CaseInfo" />
+        </EntityType>
+        <EntityType Name="ComplaintDisposeAndFeedbackInfo">
+          <Key>
+            <PropertyRef Name="CptDF_ID" />
+          </Key>
+          <Property Name="CptDF_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CptDF_Solution" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CptDF_Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CptDF_Satisfaction" Type="Int32" Nullable="false" />
+          <Property Name="CptDF_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CptDF_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_FEEDBACK_CASEINFO" FromRole="ComplaintDisposeAndFeedbackInfo" ToRole="CaseInfo" />
+          <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_受理_填写_STAFF" FromRole="ComplaintDisposeAndFeedbackInfo" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="ComplaintInfo">
+          <Key>
+            <PropertyRef Name="Cpt_InfoID" />
+          </Key>
+          <Property Name="Cpt_InfoID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="BussinessID" Type="Int32" />
+          <Property Name="Cpt_Way" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Cpt_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cpt_Area" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Cpt_Class" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Cpt_Describe" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Cpt_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cpt_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Business" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" FromRole="ComplaintInfo" ToRole="Business" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO" FromRole="ComplaintInfo" ToRole="CaseInfo" />
+        </EntityType>
+        <EntityType Name="ComplaintReturnVisitInfo">
+          <Key>
+            <PropertyRef Name="CptReVst_ID" />
+          </Key>
+          <Property Name="CptReVst_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="CptReVst_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CptReVst_Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CptReVst_IsSolved" Type="Boolean" Nullable="false" />
+          <Property Name="CptReVst_CptReason" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CptReVst_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CptReVst_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RETURNVIS_CASEINFO" FromRole="ComplaintReturnVisitInfo" ToRole="CaseInfo" />
+          <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_投诉回访_STAFF" FromRole="ComplaintReturnVisitInfo" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BussinessID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="Describe" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DepartmentPhoneNum" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="DepartmentRemark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Business" Relationship="Neusoft.CCS.Repository.DataModel.FK_DEPARTME_MANAGE_BUSINESS" FromRole="Department" ToRole="Business" />
+          <NavigationProperty Name="Companies" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPANY_HAVE_DEPARTME" FromRole="Department" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Center">
+          <Key>
+            <PropertyRef Name="IptEvt_C_ID" />
+          </Key>
+          <Property Name="IptEvt_C_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IptEvt_C_Solution" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_C_BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_C_EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_C_Conclusion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CaseInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_SPECIALHA_IMPORTAN" FromRole="ImportantEvent_Center" ToRole="CaseInfo" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO" FromRole="ImportantEvent_Center" ToRole="CaseInfo" />
+          <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_ASSIGN_IMPORTAN" FromRole="ImportantEvent_Center" ToRole="ImportantEvent_Department" />
+          <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件总处理_STAFF" FromRole="ImportantEvent_Center" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Department">
+          <Key>
+            <PropertyRef Name="IptEvt_D_ID" />
+          </Key>
+          <Property Name="IptEvt_D_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="IptEvt_C_ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IptEvt_D_Duty" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_D_Conclusion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_D_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_D_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="ImportantEvent_Department" ToRole="CaseInfo" />
+          <NavigationProperty Name="ImportantEvent_Center" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_ASSIGN_IMPORTAN" FromRole="ImportantEvent_Department" ToRole="ImportantEvent_Center" />
+          <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_DESIGNATE_IMPORTAN" FromRole="ImportantEvent_Department" ToRole="ImportantEvent_Staff" />
+          <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" FromRole="ImportantEvent_Department" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="ImportantEvent_Staff">
+          <Key>
+            <PropertyRef Name="IptEvt_S_ID" />
+          </Key>
+          <Property Name="IptEvt_S_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IptEvt_D_ID" Type="Int32" Nullable="false" />
+          <Property Name="IptEvt_S_Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_S_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_S_EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="ImportantEvent_Staff" ToRole="CaseInfo" />
+          <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_DESIGNATE_IMPORTAN" FromRole="ImportantEvent_Staff" ToRole="ImportantEvent_Department" />
+          <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" FromRole="ImportantEvent_Staff" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="Post_Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Post_Remark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Post_SuperiorID" Type="Int32" />
+          <NavigationProperty Name="Staffs" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" FromRole="Position" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Stf_ID" />
+          </Key>
+          <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="BussinessID" Type="Int32" />
+          <Property Name="Post_ID" Type="Int32" />
+          <Property Name="Stf_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Stf_Gender" Type="Byte" Nullable="false" />
+          <Property Name="Stf_Age" Type="Int32" Nullable="false" />
+          <Property Name="Stf_IdentifyCardNum" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="true" />
+          <Property Name="Stf_EntryTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Business" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_BELONG_BUSINESS" FromRole="Staff" ToRole="Business" />
+          <NavigationProperty Name="ComplaintDisposeAndFeedbackInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_受理_填写_STAFF" FromRole="Staff" ToRole="ComplaintDisposeAndFeedbackInfo" />
+          <NavigationProperty Name="ComplaintReturnVisitInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_投诉回访_STAFF" FromRole="Staff" ToRole="ComplaintReturnVisitInfo" />
+          <NavigationProperty Name="ImportantEvent_Center" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件总处理_STAFF" FromRole="Staff" ToRole="ImportantEvent_Center" />
+          <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" FromRole="Staff" ToRole="ImportantEvent_Department" />
+          <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" FromRole="Staff" ToRole="ImportantEvent_Staff" />
+          <NavigationProperty Name="Position" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" FromRole="Staff" ToRole="Position" />
+        </EntityType>
+        <Association Name="FK_COMPLAIN_COMPLAINT_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Business" Multiplicity="0..1" />
+          <End Role="ComplaintInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="ComplaintInfo">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DEPARTME_MANAGE_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Business" Multiplicity="1" />
+          <End Role="Department" Type="Neusoft.CCS.Repository.DataModel.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STAFF_BELONG_BUSINESS">
+          <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Business" Multiplicity="0..1" />
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Business">
+              <PropertyRef Name="BussinessID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="BussinessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CASEINFO_SPECIALHA_IMPORTAN">
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Multiplicity="0..1" />
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Center">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Principal>
+            <Dependent Role="CaseInfo">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CASEINFO_START_COMPLAIN">
+          <End Role="Complainer" Type="Neusoft.CCS.Repository.DataModel.Complainer" Multiplicity="1" />
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complainer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CaseInfo">
+              <PropertyRef Name="Com_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_FEEDBACK_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintDisposeAndFeedbackInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintDisposeAndFeedbackInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_RECEIVE_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_RETURNVIS_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ComplaintReturnVisitInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ComplaintReturnVisitInfo">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_SPECIALHA_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Center">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_特殊处理_员工_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_特殊处理_部门负责_CASEINFO">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPANY_HAVE_DEPARTME">
+          <End Role="Department" Type="Neusoft.CCS.Repository.DataModel.Department" Multiplicity="1" />
+          <End Role="Company" Type="Neusoft.CCS.Repository.DataModel.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_受理_填写_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="1" />
+          <End Role="ComplaintDisposeAndFeedbackInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ComplaintDisposeAndFeedbackInfo">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMPLAIN_投诉回访_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="1" />
+          <End Role="ComplaintReturnVisitInfo" Type="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ComplaintReturnVisitInfo">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_ASSIGN_IMPORTAN">
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Center">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="IptEvt_C_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件总处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Center" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Center">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_DESIGNATE_IMPORTAN">
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportantEvent_Department">
+              <PropertyRef Name="IptEvt_D_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="IptEvt_D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件部门处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Department" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Department">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMPORTAN_重大事件处理_STAFF">
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="1" />
+          <End Role="ImportantEvent_Staff" Type="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Principal>
+            <Dependent Role="ImportantEvent_Staff">
+              <PropertyRef Name="Stf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STAFF_OCCUPY_POSITION">
+          <End Role="Position" Type="Neusoft.CCS.Repository.DataModel.Position" Multiplicity="0..1" />
+          <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NeusoftCCSRepositoryDataModelStoreContainer" CdmEntityContainer="NeusoftCCSEntities">
+          <EntitySetMapping Name="Businesses">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Business">
+              <MappingFragment StoreEntitySet="Business">
+                <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
+                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+                <ScalarProperty Name="BussinessDescribe" ColumnName="BussinessDescribe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaseInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.CaseInfo">
+              <MappingFragment StoreEntitySet="CaseInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Com_ID" ColumnName="Com_ID" />
+                <ScalarProperty Name="IptEvt_C_ID" ColumnName="IptEvt_C_ID" />
+                <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="DetailedAddress" ColumnName="DetailedAddress" />
+                <ScalarProperty Name="SuperiorComID" ColumnName="SuperiorComID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complainers">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Complainer">
+              <MappingFragment StoreEntitySet="Complainer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComplaintDisposeAndFeedbackInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo">
+              <MappingFragment StoreEntitySet="ComplaintDisposeAndFeedbackInfo">
+                <ScalarProperty Name="CptDF_ID" ColumnName="CptDF_ID" />
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CptDF_Solution" ColumnName="CptDF_Solution" />
+                <ScalarProperty Name="CptDF_Content" ColumnName="CptDF_Content" />
+                <ScalarProperty Name="CptDF_Satisfaction" ColumnName="CptDF_Satisfaction" />
+                <ScalarProperty Name="CptDF_BeginTime" ColumnName="CptDF_BeginTime" />
+                <ScalarProperty Name="CptDF_EndTime" ColumnName="CptDF_EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComplaintInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ComplaintInfo">
+              <MappingFragment StoreEntitySet="ComplaintInfo">
+                <ScalarProperty Name="Cpt_InfoID" ColumnName="Cpt_InfoID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
+                <ScalarProperty Name="Cpt_Way" ColumnName="Cpt_Way" />
+                <ScalarProperty Name="Cpt_Date" ColumnName="Cpt_Date" />
+                <ScalarProperty Name="Cpt_Area" ColumnName="Cpt_Area" />
+                <ScalarProperty Name="Cpt_Class" ColumnName="Cpt_Class" />
+                <ScalarProperty Name="Cpt_Describe" ColumnName="Cpt_Describe" />
+                <ScalarProperty Name="Cpt_BeginTime" ColumnName="Cpt_BeginTime" />
+                <ScalarProperty Name="Cpt_EndTime" ColumnName="Cpt_EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComplaintReturnVisitInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo">
+              <MappingFragment StoreEntitySet="ComplaintReturnVisitInfo">
+                <ScalarProperty Name="CptReVst_ID" ColumnName="CptReVst_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="CptReVst_Date" ColumnName="CptReVst_Date" />
+                <ScalarProperty Name="CptReVst_Content" ColumnName="CptReVst_Content" />
+                <ScalarProperty Name="CptReVst_IsSolved" ColumnName="CptReVst_IsSolved" />
+                <ScalarProperty Name="CptReVst_CptReason" ColumnName="CptReVst_CptReason" />
+                <ScalarProperty Name="CptReVst_BeginTime" ColumnName="CptReVst_BeginTime" />
+                <ScalarProperty Name="CptReVst_EndTime" ColumnName="CptReVst_EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Describe" ColumnName="Describe" />
+                <ScalarProperty Name="DepartmentPhoneNum" ColumnName="DepartmentPhoneNum" />
+                <ScalarProperty Name="DepartmentRemark" ColumnName="DepartmentRemark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportantEvent_Center">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center">
+              <MappingFragment StoreEntitySet="ImportantEvent_Center">
+                <ScalarProperty Name="IptEvt_C_ID" ColumnName="IptEvt_C_ID" />
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IptEvt_C_Solution" ColumnName="IptEvt_C_Solution" />
+                <ScalarProperty Name="IptEvt_C_BeginDate" ColumnName="IptEvt_C_BeginDate" />
+                <ScalarProperty Name="IptEvt_C_EndDate" ColumnName="IptEvt_C_EndDate" />
+                <ScalarProperty Name="IptEvt_C_Conclusion" ColumnName="IptEvt_C_Conclusion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportantEvent_Department">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department">
+              <MappingFragment StoreEntitySet="ImportantEvent_Department">
+                <ScalarProperty Name="IptEvt_D_ID" ColumnName="IptEvt_D_ID" />
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="IptEvt_C_ID" ColumnName="IptEvt_C_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IptEvt_D_Duty" ColumnName="IptEvt_D_Duty" />
+                <ScalarProperty Name="IptEvt_D_Conclusion" ColumnName="IptEvt_D_Conclusion" />
+                <ScalarProperty Name="IptEvt_D_BeginTime" ColumnName="IptEvt_D_BeginTime" />
+                <ScalarProperty Name="IptEvt_D_EndTime" ColumnName="IptEvt_D_EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportantEvent_Staff">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff">
+              <MappingFragment StoreEntitySet="ImportantEvent_Staff">
+                <ScalarProperty Name="IptEvt_S_ID" ColumnName="IptEvt_S_ID" />
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IptEvt_D_ID" ColumnName="IptEvt_D_ID" />
+                <ScalarProperty Name="IptEvt_S_Content" ColumnName="IptEvt_S_Content" />
+                <ScalarProperty Name="IptEvt_S_BeginTime" ColumnName="IptEvt_S_BeginTime" />
+                <ScalarProperty Name="IptEvt_S_EndTime" ColumnName="IptEvt_S_EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Post_Name" ColumnName="Post_Name" />
+                <ScalarProperty Name="Post_Content" ColumnName="Post_Content" />
+                <ScalarProperty Name="Post_Remark" ColumnName="Post_Remark" />
+                <ScalarProperty Name="Post_SuperiorID" ColumnName="Post_SuperiorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
+                <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Stf_Name" ColumnName="Stf_Name" />
+                <ScalarProperty Name="Stf_Gender" ColumnName="Stf_Gender" />
+                <ScalarProperty Name="Stf_Age" ColumnName="Stf_Age" />
+                <ScalarProperty Name="Stf_IdentifyCardNum" ColumnName="Stf_IdentifyCardNum" />
+                <ScalarProperty Name="Stf_EntryTime" ColumnName="Stf_EntryTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

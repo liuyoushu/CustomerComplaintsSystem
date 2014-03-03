@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe171dc1ed994e61bb51db5d97fd0993" Name="Diagram1">
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Business" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.CaseInfo" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Company" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Complainer" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintInfo" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" Width="1.5" PointX="11.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Department" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Width="1.5" PointX="13.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" Width="1.5" PointX="16" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Position" Width="1.5" PointX="3.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Staff" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_DEPARTME_MANAGE_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_BELONG_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_SPECIALHA_IMPORTAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_CASEINFO_START_COMPLAIN" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_FEEDBACK_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RETURNVIS_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPANY_HAVE_DEPARTME" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_受理_填写_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_投诉回访_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_ASSIGN_IMPORTAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件总处理_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_DESIGNATE_IMPORTAN" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
