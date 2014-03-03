@@ -56,6 +56,10 @@
     <Compile Include="Cache\DefaultCache.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\MemcachedCache.cs" />
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\IConfiguration.cs" />
+    <Compile Include="Email\EmailService.cs" />
+    <Compile Include="Email\IEmail.cs" />
     <Compile Include="Logging\DefaultLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,10 +69,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Email\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
