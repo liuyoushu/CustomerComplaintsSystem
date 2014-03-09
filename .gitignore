@@ -109,3 +109,5 @@ UpgradeLog*.XML
 
 *.~nt
 *.~ml
+DB/NeusoftCCS.mdf
+DB/NeusoftCCS_log.ldf
