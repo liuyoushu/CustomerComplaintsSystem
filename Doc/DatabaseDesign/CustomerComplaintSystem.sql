@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     2014/2/16 16:46:37                           */
+/* Created on:     2014/3/17 15:21:19                           */
 /*==============================================================*/
 
 
@@ -9,13 +9,6 @@ if exists (select 1
    where r.fkeyid = object_id('CaseInfo') and o.name = 'FK_CASEINFO_START_COMPLAIN')
 alter table CaseInfo
    drop constraint FK_CASEINFO_START_COMPLAIN
-go
-
-if exists (select 1
-   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('CaseInfo') and o.name = 'FK_CASEINFO_SPECIALHA_IMPORTAN')
-alter table CaseInfo
-   drop constraint FK_CASEINFO_SPECIALHA_IMPORTAN
 go
 
 if exists (select 1
@@ -72,6 +65,20 @@ if exists (select 1
    where r.fkeyid = object_id('Department') and o.name = 'FK_DEPARTME_MANAGE_BUSINESS')
 alter table Department
    drop constraint FK_DEPARTME_MANAGE_BUSINESS
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('History') and o.name = 'FK_HISTORY_REFERENCE_CASEINFO')
+alter table History
+   drop constraint FK_HISTORY_REFERENCE_CASEINFO
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('History') and o.name = 'FK_HISTORY_REFERENCE_STAFF')
+alter table History
+   drop constraint FK_HISTORY_REFERENCE_STAFF
 go
 
 if exists (select 1
@@ -149,15 +156,6 @@ if exists (select 1
            where  id = object_id('Business')
             and   type = 'U')
    drop table Business
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('CaseInfo')
-            and   name  = 'specialHandling_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index CaseInfo.specialHandling_FK
 go
 
 if exists (select 1
@@ -288,6 +286,13 @@ if exists (select 1
            where  id = object_id('Department')
             and   type = 'U')
    drop table Department
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('History')
+            and   type = 'U')
+   drop table History
 go
 
 if exists (select 1
@@ -432,8 +437,7 @@ go
 create table CaseInfo (
    ID                   int                  identity,
    Com_ID               int                  not null,
-   IptEvt_C_ID          int                  null,
-   ArchiveDate          datetime             not null,
+   ArchiveDate          datetime             null,
    State                int                  not null,
    constraint PK_CASEINFO primary key nonclustered (ID)
 )
@@ -444,14 +448,6 @@ go
 /*==============================================================*/
 create index Start_FK on CaseInfo (
 Com_ID ASC
-)
-go
-
-/*==============================================================*/
-/* Index: specialHandling_FK                                    */
-/*==============================================================*/
-create index specialHandling_FK on CaseInfo (
-IptEvt_C_ID ASC
 )
 go
 
@@ -498,11 +494,11 @@ create table ComplaintDisposeAndFeedbackInfo (
    CptDF_ID             int                  identity,
    Stf_ID               char(11)             not null,
    ID                   int                  not null,
-   CptDF_Solution       text                 not null,
-   CptDF_Content        text                 not null,
-   CptDF_Satisfaction   int                  not null,
+   CptDF_Solution       text                 null,
+   CptDF_Content        text                 null,
+   CptDF_Satisfaction   int                  null,
    CptDF_BeginTime      datetime             not null,
-   CptDF_EndTime        datetime             not null,
+   CptDF_EndTime        datetime             null,
    constraint PK_COMPLAINTDISPOSEANDFEEDBACK primary key nonclustered (CptDF_ID)
 )
 go
@@ -532,11 +528,11 @@ create table ComplaintInfo (
    BussinessID          int                  null,
    Cpt_Way              varchar(10)          not null,
    Cpt_Date             datetime             not null,
-   Cpt_Area             varchar(50)          not null,
-   Cpt_Class            varchar(20)          not null,
+   Cpt_Area             varchar(50)          null,
+   Cpt_Class            varchar(20)          null,
    Cpt_Describe         text                 not null,
    Cpt_BeginTime        datetime             not null,
-   Cpt_EndTime          datetime             not null,
+   Cpt_EndTime          datetime             null,
    constraint PK_COMPLAINTINFO primary key nonclustered (Cpt_InfoID)
 )
 go
@@ -564,12 +560,12 @@ create table ComplaintReturnVisitInfo (
    CptReVst_ID          int                  identity,
    ID                   int                  not null,
    Stf_ID               char(11)             not null,
-   CptReVst_Date        datetime             not null,
-   CptReVst_Content     text                 not null,
-   CptReVst_IsSolved    bit                  not null,
-   CptReVst_CptReason   text                 not null,
+   CptReVst_Date        datetime             null,
+   CptReVst_Content     text                 null,
+   CptReVst_IsSolved    bit                  null,
+   CptReVst_CptReason   text                 null,
    CptReVst_BeginTime   datetime             not null,
-   CptReVst_EndTime     datetime             not null,
+   CptReVst_EndTime     datetime             null,
    constraint PK_COMPLAINTRETURNVISITINFO primary key nonclustered (CptReVst_ID)
 )
 go
@@ -613,6 +609,19 @@ BussinessID ASC
 go
 
 /*==============================================================*/
+/* Table: History                                               */
+/*==============================================================*/
+create table History (
+   History_ID           int                  identity,
+   ID                   int                  null,
+   Stf_ID               char(11)             null,
+   History_Process      text                 not null,
+   History_HandleTime   datetime             not null,
+   constraint PK_HISTORY primary key (History_ID)
+)
+go
+
+/*==============================================================*/
 /* Table: ImportantEvent_Center                                 */
 /*==============================================================*/
 create table ImportantEvent_Center (
@@ -621,8 +630,8 @@ create table ImportantEvent_Center (
    ID                   int                  not null,
    IptEvt_C_Solution    text                 not null,
    IptEvt_C_BeginDate   datetime             not null,
-   IptEvt_C_EndDate     datetime             not null,
-   IptEvt_C_Conclusion  text                 not null,
+   IptEvt_C_EndDate     datetime             null,
+   IptEvt_C_Conclusion  text                 null,
    constraint PK_IMPORTANTEVENT_CENTER primary key nonclustered (IptEvt_C_ID)
 )
 go
@@ -651,10 +660,10 @@ create table ImportantEvent_Department (
    Stf_ID               char(11)             not null,
    IptEvt_C_ID          int                  not null,
    ID                   int                  not null,
-   IptEvt_D_Duty        text                 not null,
-   IptEvt_D_Conclusion  text                 not null,
+   IptEvt_D_Duty        text                 null,
+   IptEvt_D_Conclusion  text                 null,
    IptEvt_D_BeginTime   datetime             not null,
-   IptEvt_D_EndTime     datetime             not null,
+   IptEvt_D_EndTime     datetime             null,
    constraint PK_IMPORTANTEVENT_DEPARTMENT primary key nonclustered (IptEvt_D_ID)
 )
 go
@@ -691,9 +700,9 @@ create table ImportantEvent_Staff (
    Stf_ID               char(11)             not null,
    ID                   int                  not null,
    IptEvt_D_ID          int                  not null,
-   IptEvt_S_Content     text                 not null,
+   IptEvt_S_Content     text                 null,
    IptEvt_S_BeginTime   datetime             not null,
-   IptEvt_S_EndTime     datetime             not null,
+   IptEvt_S_EndTime     datetime             null,
    constraint PK_IMPORTANTEVENT_STAFF primary key nonclustered (IptEvt_S_ID)
 )
 go
@@ -772,11 +781,6 @@ alter table CaseInfo
       references Complainer (ID)
 go
 
-alter table CaseInfo
-   add constraint FK_CASEINFO_SPECIALHA_IMPORTAN foreign key (IptEvt_C_ID)
-      references ImportantEvent_Center (IptEvt_C_ID)
-go
-
 alter table Company
    add constraint FK_COMPANY_HAVE_DEPARTME foreign key (DepartmentID)
       references Department (DepartmentID)
@@ -815,6 +819,16 @@ go
 alter table Department
    add constraint FK_DEPARTME_MANAGE_BUSINESS foreign key (BussinessID)
       references Business (BussinessID)
+go
+
+alter table History
+   add constraint FK_HISTORY_REFERENCE_CASEINFO foreign key (ID)
+      references CaseInfo (ID)
+go
+
+alter table History
+   add constraint FK_HISTORY_REFERENCE_STAFF foreign key (Stf_ID)
+      references Staff (Stf_ID)
 go
 
 alter table ImportantEvent_Center
