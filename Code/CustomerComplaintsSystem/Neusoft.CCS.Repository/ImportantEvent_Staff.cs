@@ -20,7 +20,7 @@ namespace Neusoft.CCS.Repository
         public int IptEvt_D_ID { get; set; }
         public string IptEvt_S_Content { get; set; }
         public System.DateTime IptEvt_S_BeginTime { get; set; }
-        public System.DateTime IptEvt_S_EndTime { get; set; }
+        public Nullable<System.DateTime> IptEvt_S_EndTime { get; set; }
     
         public virtual CaseInfo CaseInfo { get; set; }
         public virtual ImportantEvent_Department ImportantEvent_Department { get; set; }

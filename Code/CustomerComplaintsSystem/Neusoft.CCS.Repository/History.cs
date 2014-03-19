@@ -12,16 +12,13 @@ namespace Neusoft.CCS.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class ComplaintDisposeAndFeedbackInfo
+    public partial class History
     {
-        public int CptDF_ID { get; set; }
+        public int History_ID { get; set; }
+        public Nullable<int> ID { get; set; }
         public string Stf_ID { get; set; }
-        public int ID { get; set; }
-        public string CptDF_Solution { get; set; }
-        public string CptDF_Content { get; set; }
-        public Nullable<int> CptDF_Satisfaction { get; set; }
-        public System.DateTime CptDF_BeginTime { get; set; }
-        public Nullable<System.DateTime> CptDF_EndTime { get; set; }
+        public string History_Process { get; set; }
+        public System.DateTime History_HandleTime { get; set; }
     
         public virtual CaseInfo CaseInfo { get; set; }
         public virtual Staff Staff { get; set; }

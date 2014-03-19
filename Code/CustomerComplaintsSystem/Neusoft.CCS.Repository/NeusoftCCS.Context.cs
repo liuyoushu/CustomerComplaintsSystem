@@ -33,6 +33,7 @@ namespace Neusoft.CCS.Repository
         public DbSet<ComplaintInfo> ComplaintInfoes { get; set; }
         public DbSet<ComplaintReturnVisitInfo> ComplaintReturnVisitInfoes { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<History> Histories { get; set; }
         public DbSet<ImportantEvent_Center> ImportantEvent_Center { get; set; }
         public DbSet<ImportantEvent_Department> ImportantEvent_Department { get; set; }
         public DbSet<ImportantEvent_Staff> ImportantEvent_Staff { get; set; }

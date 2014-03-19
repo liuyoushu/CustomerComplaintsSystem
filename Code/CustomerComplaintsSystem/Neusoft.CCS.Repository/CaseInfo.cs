@@ -19,23 +19,23 @@ namespace Neusoft.CCS.Repository
             this.ComplaintDisposeAndFeedbackInfoes = new HashSet<ComplaintDisposeAndFeedbackInfo>();
             this.ComplaintInfoes = new HashSet<ComplaintInfo>();
             this.ComplaintReturnVisitInfoes = new HashSet<ComplaintReturnVisitInfo>();
-            this.ImportantEvent_Center1 = new HashSet<ImportantEvent_Center>();
+            this.Histories = new HashSet<History>();
+            this.ImportantEvent_Center = new HashSet<ImportantEvent_Center>();
             this.ImportantEvent_Staff = new HashSet<ImportantEvent_Staff>();
             this.ImportantEvent_Department = new HashSet<ImportantEvent_Department>();
         }
     
         public int ID { get; set; }
         public int Com_ID { get; set; }
-        public Nullable<int> IptEvt_C_ID { get; set; }
-        public System.DateTime ArchiveDate { get; set; }
+        public Nullable<System.DateTime> ArchiveDate { get; set; }
         public int State { get; set; }
     
-        public virtual ImportantEvent_Center ImportantEvent_Center { get; set; }
         public virtual Complainer Complainer { get; set; }
         public virtual ICollection<ComplaintDisposeAndFeedbackInfo> ComplaintDisposeAndFeedbackInfoes { get; set; }
         public virtual ICollection<ComplaintInfo> ComplaintInfoes { get; set; }
         public virtual ICollection<ComplaintReturnVisitInfo> ComplaintReturnVisitInfoes { get; set; }
-        public virtual ICollection<ImportantEvent_Center> ImportantEvent_Center1 { get; set; }
+        public virtual ICollection<History> Histories { get; set; }
+        public virtual ICollection<ImportantEvent_Center> ImportantEvent_Center { get; set; }
         public virtual ICollection<ImportantEvent_Staff> ImportantEvent_Staff { get; set; }
         public virtual ICollection<ImportantEvent_Department> ImportantEvent_Department { get; set; }
     }

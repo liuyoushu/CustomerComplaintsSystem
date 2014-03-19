@@ -78,6 +78,9 @@
     <Compile Include="Department.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="History.cs">
+      <DependentUpon>NeusoftCCS.tt</DependentUpon>
+    </Compile>
     <Compile Include="ImportantEvent_Center.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>

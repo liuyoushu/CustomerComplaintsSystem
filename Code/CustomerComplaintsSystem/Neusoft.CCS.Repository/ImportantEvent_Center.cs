@@ -16,7 +16,6 @@ namespace Neusoft.CCS.Repository
     {
         public ImportantEvent_Center()
         {
-            this.CaseInfoes = new HashSet<CaseInfo>();
             this.ImportantEvent_Department = new HashSet<ImportantEvent_Department>();
         }
     
@@ -25,10 +24,9 @@ namespace Neusoft.CCS.Repository
         public int ID { get; set; }
         public string IptEvt_C_Solution { get; set; }
         public System.DateTime IptEvt_C_BeginDate { get; set; }
-        public System.DateTime IptEvt_C_EndDate { get; set; }
+        public Nullable<System.DateTime> IptEvt_C_EndDate { get; set; }
         public string IptEvt_C_Conclusion { get; set; }
     
-        public virtual ICollection<CaseInfo> CaseInfoes { get; set; }
         public virtual CaseInfo CaseInfo { get; set; }
         public virtual ICollection<ImportantEvent_Department> ImportantEvent_Department { get; set; }
         public virtual Staff Staff { get; set; }

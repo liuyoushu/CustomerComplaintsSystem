@@ -23,7 +23,7 @@ namespace Neusoft.CCS.Repository
         public string Cpt_Class { get; set; }
         public string Cpt_Describe { get; set; }
         public System.DateTime Cpt_BeginTime { get; set; }
-        public System.DateTime Cpt_EndTime { get; set; }
+        public Nullable<System.DateTime> Cpt_EndTime { get; set; }
     
         public virtual Business Business { get; set; }
         public virtual CaseInfo CaseInfo { get; set; }

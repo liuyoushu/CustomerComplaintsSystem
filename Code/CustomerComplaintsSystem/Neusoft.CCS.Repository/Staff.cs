@@ -18,6 +18,7 @@ namespace Neusoft.CCS.Repository
         {
             this.ComplaintDisposeAndFeedbackInfoes = new HashSet<ComplaintDisposeAndFeedbackInfo>();
             this.ComplaintReturnVisitInfoes = new HashSet<ComplaintReturnVisitInfo>();
+            this.Histories = new HashSet<History>();
             this.ImportantEvent_Center = new HashSet<ImportantEvent_Center>();
             this.ImportantEvent_Department = new HashSet<ImportantEvent_Department>();
             this.ImportantEvent_Staff = new HashSet<ImportantEvent_Staff>();
@@ -35,6 +36,7 @@ namespace Neusoft.CCS.Repository
         public virtual Business Business { get; set; }
         public virtual ICollection<ComplaintDisposeAndFeedbackInfo> ComplaintDisposeAndFeedbackInfoes { get; set; }
         public virtual ICollection<ComplaintReturnVisitInfo> ComplaintReturnVisitInfoes { get; set; }
+        public virtual ICollection<History> Histories { get; set; }
         public virtual ICollection<ImportantEvent_Center> ImportantEvent_Center { get; set; }
         public virtual ICollection<ImportantEvent_Department> ImportantEvent_Department { get; set; }
         public virtual ICollection<ImportantEvent_Staff> ImportantEvent_Staff { get; set; }
