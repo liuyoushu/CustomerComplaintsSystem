@@ -9,7 +9,7 @@ namespace Neusoft.CCS.Model.Entities
     /// <summary>
     /// 重大事件（中心）处理信息
     /// </summary>
-    public class ImportantEventCenter
+    public class ImportantEvent_Center
     {
         /// <summary>
         /// 总解决方案

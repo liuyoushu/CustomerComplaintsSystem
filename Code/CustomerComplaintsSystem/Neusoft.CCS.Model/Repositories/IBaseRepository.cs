@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Neusoft.CCS.Model.Repositories
 {
-    class IBaseRepository<T> where T : class,new()
+    public interface IBaseRepository<T> where T : class,new()
     {
         //1.定义 ef 上下文
         //MODEL.OuOAEntities db = new MODEL.OuOAEntities();

@@ -9,7 +9,7 @@ namespace Neusoft.CCS.Model.Entities
     /// <summary>
     /// 重大事件（部门）处理信息
     /// </summary>
-    public class ImportantEventDepartment
+    public class ImportantEvent_Department
     {
         /// <summary>
         /// 重大事件（部门）处理信息ID
@@ -35,7 +35,7 @@ namespace Neusoft.CCS.Model.Entities
         /// <summary>
         /// 重大事件（中心）处理信息
         /// </summary>
-        public ImportantEventCenter ImportantEventCenter { get; set; }
+        public ImportantEvent_Center ImportantEvent_Center { get; set; }
         /// <summary>
         /// 案件信息
         /// </summary>

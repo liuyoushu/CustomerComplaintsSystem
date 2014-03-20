@@ -35,7 +35,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
     //BeginNamespace(namespaceName, code);
     
 #>
-	public partial interface I<#=entity.Name#>DAL : IBaseRepository<MODEL.<#=entity.Name#>>
+	public partial interface I<#=entity.Name#>Repository : IBaseRepository<<#=entity.Name#>>
     {
     }
 
