@@ -90,6 +90,15 @@
     <Compile Include="ImportantEvent_Staff.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\BusinessMapping.cs" />
+    <Compile Include="Mappings\CaseInfoMapping.cs" />
+    <Compile Include="Mappings\CompanyMapping.cs" />
+    <Compile Include="Mappings\ComplainerMapping.cs" />
+    <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapping.cs" />
+    <Compile Include="Mappings\ComplaintInfoMapping.cs" />
+    <Compile Include="Mappings\DepartmentMapping.cs" />
+    <Compile Include="Mappings\HistoryMapping.cs" />
+    <Compile Include="Mappings\StaffMapping.cs" />
     <Compile Include="NeusoftCCS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,9 +132,7 @@
       <Name>Neusoft.CCS.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mappings\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="NeusoftCCS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

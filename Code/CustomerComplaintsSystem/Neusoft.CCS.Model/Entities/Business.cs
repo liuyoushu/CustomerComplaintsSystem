@@ -17,7 +17,7 @@ namespace Neusoft.CCS.Model.Entities
         /// <summary>
         /// 业务名
         /// </summary>
-        public int Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 业务描述
         /// </summary>
