@@ -39,6 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Business.cs" />
+    <Compile Include="Entities\CaseInfo.cs" />
+    <Compile Include="Entities\CaseState.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Complainer.cs" />
+    <Compile Include="Entities\ComplaintDisposeAndFeedbackInfo.cs" />
+    <Compile Include="Entities\ComplaintInfo.cs" />
+    <Compile Include="Entities\ComplaintReturnVisitInfo.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\History.cs" />
+    <Compile Include="Entities\ImportantEventCenter.cs" />
+    <Compile Include="Entities\ImportantEventDepartment.cs" />
+    <Compile Include="Entities\ImportantEventStaff.cs" />
+    <Compile Include="Entities\Position.cs" />
+    <Compile Include="Entities\Satisfaction.cs" />
+    <Compile Include="Entities\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
     <Compile Include="Repositories\IDAL.cs">
@@ -53,9 +69,7 @@
       <Name>Neusoft.CCS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Repositories\IDAL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
