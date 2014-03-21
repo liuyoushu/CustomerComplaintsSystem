@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     2014/3/17 15:21:19                           */
+/* Created on:     2014/3/21 14:55:16                           */
 /*==============================================================*/
 
 
@@ -497,7 +497,7 @@ create table ComplaintDisposeAndFeedbackInfo (
    CptDF_Solution       text                 null,
    CptDF_Content        text                 null,
    CptDF_Satisfaction   int                  null,
-   CptDF_BeginTime      datetime             not null,
+   CptDF_BeginTime      datetime             null,
    CptDF_EndTime        datetime             null,
    constraint PK_COMPLAINTDISPOSEANDFEEDBACK primary key nonclustered (CptDF_ID)
 )
@@ -531,7 +531,7 @@ create table ComplaintInfo (
    Cpt_Area             varchar(50)          null,
    Cpt_Class            varchar(20)          null,
    Cpt_Describe         text                 not null,
-   Cpt_BeginTime        datetime             not null,
+   Cpt_BeginTime        datetime             null,
    Cpt_EndTime          datetime             null,
    constraint PK_COMPLAINTINFO primary key nonclustered (Cpt_InfoID)
 )
@@ -564,7 +564,7 @@ create table ComplaintReturnVisitInfo (
    CptReVst_Content     text                 null,
    CptReVst_IsSolved    bit                  null,
    CptReVst_CptReason   text                 null,
-   CptReVst_BeginTime   datetime             not null,
+   CptReVst_BeginTime   datetime             null,
    CptReVst_EndTime     datetime             null,
    constraint PK_COMPLAINTRETURNVISITINFO primary key nonclustered (CptReVst_ID)
 )
@@ -629,7 +629,7 @@ create table ImportantEvent_Center (
    Stf_ID               char(11)             not null,
    ID                   int                  not null,
    IptEvt_C_Solution    text                 not null,
-   IptEvt_C_BeginDate   datetime             not null,
+   IptEvt_C_BeginDate   datetime             null,
    IptEvt_C_EndDate     datetime             null,
    IptEvt_C_Conclusion  text                 null,
    constraint PK_IMPORTANTEVENT_CENTER primary key nonclustered (IptEvt_C_ID)
@@ -662,7 +662,7 @@ create table ImportantEvent_Department (
    ID                   int                  not null,
    IptEvt_D_Duty        text                 null,
    IptEvt_D_Conclusion  text                 null,
-   IptEvt_D_BeginTime   datetime             not null,
+   IptEvt_D_BeginTime   datetime             null,
    IptEvt_D_EndTime     datetime             null,
    constraint PK_IMPORTANTEVENT_DEPARTMENT primary key nonclustered (IptEvt_D_ID)
 )
@@ -701,7 +701,7 @@ create table ImportantEvent_Staff (
    ID                   int                  not null,
    IptEvt_D_ID          int                  not null,
    IptEvt_S_Content     text                 null,
-   IptEvt_S_BeginTime   datetime             not null,
+   IptEvt_S_BeginTime   datetime             null,
    IptEvt_S_EndTime     datetime             null,
    constraint PK_IMPORTANTEVENT_STAFF primary key nonclustered (IptEvt_S_ID)
 )
