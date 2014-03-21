@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     2014/3/21 14:55:16                           */
+/* Created on:     2014/3/21 15:13:49                           */
 /*==============================================================*/
 
 
@@ -752,7 +752,7 @@ create table Staff (
    BussinessID          int                  null,
    Post_ID              int                  null,
    Stf_Name             varchar(20)          not null,
-   Stf_Gender           tinyint              not null,
+   Stf_Gender           bit                  not null,
    Stf_Age              int                  not null,
    Stf_IdentifyCardNum  char(18)             not null,
    Stf_EntryTime        datetime             not null,
