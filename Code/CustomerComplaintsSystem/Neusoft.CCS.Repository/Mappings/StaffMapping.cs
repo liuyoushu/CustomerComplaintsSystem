@@ -25,9 +25,10 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     ID = dataEntity.Stf_ID,
                     Name = dataEntity.Stf_Name,
-                    Gender = dataEntity.Stf_Gender == 0?"女":"男",
-
-
+                    Gender = dataEntity.Stf_Gender ? "男" : "女",
+                    Age = dataEntity.Stf_Age,
+                    IdentifyCardNumber = dataEntity.Stf_IdentifyCardNum,
+                    EntryTime = dataEntity.Stf_EntryTime
                 };
             }
             return Staff;
@@ -67,11 +68,12 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new Staff()
                 {
-                    StaffID = model.ID,
-                    StaffName = model.Name,
-                    Describe = model.Describe,
-                    StaffPhoneNum = model.PhoneNumber,
-                    StaffRemark = model.Remark
+                    Stf_ID = model.ID,
+                    Stf_Name = model.Name,
+                    Stf_Gender = model.Gender == "男" ? true : false,
+                    Stf_Age = model.Age,
+                    Stf_IdentifyCardNum = model.IdentifyCardNumber,
+                    Stf_EntryTime = model.EntryTime
                 };
             }
             return dataEntity;

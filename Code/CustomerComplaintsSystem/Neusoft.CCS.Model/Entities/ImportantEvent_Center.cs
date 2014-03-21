@@ -12,6 +12,10 @@ namespace Neusoft.CCS.Model.Entities
     public class ImportantEvent_Center
     {
         /// <summary>
+        /// 重大事件（中心）处理信息ID
+        /// </summary>
+        public int ID { get; set; }
+        /// <summary>
         /// 总解决方案
         /// </summary>
         public string Solution { get; set; }

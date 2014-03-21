@@ -23,7 +23,7 @@ namespace Neusoft.CCS.Repository
         public string Stf_ID { get; set; }
         public int ID { get; set; }
         public string IptEvt_C_Solution { get; set; }
-        public System.DateTime IptEvt_C_BeginDate { get; set; }
+        public Nullable<System.DateTime> IptEvt_C_BeginDate { get; set; }
         public Nullable<System.DateTime> IptEvt_C_EndDate { get; set; }
         public string IptEvt_C_Conclusion { get; set; }
     

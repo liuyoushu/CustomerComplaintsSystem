@@ -65,14 +65,9 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new Business()
                 {
-                    ID = model.ID,
-                    Cpt_Way = model.Way,
-                    Cpt_Date = model.Date,
-                    Cpt_Area = model.Area,
-                    Cpt_Class = model.Class,
-                    Cpt_Describe = model.Describe,
-                    Cpt_BeginTime = model.BeginTime,
-                    Cpt_EndTime = model.EndTime
+                    BussinessID = model.ID,
+                    BussinessName = model.Name,
+                    BussinessDescribe = model.Describe
                 };
             }
             return dataEntity;

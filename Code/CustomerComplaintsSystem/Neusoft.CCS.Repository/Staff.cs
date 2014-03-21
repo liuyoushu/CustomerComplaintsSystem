@@ -28,7 +28,7 @@ namespace Neusoft.CCS.Repository
         public Nullable<int> BussinessID { get; set; }
         public Nullable<int> Post_ID { get; set; }
         public string Stf_Name { get; set; }
-        public byte Stf_Gender { get; set; }
+        public bool Stf_Gender { get; set; }
         public int Stf_Age { get; set; }
         public string Stf_IdentifyCardNum { get; set; }
         public System.DateTime Stf_EntryTime { get; set; }

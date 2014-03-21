@@ -96,8 +96,13 @@
     <Compile Include="Mappings\ComplainerMapping.cs" />
     <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapping.cs" />
     <Compile Include="Mappings\ComplaintInfoMapping.cs" />
+    <Compile Include="Mappings\ComplaintReturnVisitInfo.cs" />
     <Compile Include="Mappings\DepartmentMapping.cs" />
     <Compile Include="Mappings\HistoryMapping.cs" />
+    <Compile Include="Mappings\ImportantEvent_CenterMapping.cs" />
+    <Compile Include="Mappings\ImportantEvent_DepartmentMapping.cs" />
+    <Compile Include="Mappings\ImportantEvent_StaffMapping.cs" />
+    <Compile Include="Mappings\PositionMapping.cs" />
     <Compile Include="Mappings\StaffMapping.cs" />
     <Compile Include="NeusoftCCS.Context.cs">
       <AutoGen>True</AutoGen>
@@ -134,11 +139,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="NeusoftCCS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NeusoftCCS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="NeusoftCCS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NeusoftCCS.edmx</DependentUpon>

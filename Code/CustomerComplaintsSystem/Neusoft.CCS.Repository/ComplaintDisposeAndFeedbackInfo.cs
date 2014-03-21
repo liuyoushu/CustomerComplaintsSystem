@@ -20,7 +20,7 @@ namespace Neusoft.CCS.Repository
         public string CptDF_Solution { get; set; }
         public string CptDF_Content { get; set; }
         public Nullable<int> CptDF_Satisfaction { get; set; }
-        public System.DateTime CptDF_BeginTime { get; set; }
+        public Nullable<System.DateTime> CptDF_BeginTime { get; set; }
         public Nullable<System.DateTime> CptDF_EndTime { get; set; }
     
         public virtual CaseInfo CaseInfo { get; set; }

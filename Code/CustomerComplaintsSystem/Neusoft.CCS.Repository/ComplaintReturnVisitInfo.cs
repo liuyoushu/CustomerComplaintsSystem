@@ -21,7 +21,7 @@ namespace Neusoft.CCS.Repository
         public string CptReVst_Content { get; set; }
         public Nullable<bool> CptReVst_IsSolved { get; set; }
         public string CptReVst_CptReason { get; set; }
-        public System.DateTime CptReVst_BeginTime { get; set; }
+        public Nullable<System.DateTime> CptReVst_BeginTime { get; set; }
         public Nullable<System.DateTime> CptReVst_EndTime { get; set; }
     
         public virtual CaseInfo CaseInfo { get; set; }

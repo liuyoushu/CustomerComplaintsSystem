@@ -27,7 +27,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     Solution = dataEntity.CptDF_Solution,
                     Content = dataEntity.CptDF_Content,
                     Satisfaction = (Model.Entities.Satisfaction)dataEntity.CptDF_Satisfaction,
-                    BeginTime = dataEntity.CptDF_BeginTime,
+                    BeginTime = dataEntity.CptDF_BeginTime.Value,
                     EndTime = dataEntity.CptDF_EndTime.Value,
                     
                 };

@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b010d6e786bc491c8f25a8fd1c889265" Name="Diagram1">
+      <Diagram DiagramId="f290ed0e6c484238b0ae4697e91ac611" Name="Diagram1">
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Business" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.CaseInfo" Width="3" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.CaseInfo" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Company" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Complainer" Width="1.5" PointX="3.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintDisposeAndFeedbackInfo" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintInfo" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" Width="2.375" PointX="11.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ComplaintReturnVisitInfo" Width="1.5" PointX="11.25" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Department" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.History" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Center" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Department" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ImportantEvent_Staff" Width="1.5" PointX="13.75" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Position" Width="2" PointX="3.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Position" Width="1.5" PointX="3.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Staff" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" ManuallyRouted="false" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_DEPARTME_MANAGE_BUSINESS" ManuallyRouted="false" />

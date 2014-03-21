@@ -154,7 +154,7 @@
           <Property Name="CptDF_Solution" Type="text" />
           <Property Name="CptDF_Content" Type="text" />
           <Property Name="CptDF_Satisfaction" Type="int" />
-          <Property Name="CptDF_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="CptDF_BeginTime" Type="datetime" />
           <Property Name="CptDF_EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="ComplaintInfo">
@@ -169,7 +169,7 @@
           <Property Name="Cpt_Area" Type="varchar" MaxLength="50" />
           <Property Name="Cpt_Class" Type="varchar" MaxLength="20" />
           <Property Name="Cpt_Describe" Type="text" Nullable="false" />
-          <Property Name="Cpt_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="Cpt_BeginTime" Type="datetime" />
           <Property Name="Cpt_EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="ComplaintReturnVisitInfo">
@@ -183,7 +183,7 @@
           <Property Name="CptReVst_Content" Type="text" />
           <Property Name="CptReVst_IsSolved" Type="bit" />
           <Property Name="CptReVst_CptReason" Type="text" />
-          <Property Name="CptReVst_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="CptReVst_BeginTime" Type="datetime" />
           <Property Name="CptReVst_EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Department">
@@ -215,7 +215,7 @@
           <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="IptEvt_C_Solution" Type="text" Nullable="false" />
-          <Property Name="IptEvt_C_BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_C_BeginDate" Type="datetime" />
           <Property Name="IptEvt_C_EndDate" Type="datetime" />
           <Property Name="IptEvt_C_Conclusion" Type="text" />
         </EntityType>
@@ -229,7 +229,7 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="IptEvt_D_Duty" Type="text" />
           <Property Name="IptEvt_D_Conclusion" Type="text" />
-          <Property Name="IptEvt_D_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_D_BeginTime" Type="datetime" />
           <Property Name="IptEvt_D_EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="ImportantEvent_Staff">
@@ -241,7 +241,7 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="IptEvt_D_ID" Type="int" Nullable="false" />
           <Property Name="IptEvt_S_Content" Type="text" />
-          <Property Name="IptEvt_S_BeginTime" Type="datetime" Nullable="false" />
+          <Property Name="IptEvt_S_BeginTime" Type="datetime" />
           <Property Name="IptEvt_S_EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Position">
@@ -262,7 +262,7 @@
           <Property Name="BussinessID" Type="int" />
           <Property Name="Post_ID" Type="int" />
           <Property Name="Stf_Name" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="Stf_Gender" Type="tinyint" Nullable="false" />
+          <Property Name="Stf_Gender" Type="bit" Nullable="false" />
           <Property Name="Stf_Age" Type="int" Nullable="false" />
           <Property Name="Stf_IdentifyCardNum" Type="char" Nullable="false" MaxLength="18" />
           <Property Name="Stf_EntryTime" Type="datetime" Nullable="false" />
@@ -686,7 +686,7 @@
           <Property Name="CptDF_Solution" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="CptDF_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="CptDF_Satisfaction" Type="Int32" />
-          <Property Name="CptDF_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CptDF_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="CptDF_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_FEEDBACK_CASEINFO" FromRole="ComplaintDisposeAndFeedbackInfo" ToRole="CaseInfo" />
           <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_受理_填写_STAFF" FromRole="ComplaintDisposeAndFeedbackInfo" ToRole="Staff" />
@@ -703,7 +703,7 @@
           <Property Name="Cpt_Area" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Cpt_Class" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Cpt_Describe" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="Cpt_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cpt_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="Cpt_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Business" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" FromRole="ComplaintInfo" ToRole="Business" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO" FromRole="ComplaintInfo" ToRole="CaseInfo" />
@@ -719,7 +719,7 @@
           <Property Name="CptReVst_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="CptReVst_IsSolved" Type="Boolean" />
           <Property Name="CptReVst_CptReason" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="CptReVst_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CptReVst_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="CptReVst_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RETURNVIS_CASEINFO" FromRole="ComplaintReturnVisitInfo" ToRole="CaseInfo" />
           <NavigationProperty Name="Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_投诉回访_STAFF" FromRole="ComplaintReturnVisitInfo" ToRole="Staff" />
@@ -757,7 +757,7 @@
           <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="IptEvt_C_Solution" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="IptEvt_C_BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_C_BeginDate" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_C_EndDate" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_C_Conclusion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO" FromRole="ImportantEvent_Center" ToRole="CaseInfo" />
@@ -774,7 +774,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="IptEvt_D_Duty" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="IptEvt_D_Conclusion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="IptEvt_D_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_D_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_D_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="ImportantEvent_Department" ToRole="CaseInfo" />
           <NavigationProperty Name="ImportantEvent_Center" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_ASSIGN_IMPORTAN" FromRole="ImportantEvent_Department" ToRole="ImportantEvent_Center" />
@@ -790,7 +790,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="IptEvt_D_ID" Type="Int32" Nullable="false" />
           <Property Name="IptEvt_S_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="IptEvt_S_BeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IptEvt_S_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_S_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="ImportantEvent_Staff" ToRole="CaseInfo" />
           <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_DESIGNATE_IMPORTAN" FromRole="ImportantEvent_Staff" ToRole="ImportantEvent_Department" />
@@ -815,7 +815,7 @@
           <Property Name="BussinessID" Type="Int32" />
           <Property Name="Post_ID" Type="Int32" />
           <Property Name="Stf_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Stf_Gender" Type="Byte" Nullable="false" />
+          <Property Name="Stf_Gender" Type="Boolean" Nullable="false" />
           <Property Name="Stf_Age" Type="Int32" Nullable="false" />
           <Property Name="Stf_IdentifyCardNum" Type="String" Nullable="false" MaxLength="18" Unicode="false" FixedLength="true" />
           <Property Name="Stf_EntryTime" Type="DateTime" Nullable="false" Precision="3" />

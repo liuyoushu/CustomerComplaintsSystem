@@ -25,7 +25,7 @@ namespace Neusoft.CCS.Repository
         public int ID { get; set; }
         public string IptEvt_D_Duty { get; set; }
         public string IptEvt_D_Conclusion { get; set; }
-        public System.DateTime IptEvt_D_BeginTime { get; set; }
+        public Nullable<System.DateTime> IptEvt_D_BeginTime { get; set; }
         public Nullable<System.DateTime> IptEvt_D_EndTime { get; set; }
     
         public virtual CaseInfo CaseInfo { get; set; }

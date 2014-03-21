@@ -29,7 +29,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     Area = dataEntity.Cpt_Area,
                     Class = dataEntity.Cpt_Class,
                     Describe = dataEntity.Cpt_Describe,
-                    BeginTime = dataEntity.Cpt_BeginTime,
+                    BeginTime = dataEntity.Cpt_BeginTime.Value,
                     EndTime = dataEntity.Cpt_EndTime.Value
                 };
             }
