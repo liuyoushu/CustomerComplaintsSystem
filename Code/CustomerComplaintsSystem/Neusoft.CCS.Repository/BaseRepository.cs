@@ -22,26 +22,26 @@ namespace Neusoft.CCS.Repository
         /// </summary>
         DbContext db = new DBContextFactory().GetDbContext();// = new MODEL.OuOAEntities();
 
-        #region 1.0 新增 实体 +int Add(T model)
+        #region 1.0 新增 实体 +int Save(T model)
         /// <summary>
         /// 新增 实体
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int Add(T model)
+        public int Save(T model)
         {
             db.Set<T>().Add(model);
             return db.SaveChanges();//保存成功后，会将自增的id设置给 model的 主键属性，并返回受影响行数
         }
         #endregion
 
-        #region 2.0 根据 id 删除 +int Del(T model)
+        #region 2.0 根据 id 删除 +int Delete(T model)
         /// <summary>
         /// 根据 id 删除
         /// </summary>
         /// <param name="model">包含要删除id的对象</param>
         /// <returns></returns>
-        public int Del(T model)
+        public int Delete(T model)
         {
             db.Set<T>().Attach(model);
             db.Set<T>().Remove(model);
@@ -49,13 +49,13 @@ namespace Neusoft.CCS.Repository
         }
         #endregion
 
-        #region 3.0 根据条件删除 +int DelBy(Expression<Func<T, bool>> delWhere)
+        #region 3.0 根据条件删除 +int DeleteBy(Expression<Func<T, bool>> delWhere)
         /// <summary>
         /// 3.0 根据条件删除
         /// </summary>
         /// <param name="delWhere"></param>
         /// <returns></returns>
-        public int DelBy(Expression<Func<T, bool>> delWhere)
+        public int DeleteBy(Expression<Func<T, bool>> delWhere)
         {
             //3.1查询要删除的数据
             List<T> listDeleting = db.Set<T>().Where(delWhere).ToList();
@@ -96,7 +96,7 @@ namespace Neusoft.CCS.Repository
         }
         #endregion
 
-        #region 4.0 批量修改 +int Modify(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
+        #region 4.0 批量修改 +int ModifyBy(T model, Expression<Func<T, bool>> whereLambda, params string[] modifiedProNames)
         /// <summary>
         /// 4.0 批量修改
         /// </summary>
