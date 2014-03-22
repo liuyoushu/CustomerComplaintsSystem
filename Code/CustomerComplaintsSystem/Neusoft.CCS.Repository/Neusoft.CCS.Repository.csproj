@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="Business.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
@@ -74,6 +75,11 @@
     </Compile>
     <Compile Include="ComplaintReturnVisitInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
@@ -144,6 +150,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NeusoftCCS.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Repositories.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Repositories.cs</LastGenOutput>
+    </None>
     <None Include="NeusoftCCS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NeusoftCCS.edmx</DependentUpon>
