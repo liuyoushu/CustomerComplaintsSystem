@@ -108,7 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\LayoutTestController.cs" />
+    <Compile Include="Areas\CHS\CHSAreaRegistration.cs" />
+    <Compile Include="Areas\DSS\DSSAreaRegistration.cs" />
+    <Compile Include="Areas\RVASS\RVASSAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +270,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\CHS\Controllers\" />
+    <Folder Include="Areas\CHS\Models\" />
+    <Folder Include="Areas\CHS\Views\Shared\" />
+    <Folder Include="Areas\DSS\Controllers\" />
+    <Folder Include="Areas\DSS\Models\" />
+    <Folder Include="Areas\DSS\Views\Shared\" />
+    <Folder Include="Areas\RVASS\Controllers\" />
+    <Folder Include="Areas\RVASS\Models\" />
+    <Folder Include="Areas\RVASS\Views\Shared\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -287,10 +299,16 @@
     <Content Include="js\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\LayoutTest\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\CHS\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\RVASS\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\DSS\Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
