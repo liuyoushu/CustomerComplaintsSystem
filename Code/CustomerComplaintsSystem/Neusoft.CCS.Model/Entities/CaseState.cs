@@ -11,5 +11,6 @@ namespace Neusoft.CCS.Model.Entities
     /// </summary>
     public enum CaseState
     {
+        Archived = 99,
     }
 }

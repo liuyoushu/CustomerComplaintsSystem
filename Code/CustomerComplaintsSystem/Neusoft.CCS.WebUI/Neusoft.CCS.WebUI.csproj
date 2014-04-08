@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap">
+      <HintPath>..\Libs\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -110,6 +113,7 @@
   <ItemGroup>
     <Compile Include="Areas\CHS\CHSAreaRegistration.cs" />
     <Compile Include="Areas\DSS\DSSAreaRegistration.cs" />
+    <Compile Include="Areas\RVASS\Controllers\ComplaintInfoController.cs" />
     <Compile Include="Areas\RVASS\RVASSAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -276,7 +280,6 @@
     <Folder Include="Areas\DSS\Controllers\" />
     <Folder Include="Areas\DSS\Models\" />
     <Folder Include="Areas\DSS\Views\Shared\" />
-    <Folder Include="Areas\RVASS\Controllers\" />
     <Folder Include="Areas\RVASS\Models\" />
     <Folder Include="Areas\RVASS\Views\Shared\" />
     <Folder Include="Controllers\" />
@@ -309,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\DSS\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\RVASS\Views\ComplaintInfo\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
