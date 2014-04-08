@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LayoutTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -118,6 +119,144 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="images\!.gif" />
+    <Content Include="images\ad.gif" />
+    <Content Include="images\add.gif" />
+    <Content Include="images\back.gif" />
+    <Content Include="images\bg.gif" />
+    <Content Include="images\bigsize.jpg" />
+    <Content Include="images\bootnbg.jpg" />
+    <Content Include="images\bullet.gif" />
+    <Content Include="images\buttom-copy-bg.gif" />
+    <Content Include="images\buttom-left.gif" />
+    <Content Include="images\buttom-right.gif" />
+    <Content Include="images\buttom_bgs.gif" />
+    <Content Include="images\buttom_left2.gif" />
+    <Content Include="images\buttom_right2.gif" />
+    <Content Include="images\card.jpg" />
+    <Content Include="images\check-out_.gif" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\content-bg-line.gif" />
+    <Content Include="images\content-bg.gif" />
+    <Content Include="images\database_import_.gif" />
+    <Content Include="images\DefaultDocs.gif" />
+    <Content Include="images\defind.gif" />
+    <Content Include="images\del.jpg" />
+    <Content Include="images\delete.gif" />
+    <Content Include="images\delete_6.gif" />
+    <Content Include="images\edit.gif" />
+    <Content Include="images\ershou_1.gif" />
+    <Content Include="images\ershou_2.gif" />
+    <Content Include="images\format.gif" />
+    <Content Include="images\fox.css" />
+    <Content Include="images\g.gif" />
+    <Content Include="images\gw.gif" />
+    <Content Include="images\gw2.gif" />
+    <Content Include="images\icon-demo.gif" />
+    <Content Include="images\icon-login-seaver.gif" />
+    <Content Include="images\icon-mail2.gif" />
+    <Content Include="images\icon-phone.gif" />
+    <Content Include="images\icon2_004.png" />
+    <Content Include="images\icon2_089.png" />
+    <Content Include="images\icon2_090.png" />
+    <Content Include="images\imagedelete.gif" />
+    <Content Include="images\imageedit.gif" />
+    <Content Include="images\image_%28add%296.gif" />
+    <Content Include="images\image_1.gif" />
+    <Content Include="images\ipsecurity.gif" />
+    <Content Include="images\l1b3.gif" />
+    <Content Include="images\l1b4.gif" />
+    <Content Include="images\l1b5.gif" />
+    <Content Include="images\left-bg.gif" />
+    <Content Include="images\left-top-right.gif" />
+    <Content Include="images\line2.jpg" />
+    <Content Include="images\linkspic3.gif" />
+    <Content Include="images\linkspic6.gif" />
+    <Content Include="images\lm.gif" />
+    <Content Include="images\lminfo.gif" />
+    <Content Include="images\login-buttom-bg.gif" />
+    <Content Include="images\login-content-bg.gif" />
+    <Content Include="images\login-top-bg.gif" />
+    <Content Include="images\login-wel.gif" />
+    <Content Include="images\login_bg.jpg" />
+    <Content Include="images\Login_but.gif" />
+    <Content Include="images\logo__.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\luck.gif" />
+    <Content Include="images\mail_leftbg.gif" />
+    <Content Include="images\mail_rightbg.gif" />
+    <Content Include="images\menu_bg.gif" />
+    <Content Include="images\menu_bg1.gif" />
+    <Content Include="images\menu_bg2.gif" />
+    <Content Include="images\menu_bgs.gif" />
+    <Content Include="images\menu_topimg.gif" />
+    <Content Include="images\menu_topline.gif" />
+    <Content Include="images\mime.gif" />
+    <Content Include="images\nav-right-bg.gif" />
+    <Content Include="images\news-title-bg.gif" />
+    <Content Include="images\ok.gif" />
+    <Content Include="images\OK.jpg" />
+    <Content Include="images\out.gif" />
+    <Content Include="images\password.gif" />
+    <Content Include="images\pic1.gif" />
+    <Content Include="images\pic10.gif" />
+    <Content Include="images\pic11.gif" />
+    <Content Include="images\pic12.gif" />
+    <Content Include="images\pic13.gif" />
+    <Content Include="images\pic14.gif" />
+    <Content Include="images\pic15.gif" />
+    <Content Include="images\pic16.gif" />
+    <Content Include="images\pic17.gif" />
+    <Content Include="images\pic18.gif" />
+    <Content Include="images\pic19.gif" />
+    <Content Include="images\pic21.gif" />
+    <Content Include="images\pic22.gif" />
+    <Content Include="images\pic23.gif" />
+    <Content Include="images\pic24.gif" />
+    <Content Include="images\pic25.gif" />
+    <Content Include="images\pic26.gif" />
+    <Content Include="images\pic5.gif" />
+    <Content Include="images\pic6.gif" />
+    <Content Include="images\pic7.gif" />
+    <Content Include="images\pic8.gif" />
+    <Content Include="images\pic9.gif" />
+    <Content Include="images\Redirects.gif" />
+    <Content Include="images\report2_%28add%29.gif" />
+    <Content Include="images\report2_%28delete%29.gif" />
+    <Content Include="images\right_smbg.jpg" />
+    <Content Include="images\servicezhgb2312.gif" />
+    <Content Include="images\set.gif" />
+    <Content Include="images\set2.gif" />
+    <Content Include="images\sitebackup.gif" />
+    <Content Include="images\skin.css" />
+    <Content Include="images\smallbg.jpg" />
+    <Content Include="images\st.gif" />
+    <Content Include="images\st.png" />
+    <Content Include="images\stop.gif" />
+    <Content Include="images\str.gif" />
+    <Content Include="images\Submit_bg.gif" />
+    <Content Include="images\t2bg1.gif" />
+    <Content Include="images\t2bg2.gif" />
+    <Content Include="images\t2bg4.gif" />
+    <Content Include="images\t2bg5.gif" />
+    <Content Include="images\title.gif" />
+    <Content Include="images\tj.jpg" />
+    <Content Include="images\to.gif" />
+    <Content Include="images\tool-down-pic.gif" />
+    <Content Include="images\top-right.gif" />
+    <Content Include="images\top_bt.jpg" />
+    <Content Include="images\ts.gif" />
+    <Content Include="images\user-info.gif" />
+    <Content Include="images\usercontrol.gif" />
+    <Content Include="images\vie.gif" />
+    <Content Include="images\X.gif" />
+    <Content Include="images\yc.gif" />
+    <Content Include="images\yx.gif" />
+    <Content Include="js\layout.js" />
+    <Content Include="js\moo.fx.js" />
+    <Content Include="js\moo.fx.pack.js" />
+    <Content Include="js\prototype.lite.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -129,7 +268,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +278,19 @@
       <Project>{6c060767-18d1-4b15-96ab-4e9f5df73b0d}</Project>
       <Name>Neusoft.CCS.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\.DS_Store" />
+    <Content Include="images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LayoutTest\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
