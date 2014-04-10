@@ -29,8 +29,11 @@ namespace Neusoft.CCS.Repository.Mappings
                     Area = dataEntity.Cpt_Area,
                     Class = dataEntity.Cpt_Class,
                     Describe = dataEntity.Cpt_Describe,
-                    BeginTime = dataEntity.Cpt_BeginTime.Value,
-                    EndTime = dataEntity.Cpt_EndTime.Value
+                    BeginTime = dataEntity.Cpt_BeginTime.HasValue ? dataEntity.Cpt_BeginTime.Value : default(DateTime),
+                    EndTime = dataEntity.Cpt_EndTime.HasValue ? dataEntity.Cpt_EndTime.Value : default(DateTime),
+
+                    CaseInfo = dataEntity.CaseInfo.ToModel(),
+                    Business = dataEntity.Business.ToModel(),
                 };
             }
             return ComplaintInfo;

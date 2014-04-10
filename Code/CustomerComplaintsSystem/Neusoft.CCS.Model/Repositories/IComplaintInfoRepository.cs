@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Neusoft.CCS.Model.Entities;
 
 namespace Neusoft.CCS.Model.Repositories
 {
-    /// <summary>
-    /// 数据仓储会话工厂
-    /// </summary>
-    public interface IRepositoriesSessionFactory
+    public interface IComplaintInfoRepository
     {
-        IRepositoriesSession GetRepositoriesSession();
+        List<ComplaintInfo> GetNotArchivedComplaintInfoList(int startIndex, int requestCount);
     }
 }

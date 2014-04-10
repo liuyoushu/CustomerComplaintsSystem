@@ -1,4 +1,5 @@
-﻿using Neusoft.CCS.Services.Interfaces;
+﻿using Neusoft.CCS.Services.Implementation;
+using Neusoft.CCS.Services.Interfaces;
 using StructureMap;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
 
         public ActionResult Index()
         {
-            var tmp = ObjectFactory.GetInstance<IComplaintInfoService>().GetNotArchivedComplaintInfo();
+            var tmpService = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").GetNotArchivedComplaintInfo(0, 99);
             return View();
         }
 

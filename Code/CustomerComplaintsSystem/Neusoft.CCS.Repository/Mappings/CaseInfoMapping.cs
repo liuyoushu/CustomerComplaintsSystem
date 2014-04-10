@@ -25,8 +25,10 @@ namespace Neusoft.CCS.Repository.Mappings
                 caseInfo = new Model.Entities.CaseInfo()
                 {
                     ID = dataEntity.ID,
-                    ArchiveDate = dataEntity.ArchiveDate.Value,
-                    State = (CaseState)dataEntity.State
+                    ArchiveDate = dataEntity.ArchiveDate.HasValue?dataEntity.ArchiveDate.Value:default(DateTime),
+                    State = (CaseState)dataEntity.State,
+
+                    Complainer = dataEntity.Complainer.ToModel(),
                 };
             }
             return caseInfo;

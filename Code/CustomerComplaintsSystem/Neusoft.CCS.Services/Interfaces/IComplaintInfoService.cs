@@ -16,6 +16,6 @@ namespace Neusoft.CCS.Services.Interfaces
         /// 获取所有尚未归档的投诉案件
         /// </summary>
         /// <returns></returns>
-        ComplaintInfoOverviewResponse GetNotArchivedComplaintInfo();
+        ComplaintInfoOverviewResponse GetNotArchivedComplaintInfo(int startIndex, int requestCount);
     }
 }

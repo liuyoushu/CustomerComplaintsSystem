@@ -289,6 +289,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Neusoft.CCS.DI\Neusoft.CCS.DI.csproj">
+      <Project>{37e6aaa6-f3ec-4456-8c18-1bf05200960e}</Project>
+      <Name>Neusoft.CCS.DI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Neusoft.CCS.Services\Neusoft.CCS.Services.csproj">
       <Project>{6c060767-18d1-4b15-96ab-4e9f5df73b0d}</Project>
       <Name>Neusoft.CCS.Services</Name>
