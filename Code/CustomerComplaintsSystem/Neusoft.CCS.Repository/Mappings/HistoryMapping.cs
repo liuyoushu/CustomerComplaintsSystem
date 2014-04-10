@@ -26,7 +26,10 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     ID = dataEntity.History_ID,
                     Process = dataEntity.History_Process,
-                    HandleTime = dataEntity.History_HandleTime                    
+                    HandleTime = dataEntity.History_HandleTime,
+                 
+                    CaseInfo = dataEntity.CaseInfo.ToModel(),
+                    Staff = dataEntity.Staff.ToModel(),
                 };
             }
             return History;

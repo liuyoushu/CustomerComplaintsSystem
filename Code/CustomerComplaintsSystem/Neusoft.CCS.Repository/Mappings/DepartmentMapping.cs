@@ -27,7 +27,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     Name = dataEntity.DepartmentName,
                     Describe = dataEntity.Describe,
                     PhoneNumber = dataEntity.DepartmentPhoneNum,
-                    Remark = dataEntity.DepartmentRemark
+                    Remark = dataEntity.DepartmentRemark,
+
+                    Businesses = new List<Model.Entities.Business>(),
                 };
             }
             return Department;

@@ -28,7 +28,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     Gender = dataEntity.Stf_Gender ? "男" : "女",
                     Age = dataEntity.Stf_Age,
                     IdentifyCardNumber = dataEntity.Stf_IdentifyCardNum,
-                    EntryTime = dataEntity.Stf_EntryTime
+                    EntryTime = dataEntity.Stf_EntryTime,
+
+                    Position = dataEntity.Position.ToModel(),
                 };
             }
             return Staff;

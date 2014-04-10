@@ -25,8 +25,12 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     ID = dataEntity.IptEvt_S_ID,
                     Content = dataEntity.IptEvt_S_Content,
-                    BeginTime = dataEntity.IptEvt_S_BeginTime.Value,
-                    EndTime = dataEntity.IptEvt_S_EndTime.Value
+                    BeginTime = dataEntity.IptEvt_S_BeginTime.HasValue?dataEntity.IptEvt_S_BeginTime.Value:default(DateTime),
+                    EndTime = dataEntity.IptEvt_S_EndTime.HasValue?dataEntity.IptEvt_S_EndTime.Value:default(DateTime),
+
+                    ImportantEvent_Department = dataEntity.ImportantEvent_Department.ToModel(),
+                    CaseInfo = dataEntity.CaseInfo.ToModel(),
+                    Staff = dataEntity.Staff.ToModel(),
                 };
             }
             return ImportantEvent_Staff;

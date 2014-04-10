@@ -29,7 +29,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     City = dataEntity.City,
                     County = dataEntity.County,
                     DetailedAddress = dataEntity.DetailedAddress,
-                    SuperiorCompany = dataEntity.SuperiorComID.Value
+                    SuperiorCompany = dataEntity.SuperiorComID.Value,
+
+                    Departments = new List<Model.Entities.Department>(),
                 };
             }
             return Company;

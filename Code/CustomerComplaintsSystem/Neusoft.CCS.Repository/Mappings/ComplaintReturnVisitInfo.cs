@@ -28,8 +28,11 @@ namespace Neusoft.CCS.Repository.Mappings
                     Content = dataEntity.CptReVst_Content,
                     IsSolved = dataEntity.CptReVst_IsSolved.Value,
                     ComplaintReason = dataEntity.CptReVst_CptReason,
-                    BeginTime = dataEntity.CptReVst_BeginTime.Value,
-                    EndTime = dataEntity.CptReVst_EndTime.Value
+                    BeginTime = dataEntity.CptReVst_BeginTime.HasValue? dataEntity.CptReVst_BeginTime.Value:default(DateTime),
+                    EndTime = dataEntity.CptReVst_EndTime.Value? dataEntity.CptReVst_EndTime.Value:default(DateTime),
+
+                    CaseInfo = dataEntity.CaseInfo.ToModel(),
+                    Staff = dataEntity.Staff.ToModel(),
                 };
             }
             return ComplaintReturnVisitInfo;

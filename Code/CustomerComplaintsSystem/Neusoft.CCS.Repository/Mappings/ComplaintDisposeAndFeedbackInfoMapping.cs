@@ -26,9 +26,12 @@ namespace Neusoft.CCS.Repository.Mappings
                     ID = dataEntity.CptDF_ID,
                     Solution = dataEntity.CptDF_Solution,
                     Content = dataEntity.CptDF_Content,
-                    Satisfaction = (Model.Entities.Satisfaction)dataEntity.CptDF_Satisfaction,
-                    BeginTime = dataEntity.CptDF_BeginTime.Value,
-                    EndTime = dataEntity.CptDF_EndTime.Value,
+                    Satisfaction = dataEntity.CptDF_Satisfaction.HasValue?(Model.Entities.Satisfaction)dataEntity.CptDF_Satisfaction:default(Model.Entities.Satisfaction),
+                    BeginTime = dataEntity.CptDF_BeginTime.HasValue? dataEntity.CptDF_BeginTime.Value:default(DateTime),
+                    EndTime = dataEntity.CptDF_EndTime.HasValue? dataEntity.CptDF_EndTime.Value:default(DateTime),
+
+                    CaseInfo = dataEntity.CaseInfo.ToModel(),
+                    Staff = dataEntity.Staff.ToModel(),
                     
                 };
             }
@@ -75,6 +78,8 @@ namespace Neusoft.CCS.Repository.Mappings
                    CptDF_Satisfaction = (int)model.Satisfaction,
                    CptDF_BeginTime = model.BeginTime,
                    CptDF_EndTime = model.EndTime
+
+
                 };
             }
             return dataEntity;
