@@ -29,7 +29,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     IsSolved = dataEntity.CptReVst_IsSolved.Value,
                     ComplaintReason = dataEntity.CptReVst_CptReason,
                     BeginTime = dataEntity.CptReVst_BeginTime.HasValue? dataEntity.CptReVst_BeginTime.Value:default(DateTime),
-                    EndTime = dataEntity.CptReVst_EndTime.Value? dataEntity.CptReVst_EndTime.Value:default(DateTime),
+                    EndTime = dataEntity.CptReVst_EndTime.HasValue? dataEntity.CptReVst_EndTime.Value:default(DateTime),
 
                     CaseInfo = dataEntity.CaseInfo.ToModel(),
                     Staff = dataEntity.Staff.ToModel(),
