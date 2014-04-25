@@ -11,7 +11,7 @@ namespace Neusoft.CCS.Repository
 {
     public class ComplaintInfoRepository:IComplaintInfoRepository
     {
-        public List<Model.Entities.ComplaintInfo> GetNotArchivedComplaintInfoList(int startIndex, int requestCount)
+        public List<Model.Entities.ComplaintInfo> GetNotArchivedComplaintInfoList()
         {
             List<Model.Entities.ComplaintInfo> result = new List<Model.Entities.ComplaintInfo>();
             using (NeusoftCCSEntities context = new NeusoftCCSEntities())
@@ -20,7 +20,8 @@ namespace Neusoft.CCS.Repository
                                 where cpt.CaseInfo.State != 99
                                 orderby cpt.Cpt_Date descending
                                 select cpt);
-                result = entities.Skip(startIndex).Take(requestCount).ToList().ToModels();
+                //result = entities.Skip(startIndex).Take(requestCount).ToList().ToModels();
+                result = entities.ToList().ToModels();
             }
             return result;
         }

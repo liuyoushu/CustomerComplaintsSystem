@@ -17,7 +17,7 @@
         <th>投诉方式</th>
         <th>操作</th>
     </tr>
-    @foreach (ComplaintInfoOverviewViewModel cptOverview in (Model as ComplaintInfoOverviewResponse).NotArchivedComplaint)
+    @foreach (ComplaintInfoOverviewViewModel cptOverview in (Model as List<ComplaintInfoOverviewViewModel>))
     {
         <tr>
             <td>@cptOverview.BusinessName</td>

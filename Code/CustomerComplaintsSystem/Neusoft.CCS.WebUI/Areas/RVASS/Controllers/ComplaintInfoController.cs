@@ -16,7 +16,6 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
 
         public ActionResult Index()
         {
-            var tmpService = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").GetNotArchivedComplaintInfo(0, 99);
             return View();
         }
 
@@ -26,8 +25,15 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         /// <returns></returns>
         public ActionResult ComplaintOverview()
         {
-            var list = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").GetNotArchivedComplaintInfo(0, 20);
-            return View(list);
+            var response = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").GetNotArchivedComplaintInfo();
+            if (response.IsSuccess)
+            {
+                return View(response.NotArchivedComplaint);
+            }
+            else
+            {
+                return View(response.ErrorMessage);
+            }
         }
 
     }
