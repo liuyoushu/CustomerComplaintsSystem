@@ -282,8 +282,6 @@
     <Folder Include="Areas\DSS\Views\Shared\" />
     <Folder Include="Areas\RVASS\Models\" />
     <Folder Include="Areas\RVASS\Views\Shared\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

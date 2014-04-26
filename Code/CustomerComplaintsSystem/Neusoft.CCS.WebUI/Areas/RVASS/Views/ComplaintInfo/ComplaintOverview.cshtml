@@ -24,7 +24,7 @@
             <td>@cptOverview.ComplainerName</td>
             <td>@cptOverview.Date</td>
             <td>@cptOverview.Way</td>
-            <td>@Html.ActionLink("详情", "ObserveComplaintInfoDetail", "ComplaintInfo")</td>
+            <td>@Html.ActionLink("详情", "ObserveComplaintInfoDetail", new { id = cptOverview.ID })</td>
         </tr>
     }
 </table>

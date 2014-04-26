@@ -67,10 +67,6 @@
       <Project>{e780caa5-31bc-432f-bee0-f62607014d9f}</Project>
       <Name>Neusoft.CCS.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Neusoft.CCS.Repository\Neusoft.CCS.Repository.csproj">
-      <Project>{0b2b6ccd-e7c5-49a1-b8af-5358016b9ad1}</Project>
-      <Name>Neusoft.CCS.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
