@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "ObserveComplaintInfoDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "ComplaintOverview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Neusoft.CCS.Services.ViewModels; @*导入视图模型所在命名空间*@
+@using Neusoft.CCS.Services.Messages;@*导入SOA基本模式“请求-相应”模型消息所在命名空间*@
+
+@*指定该页面模型的类型*@
+@model Neusoft.CCS.Services.ViewModels.ComplaintInfoDetailViewModel
+
+@section title{
+案件详情
+}
+<table border="1px">
+    <tr>
+        <td>@Html.LabelFor(s=>s.ComplainerName)</td>
+        <td>@Model.ComplainerName</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.ComplainerPhoneNumber)</td>
+        <td>@Model.ComplainerPhoneNumber</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.ComplainerEmail)</td>
+        <td>@Model.ComplainerEmail</td>
+    </tr>
+
+    <tr>
+        <td>@Html.LabelFor(s=>s.BusinessName)</td>
+        <td>@Model.BusinessName</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.BusinessDescribe)</td>
+        <td>@Model.BusinessDescribe</td>
+    </tr>
+
+    <tr>
+        <td>@Html.LabelFor(s=>s.Way)</td>
+        <td>@Model.Way</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.Date)</td>
+        <td>@Model.Date</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.Class)</td>
+        <td>@Model.Class</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.Describe)</td>
+        <td>@Model.Describe</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.BeginTime)</td>
+        <td>@Model.BeginTime</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(s=>s.EndTime)</td>
+        <td>@Model.EndTime</td>
+    </tr>
+</table>

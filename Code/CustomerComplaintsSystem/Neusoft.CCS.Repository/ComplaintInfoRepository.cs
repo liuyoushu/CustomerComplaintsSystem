@@ -25,5 +25,18 @@ namespace Neusoft.CCS.Repository
             }
             return result;
         }
+
+        public Model.Entities.ComplaintInfo GetDetailedInfoById(int id)
+        {
+            Model.Entities.ComplaintInfo result = new Model.Entities.ComplaintInfo();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entity = (from cpt in context.ComplaintInfoes
+                              where cpt.ID == id
+                              select cpt).FirstOrDefault();
+                result = entity.ToModel();
+            }
+            return result;
+        }
     }
 }

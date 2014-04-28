@@ -33,5 +33,22 @@ namespace Neusoft.CCS.Services.Implementation
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取案件详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ComplaintInfoDetailResponse Detailed(int id)
+        {
+            ComplaintInfoDetailResponse result = new ComplaintInfoDetailResponse();
+            var cptInfo = _complaintInforepository.GetDetailedInfoById(id);
+            if (cptInfo != null)
+            {
+                result.IsSuccess = true;
+                result.DetailedComplaintInfo = cptInfo.ToDetailViewModel();
+            }
+            return result;
+        }
     }
 }

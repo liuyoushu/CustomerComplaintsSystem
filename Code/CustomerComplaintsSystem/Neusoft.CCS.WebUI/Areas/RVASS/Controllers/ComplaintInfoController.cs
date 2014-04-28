@@ -36,5 +36,24 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             }
         }
 
+        /// <summary>
+        /// 投诉案件详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult ObserveComplaintInfoDetail(int id)
+        {
+            var response = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").Detailed(id);
+            if (response.IsSuccess)
+            {
+                return View(response.DetailedComplaintInfo);
+            }
+            else
+            {
+                return View(response.ErrorMessage);
+            }
+        }
+
     }
 }

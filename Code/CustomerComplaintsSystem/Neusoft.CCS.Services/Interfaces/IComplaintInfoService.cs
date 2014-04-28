@@ -17,5 +17,12 @@ namespace Neusoft.CCS.Services.Interfaces
         /// </summary>
         /// <returns></returns>
         ComplaintInfoOverviewResponse GetNotArchivedComplaintInfo();
+
+        /// <summary>
+        /// 获取投诉信息详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        ComplaintInfoDetailResponse Detailed(int id);
     }
 }
