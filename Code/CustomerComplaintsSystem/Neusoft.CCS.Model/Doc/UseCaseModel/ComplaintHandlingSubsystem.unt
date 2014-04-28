@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:UNIT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLSubsystem" guid="iNdNFlPE60OxqhcGbZ/wawAA">
+<XPD:ATTR name="Name" type="string">投诉处理子系统</XPD:ATTR>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLUseCaseDiagram" guid="dBq0yz+iW0uwkTL6YKT3pQAA">
+<XPD:ATTR name="Name" type="string">投诉子系统用例图</XPD:ATTR>
+<XPD:REF name="DiagramOwner">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLUseCaseDiagramView" guid="s7HkQ3TnNUCnbBweY8+aIwAA">
+<XPD:REF name="Diagram">dBq0yz+iW0uwkTL6YKT3pQAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">15</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLSystemBoundaryView" guid="aHKQNtvNuka2bzbv80JeBQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">152</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">836</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">492</XPD:ATTR>
+<XPD:ATTR name="Caption" type="string">System</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLActorView" guid="dLorjGhYaUWWO9bSnySR8AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">36</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">84</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">101</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">78</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::客户">aW+RUsshhkSAZgyGZ0z6wwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="T16EhGUCrEWkiiW/Y7XC1gAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="5l7DmMu4rkaOFtgc5U5sNAAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">客户</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="4VOVLPYz306XR/vF3upIMQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="PgduK+SR9UqmwSk8vWjliwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="mGlJu1Nl2kSajFEdx03BtgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::客户">aW+RUsshhkSAZgyGZ0z6wwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="6n2q4TbS4Ue8MbhRZWK4WQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::客户">aW+RUsshhkSAZgyGZ0z6wwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLUseCaseView" guid="pwpeKa6jskKdu0KBAHxIywAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">264</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">127</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">FlDeL1pvrEC0+TMbBFd03wAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="tVVV/wAJOEawTBRR8wW64AAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="RzQTDIUnH0use5Ba4Bb/+AAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">发起投诉</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="wAAPiePceUOF9HdZ9Q4DfAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="GI+SAoglpkO1CAQO2h1zPAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="zW27XTY4I0W8sgJ7k5hfnAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">FlDeL1pvrEC0+TMbBFd03wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="g6qreHJCVkCnvsKFCuOLlgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">FlDeL1pvrEC0+TMbBFd03wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="6yZ08XnlPEeHfQiPCv/ndwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">FlDeL1pvrEC0+TMbBFd03wAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLUseCaseView" guid="BSUzzSnzt0+/CoNCPqCbRAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">248</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">112</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">161</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">GI+e5MZ5Ck+SLLYrGE4azAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="QcMI0GB3sUSMxm/0/gJj6wAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="pEus7CLfckS4Ab8IfDofuQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">评价投诉处理结果</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="bqlIS5RiH0eWN7BsSZXYIAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="i2SEDrgReUy7ng1xKbjAMAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="9scj+BHx9EmG9wpktoTOrAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">GI+e5MZ5Ck+SLLYrGE4azAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="WfBais3hgEWivXbwTzwYygAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">GI+e5MZ5Ck+SLLYrGE4azAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="nADR0XIU00yyx7YFgXor5gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">GI+e5MZ5Ck+SLLYrGE4azAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLActorView" guid="cTk12BC9g0SaOr9wZs4KcQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">36</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">101</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">78</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::坐席投诉受理员">kJ1wsMT1jU+6RBlp7A9v2gAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="nbVbDLJjP0SKULC52EyUlAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="TTJjsoazT0WYseN/WrQZ7gAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">坐席投诉受理员</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="w6VGXFflc0ulytktB4ThPgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="Gvzm8QlEaE6hzzM8VfGQKwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="W6O5guGBpECP0W6Ag+8SGAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::坐席投诉受理员">kJ1wsMT1jU+6RBlp7A9v2gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="74g40ywSikCzDv0Il96QCgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::坐席投诉受理员">kJ1wsMT1jU+6RBlp7A9v2gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLUseCaseView" guid="HVrhNyATAEOOGZKtuV1bqAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">168</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">296</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">124</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">xQ0y7HZePU2WFpY4uDlszAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="HA+HGLJY+U6JEFKReXpx1wAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="s0SipxK3M0mYunCbK3J4TAAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">受理客户投诉</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="n6V3vdy76Uu8Zux8WYYIpgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="uhGtNNqvIUOPxnPA30JxbAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="/ZLHUb2zTkGY9V51ZtWtsAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">xQ0y7HZePU2WFpY4uDlszAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="vxVZrc0bkEafzbsO7mMqDwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">xQ0y7HZePU2WFpY4uDlszAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="Em6nAZ7gIEmLsXwL46bxuQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">xQ0y7HZePU2WFpY4uDlszAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLUseCaseView" guid="S6qgDlbGukScoWHRfxsvNwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">344</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">180</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">142</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">nETjC4YoaUeENRny9PDHGQAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="kGIMTuVAJk2mkQilXLSe0wAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="x/0abu7YFkSMnFG0FIepWgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">填写投诉处理单</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="fDKoDE2qcUuNhnJ3ppMszwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="de+B7RNxVUOTPOaXMfOxIgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="NnR93zK8LEWoldUjGaGJwwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nETjC4YoaUeENRny9PDHGQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="00N7EtNf6EOFdsvDZ0ykWQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nETjC4YoaUeENRny9PDHGQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="rGPwHsdMJEW431LXtIkzpwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nETjC4YoaUeENRny9PDHGQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLUseCaseView" guid="52DA/iFwzkGgPbzqDDkZvwAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">540</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">280</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">142</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">6Tz+Pakj6ki1v4mlUiCU5AAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Y1g9I/OgrUCavKF8oQBxxAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="RbnnvARpRUOXMY1aD618TgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">处理投诉</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="pB/bsvRRzEKFAdbJQ1OI4QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="dJecrol6iUyWV9OfSSMh/gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="5wMAAdddBkCM589AF8J+1wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">6Tz+Pakj6ki1v4mlUiCU5AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="Ccfq71K8ZEa/hy7DLfNBlgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">6Tz+Pakj6ki1v4mlUiCU5AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="oWe7n9Q+gkajVrrUrW6sZwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">6Tz+Pakj6ki1v4mlUiCU5AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLUseCaseView" guid="8+/CVKea/0WGkfb/FCe3IAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">380</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">384</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">161</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">x6+wp5fBNkKpRoHwEZEbDgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="i/HC4HSwEk6ni/7SipFsDwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="JyK0PN92+UicKiLQUM3rPgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">分派投诉处理问题</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="0+yv+7ycgkqEC/C9xamb/gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="GwOzXyfjiEGiFC9EA2VHpQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="8mBYNkP7sUyLG3t3Y8vqfwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">x6+wp5fBNkKpRoHwEZEbDgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="d1tGI4pOQUONFatVXXXBWQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">x6+wp5fBNkKpRoHwEZEbDgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="QWxyOxu+4U6zZ4hflaN1OQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">x6+wp5fBNkKpRoHwEZEbDgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLActorView" guid="CtJCCHCn9EC0uWCUqFoYsgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1016</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">348</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">153</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">78</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::其他业务部门投诉受理员">fCjo7z3fSEanwxV4Xj6IVAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="WMYkJlUZNEqn7UG7epQk8wAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="qOsIJzioqECZnhABoDPC7QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">其他业务部门投诉受理员</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="/WtRPkyuCUGqelbxXHrt1AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="ImdgMARjjUGEuupITtnvNQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="w6mhpWrSwEKTfirjQhUidgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::其他业务部门投诉受理员">fCjo7z3fSEanwxV4Xj6IVAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="GHpfHgvXFku1+0H7eHG3QgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::其他业务部门投诉受理员">fCjo7z3fSEanwxV4Xj6IVAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLUseCaseView" guid="Ow+e+EX59USFKRRTwOa2sQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">680</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">376</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">179</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">DtBdsMjKHUKdRlZlil0eYwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="+mDsd3pI1UGrzhqvPt50ywAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="hnxr1GjRz0y9R3H1v/Vp5AAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">处理已分派客户投诉</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xjyX3NVrXUmL3R9IvDQubgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="WjtHYWcoYU2KqBvhirXVnQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="TeoovIYlm0GD3Tc3cYyQ4gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">DtBdsMjKHUKdRlZlil0eYwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="aRDKfoEJeESdrDSn988kfwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">DtBdsMjKHUKdRlZlil0eYwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="61bQD+XzdUaZ6sZddob32AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">DtBdsMjKHUKdRlZlil0eYwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLUseCaseView" guid="LL3sRdxO6EmAZ+/493skjgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">456</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">179</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">nYdF5hHq70ycEFT3oEz9IwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="09i6GXRMIUyiWYOZ9FMITgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="WSNpFfgfaU6380ehyyLdAAAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">填写投诉处理反馈单</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="2VNsQIJB80Kvo0Zwg4MSzQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="cy91NbDGgkmCygywEkLeKAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="E65pHO1aYkSaP7LOsaNN6wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nYdF5hHq70ycEFT3oEz9IwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="HVGsUvCoWEmXkFk+S+qI+QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nYdF5hHq70ycEFT3oEz9IwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="KNYyTDW4rE6Es74MpCIWKAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">nYdF5hHq70ycEFT3oEz9IwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLUseCaseView" guid="k+p+vnw19UuMM/W+bQWbqQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">88</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">124</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">399SQRsMekGVxFxi1SVp4QAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="/ZXXbUZGTUmbp4tFGL28DgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="kt3iZiZ92kqZ+qJnMpId2QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">反馈投诉结果</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="q2iSGFwIXUCPQwVRZ3CIFAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="USKyrgMO40qCbnumXKkQ4AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="ge7ZfKtlhUS2k2Kw6ajnAwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">399SQRsMekGVxFxi1SVp4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="45jkMlSpiku/8tbGLAJ6SAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">399SQRsMekGVxFxi1SVp4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="ZgxUUZJ+x0OKnKa5PTK/cQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">399SQRsMekGVxFxi1SVp4QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[13]" type="UMLUseCaseView" guid="iiT0oLo9N0O45LNjJNZHaAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">828</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">240</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">142</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
+<XPD:REF name="Model">Y+F3Nj8mWUSf3xn1QdfuegAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="oWwfgh1gF0OliwqUl3GI1QAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="XentsunMSEGWbXQIXgqueAAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">查看投诉处理单</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="oOG/65W2+ESqJGOPJtmmAAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="b1zztUtFvECpIgZnZtE9pgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="aNp2ZXvhwUOEjlS87++wkAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">Y+F3Nj8mWUSf3xn1QdfuegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="R91nNw9r5UiBj5u6odhJKQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">Y+F3Nj8mWUSf3xn1QdfuegAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ExtensionPointCompartment" type="UMLExtensionPointCompartmentView" guid="cjpeRfUudk+/k5Q32Mni8gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">Y+F3Nj8mWUSf3xn1QdfuegAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[14]" type="UMLActorView" guid="V8uzhIt/mkeT/DVXybwuHQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1000</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">140</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">78</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::分公司地区业务受理员">2nwGyhygE0uWEpf2Y4+t8QAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="VGT/zfuCAECRM0VQu6BkqgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="1y6YaIPAP06rtlBMwaZm5QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">分公司地区业务受理员</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="EM82OCqWgkitZU7T7FY3DwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="TnHzADgxDU6wHEBaUvy1BAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="NPC5fpycuEmdOly8jCnd/wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::分公司地区业务受理员">2nwGyhygE0uWEpf2Y4+t8QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="5m/guhpoyECGnkLh5iNIuQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model" pathname="::Use Case Model::分公司地区业务受理员">2nwGyhygE0uWEpf2Y4+t8QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">10</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLUseCase" guid="FlDeL1pvrEC0+TMbBFd03wAA">
+<XPD:ATTR name="Name" type="string">发起投诉</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">pwpeKa6jskKdu0KBAHxIywAA</XPD:REF>
+<XPD:REF name="Views[1]">zW27XTY4I0W8sgJ7k5hfnAAA</XPD:REF>
+<XPD:REF name="Views[2]">g6qreHJCVkCnvsKFCuOLlgAA</XPD:REF>
+<XPD:REF name="Views[3]">6yZ08XnlPEeHfQiPCv/ndwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLUseCase" guid="GI+e5MZ5Ck+SLLYrGE4azAAA">
+<XPD:ATTR name="Name" type="string">评价投诉处理结果</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">BSUzzSnzt0+/CoNCPqCbRAAA</XPD:REF>
+<XPD:REF name="Views[1]">9scj+BHx9EmG9wpktoTOrAAA</XPD:REF>
+<XPD:REF name="Views[2]">WfBais3hgEWivXbwTzwYygAA</XPD:REF>
+<XPD:REF name="Views[3]">nADR0XIU00yyx7YFgXor5gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLUseCase" guid="xQ0y7HZePU2WFpY4uDlszAAA">
+<XPD:ATTR name="Name" type="string">受理客户投诉</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">HVrhNyATAEOOGZKtuV1bqAAA</XPD:REF>
+<XPD:REF name="Views[1]">/ZLHUb2zTkGY9V51ZtWtsAAA</XPD:REF>
+<XPD:REF name="Views[2]">vxVZrc0bkEafzbsO7mMqDwAA</XPD:REF>
+<XPD:REF name="Views[3]">Em6nAZ7gIEmLsXwL46bxuQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLUseCase" guid="nETjC4YoaUeENRny9PDHGQAA">
+<XPD:ATTR name="Name" type="string">填写投诉处理单</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">S6qgDlbGukScoWHRfxsvNwAA</XPD:REF>
+<XPD:REF name="Views[1]">NnR93zK8LEWoldUjGaGJwwAA</XPD:REF>
+<XPD:REF name="Views[2]">00N7EtNf6EOFdsvDZ0ykWQAA</XPD:REF>
+<XPD:REF name="Views[3]">rGPwHsdMJEW431LXtIkzpwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[4]" type="UMLUseCase" guid="6Tz+Pakj6ki1v4mlUiCU5AAA">
+<XPD:ATTR name="Name" type="string">处理投诉</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">52DA/iFwzkGgPbzqDDkZvwAA</XPD:REF>
+<XPD:REF name="Views[1]">5wMAAdddBkCM589AF8J+1wAA</XPD:REF>
+<XPD:REF name="Views[2]">Ccfq71K8ZEa/hy7DLfNBlgAA</XPD:REF>
+<XPD:REF name="Views[3]">oWe7n9Q+gkajVrrUrW6sZwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[5]" type="UMLUseCase" guid="x6+wp5fBNkKpRoHwEZEbDgAA">
+<XPD:ATTR name="Name" type="string">分派投诉处理问题</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">8+/CVKea/0WGkfb/FCe3IAAA</XPD:REF>
+<XPD:REF name="Views[1]">8mBYNkP7sUyLG3t3Y8vqfwAA</XPD:REF>
+<XPD:REF name="Views[2]">d1tGI4pOQUONFatVXXXBWQAA</XPD:REF>
+<XPD:REF name="Views[3]">QWxyOxu+4U6zZ4hflaN1OQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[6]" type="UMLUseCase" guid="DtBdsMjKHUKdRlZlil0eYwAA">
+<XPD:ATTR name="Name" type="string">处理已分派客户投诉</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">Ow+e+EX59USFKRRTwOa2sQAA</XPD:REF>
+<XPD:REF name="Views[1]">TeoovIYlm0GD3Tc3cYyQ4gAA</XPD:REF>
+<XPD:REF name="Views[2]">aRDKfoEJeESdrDSn988kfwAA</XPD:REF>
+<XPD:REF name="Views[3]">61bQD+XzdUaZ6sZddob32AAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[7]" type="UMLUseCase" guid="nYdF5hHq70ycEFT3oEz9IwAA">
+<XPD:ATTR name="Name" type="string">填写投诉处理反馈单</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">LL3sRdxO6EmAZ+/493skjgAA</XPD:REF>
+<XPD:REF name="Views[1]">E65pHO1aYkSaP7LOsaNN6wAA</XPD:REF>
+<XPD:REF name="Views[2]">HVGsUvCoWEmXkFk+S+qI+QAA</XPD:REF>
+<XPD:REF name="Views[3]">KNYyTDW4rE6Es74MpCIWKAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[8]" type="UMLUseCase" guid="399SQRsMekGVxFxi1SVp4QAA">
+<XPD:ATTR name="Name" type="string">反馈投诉结果</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">k+p+vnw19UuMM/W+bQWbqQAA</XPD:REF>
+<XPD:REF name="Views[1]">ge7ZfKtlhUS2k2Kw6ajnAwAA</XPD:REF>
+<XPD:REF name="Views[2]">45jkMlSpiku/8tbGLAJ6SAAA</XPD:REF>
+<XPD:REF name="Views[3]">ZgxUUZJ+x0OKnKa5PTK/cQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[9]" type="UMLUseCase" guid="Y+F3Nj8mWUSf3xn1QdfuegAA">
+<XPD:ATTR name="Name" type="string">查看投诉处理单</XPD:ATTR>
+<XPD:REF name="Namespace">iNdNFlPE60OxqhcGbZ/wawAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">iiT0oLo9N0O45LNjJNZHaAAA</XPD:REF>
+<XPD:REF name="Views[1]">aNp2ZXvhwUOEjlS87++wkAAA</XPD:REF>
+<XPD:REF name="Views[2]">R91nNw9r5UiBj5u6odhJKQAA</XPD:REF>
+<XPD:REF name="Views[3]">cjpeRfUudk+/k5Q32Mni8gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:UNIT>
