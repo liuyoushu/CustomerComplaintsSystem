@@ -114,6 +114,7 @@
     <Compile Include="Areas\CHS\CHSAreaRegistration.cs" />
     <Compile Include="Areas\DSS\DSSAreaRegistration.cs" />
     <Compile Include="Areas\RVASS\Controllers\ComplaintInfoController.cs" />
+    <Compile Include="Areas\RVASS\Controllers\ComplaintReturnVisitInfoController.cs" />
     <Compile Include="Areas\RVASS\RVASSAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,6 +292,10 @@
       <Project>{37e6aaa6-f3ec-4456-8c18-1bf05200960e}</Project>
       <Name>Neusoft.CCS.DI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Neusoft.CCS.Infrastructure\Neusoft.CCS.Infrastructure.csproj">
+      <Project>{f8dddf9e-0810-4867-9257-1eda6f6027a5}</Project>
+      <Name>Neusoft.CCS.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Neusoft.CCS.Repository\Neusoft.CCS.Repository.csproj">
       <Project>{0b2b6ccd-e7c5-49a1-b8af-5358016b9ad1}</Project>
       <Name>Neusoft.CCS.Repository</Name>
@@ -327,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\RVASS\Views\ComplaintInfo\ObserveComplaintInfoDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\RVASS\Views\ComplaintReturnVisitInfo\ComplaintReturnVisitBox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

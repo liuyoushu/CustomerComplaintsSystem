@@ -8,14 +8,14 @@ namespace Neusoft.CCS.Services.Implementation
 {
     public class ComplaintInfoService: IComplaintInfoService
     {
-        private IComplaintInfoRepository _complaintInforepository;
+        private IComplaintInfoRepository _complaintInfoRepository;
         private ILogger _logger;
 
         public ComplaintInfoService()
         {
             //使用Spring.Net进行DI
-            _complaintInforepository = DI.SpringHelper.GetObject<IComplaintInfoRepository>("ComplaintInfoRepository");
-            //_logger = ObjectFactory.GetInstance<ILogger>();
+            _complaintInfoRepository = DI.SpringHelper.GetObject<IComplaintInfoRepository>("ComplaintInfoRepository");
+            _logger = DI.SpringHelper.GetObject<ILogger>("DefaultLogger");
         }
 
         /// <summary>
@@ -25,8 +25,8 @@ namespace Neusoft.CCS.Services.Implementation
         public ComplaintInfoOverviewResponse GetNotArchivedComplaintInfo()
         {
             ComplaintInfoOverviewResponse result = new ComplaintInfoOverviewResponse();
-            var cptInfo = _complaintInforepository.GetNotArchivedComplaintInfoList();
-            if (cptInfo != null && cptInfo.Count > 0)
+            var cptInfo = _complaintInfoRepository.GetNotArchivedComplaintInfoList();
+            if (cptInfo != null && cptInfo.Count >= 0)
             {
                 result.IsSuccess = true;
                 result.NotArchivedComplaint = cptInfo.ToOverviewViewModels();
@@ -42,7 +42,7 @@ namespace Neusoft.CCS.Services.Implementation
         public ComplaintInfoDetailResponse Detailed(int id)
         {
             ComplaintInfoDetailResponse result = new ComplaintInfoDetailResponse();
-            var cptInfo = _complaintInforepository.GetDetailedInfoById(id);
+            var cptInfo = _complaintInfoRepository.GetDetailedInfoById(id);
             if (cptInfo != null)
             {
                 result.IsSuccess = true;

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "ComplaintReturnVisitBox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Neusoft.CCS.Services.ViewModels; @*导入视图模型所在命名空间*@
+@using Neusoft.CCS.Services.Messages;@*导入SOA基本模式“请求-相应”模型消息所在命名空间*@
+
+@section title{
+待回访
+}
+
+<table border="1px">
+    <tr>
+        <th>投诉业务</th>
+        <th>投诉客户</th>
+        <th>投诉时间</th>
+        <th>投诉方式</th>
+        <th>操作</th>
+    </tr>
+    @foreach (ComplaintInfoOverviewViewModel cptOverview in (Model as List<ComplaintInfoOverviewViewModel>))
+    {
+        <tr>
+            <td>@cptOverview.BusinessName</td>
+            <td>@cptOverview.ComplainerName</td>
+            <td>@cptOverview.Date</td>
+            <td>@cptOverview.Way</td>
+            <td>@Html.ActionLink("详情", "ObserveComplaintInfoDetail", new { id = cptOverview.ID })</td>
+        </tr>
+    }
+</table>

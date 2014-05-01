@@ -76,6 +76,7 @@
     <Compile Include="ComplaintReturnVisitInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="ComplaintReturnVisitInfoRepository.cs" />
     <Compile Include="Department.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
