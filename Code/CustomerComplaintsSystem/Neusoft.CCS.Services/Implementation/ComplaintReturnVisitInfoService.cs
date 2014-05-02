@@ -9,12 +9,16 @@ namespace Neusoft.CCS.Services.Implementation
 {
     public class ComplaintReturnVisitInfoService : IComplaintReturnVisitInfoService
     {
-        private IComplaintReturnVisitInfoRepository _complaintReturnVisitInfoRepository;
+        private IComplaintReturnVisitInfoRepository _cptRVInfoRepository;
+        private IComplaintDisposeAndFeedbackInfoRepository _cptDAFInfoRepository;
+        private IComplaintInfoRepository _cptInfoRepository;
         private ILogger _logger;
 
         public ComplaintReturnVisitInfoService()
         {
-            _complaintReturnVisitInfoRepository = DI.SpringHelper.GetObject<IComplaintReturnVisitInfoRepository>("ComplaintReturnVisitInfoRepository");
+            _cptRVInfoRepository = DI.SpringHelper.GetObject<IComplaintReturnVisitInfoRepository>("ComplaintReturnVisitInfoRepository");
+            _cptDAFInfoRepository = DI.SpringHelper.GetObject<IComplaintDisposeAndFeedbackInfoRepository>("ComplaintDisposeAndFeedbackInfoRepository");
+            _cptInfoRepository = DI.SpringHelper.GetObject<IComplaintInfoRepository>("ComplaintInfoRepository");
             _logger = DI.SpringHelper.GetObject<ILogger>("DefaultLogger");
         }
 
@@ -25,7 +29,7 @@ namespace Neusoft.CCS.Services.Implementation
         public LoadingReturnVisitBoxResponse LoadingReturnVisitBox()
         {
             LoadingReturnVisitBoxResponse result = new LoadingReturnVisitBoxResponse();
-            var cptInfo = _complaintReturnVisitInfoRepository.RetrieveReturnVistingList();
+            var cptInfo = _cptRVInfoRepository.RetrieveReturnVistingList();
             if (cptInfo != null && cptInfo.Count >= 0)
             {
                 result.IsSuccess = true;
@@ -38,6 +42,37 @@ namespace Neusoft.CCS.Services.Implementation
             }
             return result;
 
+        }
+
+        
+        /// <summary>
+        /// 读取投诉回访单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public LoadingReturnVisitFormResponse LoadingReturnVisitForm(int id)
+        {
+            LoadingReturnVisitFormResponse result = new LoadingReturnVisitFormResponse();
+            var cptInfo = _cptInfoRepository.GetDetailedInfoById(id);
+            var cptRVInfo = _cptRVInfoRepository.RetrieveById(id);
+            var cptDAFInfo = _cptDAFInfoRepository.RetrieveById(id);
+            if (cptRVInfo != null && cptDAFInfo != null && cptInfo != null)
+            {
+                result.IsSuccess = true;
+                result.ReturnVisitForm = cptRVInfo.ToReturnVisitFormViewModel();
+                //投诉回访单的其他项
+                result.ReturnVisitForm.ComplaintDate = cptInfo.Date;
+                result.ReturnVisitForm.Class = cptInfo.Class;
+                result.ReturnVisitForm.Describe = cptInfo.Describe;
+                result.ReturnVisitForm.Name = cptInfo.Business.Name;
+                result.ReturnVisitForm.Satisfaction = cptDAFInfo.SatisfactionToString();
+            }
+            else
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "读取投诉回访单错误";
+            }
+            return result;
         }
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="ComplaintDisposeAndFeedbackInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="ComplaintDisposeAndFeedbackInfoRepository.cs" />
     <Compile Include="ComplaintInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>

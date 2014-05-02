@@ -24,9 +24,9 @@ namespace Neusoft.CCS.Repository.Mappings
                 ComplaintReturnVisitInfo = new Model.Entities.ComplaintReturnVisitInfo()
                 {
                     ID = dataEntity.CptReVst_ID,
-                    Date = dataEntity.CptReVst_Date.Value,
+                    Date = dataEntity.CptReVst_Date.HasValue? dataEntity.CptReVst_Date.Value:default(DateTime),
                     Content = dataEntity.CptReVst_Content,
-                    IsSolved = dataEntity.CptReVst_IsSolved.Value,
+                    IsSolved = dataEntity.CptReVst_IsSolved.HasValue?dataEntity.CptReVst_IsSolved.Value:default(bool),
                     ComplaintReason = dataEntity.CptReVst_CptReason,
                     BeginTime = dataEntity.CptReVst_BeginTime.HasValue? dataEntity.CptReVst_BeginTime.Value:default(DateTime),
                     EndTime = dataEntity.CptReVst_EndTime.HasValue? dataEntity.CptReVst_EndTime.Value:default(DateTime),

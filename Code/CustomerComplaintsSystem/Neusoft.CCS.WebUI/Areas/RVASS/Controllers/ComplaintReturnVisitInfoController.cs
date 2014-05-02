@@ -35,10 +35,23 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             }
         }
 
+        /// <summary>
+        /// 投诉回访单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-        public ActionResult ReturnVisiting()
+        public ActionResult ReturnVisiting(int id)
         {
-
+            var response = DI.SpringHelper.GetObject<IComplaintReturnVisitInfoService>("ComplaintReturnVisitInfoService").LoadingReturnVisitForm(id);
+            if (response.IsSuccess)
+            {
+                return View(response.ReturnVisitForm);
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }

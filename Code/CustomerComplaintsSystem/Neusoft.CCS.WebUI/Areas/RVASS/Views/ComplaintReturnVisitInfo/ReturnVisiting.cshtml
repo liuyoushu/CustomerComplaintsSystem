@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "ReturnVisiting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Neusoft.CCS.Services.ViewModels; @*导入视图模型所在命名空间*@
+@using Neusoft.CCS.Services.Messages;@*导入SOA基本模式“请求-相应”模型消息所在命名空间*@
+
+@*指定该页面模型的类型*@
+@model Neusoft.CCS.Services.ViewModels.ReturnVisitFormViewModel
+
+@section title{
+投诉回访单
+}
+
+@using(Html.BeginForm("ReturnVisiting", "ComplaintReturnVisitInfo", FormMethod.Post))
+{
+    <table border="1px">
+        <tr>
+            <td>@Html.LabelFor(s=>s.ComplaintDate)</td>
+            <td>@Model.ComplaintDate</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.Class)</td>
+            <td>@Model.Class</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.Describe)</td>
+            <td>@Model.Describe</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.Name)</td>
+            <td>@Model.Name</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.Satisfaction)</td>
+            <td>@Model.Satisfaction</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.Content)</td>
+            <td>@Html.EditorFor(s=>s.Content)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s => s.IsSolved)</td>
+            <td>
+                @Html.RadioButtonFor(s => s.IsSolved, "是", new { id = "IsSolvedY"}) 是
+                @Html.RadioButtonFor(s => s.IsSolved, "否", new { id = "IsSolvedN"}) 否
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s=>s.ComplaintReason)</td>
+            <td>@Html.EditorFor(s=>s.ComplaintReason)</td>
+        </tr>
+
+    </table>
+}

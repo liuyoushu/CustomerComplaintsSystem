@@ -14,5 +14,11 @@ namespace Neusoft.CCS.Services.Interfaces
         /// </summary>
         /// <returns></returns>
         LoadingReturnVisitBoxResponse LoadingReturnVisitBox();
+
+        /// <summary>
+        /// 读取投诉回访单
+        /// </summary>
+        /// <returns></returns>
+        LoadingReturnVisitFormResponse LoadingReturnVisitForm(int id);
     }
 }

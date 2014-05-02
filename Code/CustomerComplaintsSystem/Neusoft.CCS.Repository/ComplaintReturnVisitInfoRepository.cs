@@ -27,5 +27,19 @@ namespace Neusoft.CCS.Repository
 
             return result;
         }
+
+
+        public Model.Entities.ComplaintReturnVisitInfo RetrieveById(int id)
+        {
+            Model.Entities.ComplaintReturnVisitInfo result = new Model.Entities.ComplaintReturnVisitInfo();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entity = (from cptRVInfo in context.ComplaintReturnVisitInfoes
+                              where cptRVInfo.ID == id
+                              select cptRVInfo);
+                result = entity.FirstOrDefault().ToModel();
+            }
+            return result;
+        }
     }
 }

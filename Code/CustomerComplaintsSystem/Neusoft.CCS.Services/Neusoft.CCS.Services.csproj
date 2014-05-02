@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,10 +51,13 @@
     <Compile Include="Implementation\ComplaintReturnVisitInfoService.cs" />
     <Compile Include="Interfaces\IComplaintInfoService.cs" />
     <Compile Include="Interfaces\IComplaintReturnVisitInfoService.cs" />
+    <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
+    <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
     <Compile Include="Messages\ComplaintInfoDetailResponse.cs" />
     <Compile Include="Messages\ComplaintInfoOverviewResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitBoxResponse.cs" />
+    <Compile Include="Messages\LoadingReturnVisitFormResponse.cs" />
     <Compile Include="Messages\ResponseBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ComplaintInfoOverviewViewModel.cs" />
