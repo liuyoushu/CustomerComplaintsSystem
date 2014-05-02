@@ -13,6 +13,9 @@ namespace Neusoft.CCS.Model.Entities
     {
         ReturnVisiting = 80,
         ReturnVisitFailed = 81,
+
+
+
         Archived = 99,
     }
 }

@@ -74,5 +74,16 @@ namespace Neusoft.CCS.Services.Implementation
             }
             return result;
         }
+
+
+        /// <summary>
+        /// 提交投诉回访单
+        /// </summary>
+        /// <param name="rvForm"></param>
+        /// <returns></returns>
+        public bool SubmitReturnVisitForm(ReturnVisitFormViewModel rvForm)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

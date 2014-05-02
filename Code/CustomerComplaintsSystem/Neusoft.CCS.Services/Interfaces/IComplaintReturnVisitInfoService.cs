@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Neusoft.CCS.Services.Messages;
+using Neusoft.CCS.Services.ViewModels;
 
 namespace Neusoft.CCS.Services.Interfaces
 {
@@ -20,5 +21,12 @@ namespace Neusoft.CCS.Services.Interfaces
         /// </summary>
         /// <returns></returns>
         LoadingReturnVisitFormResponse LoadingReturnVisitForm(int id);
+
+        /// <summary>
+        /// 提交投诉回访单
+        /// </summary>
+        /// <param name="rvForm"></param>
+        /// <returns></returns>
+        bool SubmitReturnVisitForm(ReturnVisitFormViewModel rvForm);
     }
 }
