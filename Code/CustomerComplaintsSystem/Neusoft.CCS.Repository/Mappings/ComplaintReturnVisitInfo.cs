@@ -76,8 +76,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     CptReVst_Date = model.Date,
                     CptReVst_IsSolved = model.IsSolved,
                     CptReVst_CptReason = model.ComplaintReason,
-                    CptReVst_BeginTime = model.BeginTime,
-                    CptReVst_EndTime = model.EndTime
+                    CptReVst_Content = model.Content,
+                    CptReVst_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
+                    CptReVst_EndTime = model.EndTime  == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
                 };
             }
             return dataEntity;

@@ -260,6 +260,20 @@
     <Content Include="images\X.gif" />
     <Content Include="images\yc.gif" />
     <Content Include="images\yx.gif" />
+    <None Include="js\jquery-1.7.1.intellisense.js" />
+    <Content Include="js\jquery-1.7.1.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\jquery-ui-1.8.20.js" />
+    <Content Include="js\jquery-ui-1.8.20.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.msgProcess.js" />
+    <Content Include="js\jquery.unobtrusive-ajax.js" />
+    <Content Include="js\jquery.unobtrusive-ajax.min.js" />
+    <None Include="js\jquery.validate-vsdoc.js" />
+    <Content Include="js\jquery.validate.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jquery.validate.unobtrusive.js" />
+    <Content Include="js\jquery.validate.unobtrusive.min.js" />
     <Content Include="js\layout.js" />
     <Content Include="js\moo.fx.js" />
     <Content Include="js\moo.fx.pack.js" />
@@ -308,9 +322,6 @@
   <ItemGroup>
     <Content Include="images\.DS_Store" />
     <Content Include="images\Thumbs.db" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="js\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />

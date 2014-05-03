@@ -29,6 +29,7 @@ namespace Neusoft.CCS.Repository
         public int Com_ID { get; set; }
         public Nullable<System.DateTime> ArchiveDate { get; set; }
         public int State { get; set; }
+        public Nullable<int> UnsatisfiedWithSolution { get; set; }
     
         public virtual Complainer Complainer { get; set; }
         public virtual ICollection<ComplaintDisposeAndFeedbackInfo> ComplaintDisposeAndFeedbackInfoes { get; set; }

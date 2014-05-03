@@ -12,9 +12,15 @@
 投诉回访单
 }
 
+@*客户端模型验证脚本开启*@
+@{Html.EnableClientValidation(true);}
+
 @using (Html.BeginForm("ReturnVisiting", "ComplaintReturnVisitInfo", FormMethod.Post))
 {
     <table border="1px">
+        @Html.HiddenFor(s => s.CaseID)
+        @Html.HiddenFor(s => s.CptRVInfoID)
+        @Html.HiddenFor(s => s.BeginTime)
         <tr>
             <td>@Html.LabelFor(s => s.ComplaintDate)</td>
             <td>@Model.ComplaintDate</td>
@@ -41,8 +47,17 @@
         </tr>
 
         <tr>
-            <td>@Html.LabelFor(s => s.Content)</td>
-            <td>@Html.EditorFor(s => s.Content)</td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(s => s.Content)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(s => s.Content)
+                    @Html.ValidationMessageFor(s => s.Content)
+                </div>
+            </td>
         </tr>
 
         <tr>
@@ -54,8 +69,15 @@
         </tr>
 
         <tr>
-            <td>@Html.LabelFor(s => s.ComplaintReason)</td>
-            <td>@Html.EditorFor(s => s.ComplaintReason)</td>
+            <td>
+                <div class="editor-label">@Html.LabelFor(s => s.ComplaintReason)</div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(s => s.ComplaintReason)
+                    @Html.ValidationMessageFor(s => s.ComplaintReason)
+                </div>
+            </td>
         </tr>
 
         <tr>

@@ -15,11 +15,6 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         //
         // GET: /RVASS/ComplaintReturnVisitInfo/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         /// <summary>
         /// 待回访列表
         /// </summary>
@@ -27,46 +22,42 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         public ActionResult ComplaintReturnVisitBox()
         {
             var response = DI.SpringHelper.GetObject<IComplaintReturnVisitInfoService>("ComplaintReturnVisitInfoService").LoadingReturnVisitBox();
-            if (response.IsSuccess)
+            if (!response.IsSuccess)
             {
-                return View(response.RetrunVisitBox);
+                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
             }
-            else
-            {
-                return View();
-            }
+            return View(response.RetrunVisitBox);
         }
 
         /// <summary>
-        /// 投诉回访单
+        /// 读取投诉反馈回访单
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet]//PRG之G
         public ActionResult ReturnVisiting(int id)
         {
             var response = DI.SpringHelper.GetObject<IComplaintReturnVisitInfoService>("ComplaintReturnVisitInfoService").LoadingReturnVisitForm(id);
-            if (response.IsSuccess)
+            if (!response.IsSuccess)
             {
-                response.ReturnVisitForm.BeginTime = DateTime.Now;//记录开始回访时间
-                return View(response.ReturnVisitForm);
+                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
             }
-            else
-            {
-                return View();
-            }
+            return View(response.ReturnVisitForm);
         }
 
-        [HttpPost]
+        /// <summary>
+        /// 提交投诉反馈回访单
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]//PRG之P 
         public ActionResult ReturnVisiting(ReturnVisitFormViewModel model)
         {
-            model.ReturnVisitDate = DateTime.Now;//记录时间
-            model.EndTime = DateTime.Now;//记录结束时间
-            if (DI.SpringHelper.GetObject<IComplaintReturnVisitInfoService>("ComplaintReturnVisitInfoService").SubmitReturnVisitForm(model))
+            if (!DI.SpringHelper.GetObject<IComplaintReturnVisitInfoService>("ComplaintReturnVisitInfoService").SubmitReturnVisitForm(model))
             {
-
+                Response.Write("<script>alert('提交投诉反馈回访单失败！')</script>");
             }
-            return View();
+            return RedirectToAction("ComplaintReturnVisitBox", "ComplaintReturnVisitInfo");
         }
 
     }

@@ -7,5 +7,6 @@ namespace Neusoft.CCS.Model.Repositories
     {
         List<ComplaintInfo> RetrieveReturnVistingList();
         ComplaintReturnVisitInfo RetrieveById(int id);
+        bool Update(ComplaintReturnVisitInfo cptRVInfo);
     }
 }

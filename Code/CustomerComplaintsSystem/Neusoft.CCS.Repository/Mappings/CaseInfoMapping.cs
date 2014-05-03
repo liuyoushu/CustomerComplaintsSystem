@@ -25,8 +25,9 @@ namespace Neusoft.CCS.Repository.Mappings
                 caseInfo = new Model.Entities.CaseInfo()
                 {
                     ID = dataEntity.ID,
-                    ArchiveDate = dataEntity.ArchiveDate.HasValue?dataEntity.ArchiveDate.Value:default(DateTime),
+                    ArchiveDate = dataEntity.ArchiveDate.HasValue ? dataEntity.ArchiveDate.Value : default(DateTime),
                     State = (CaseState)dataEntity.State,
+                    UnsatisfiedWithSolution = dataEntity.UnsatisfiedWithSolution.HasValue ? dataEntity.UnsatisfiedWithSolution.Value : 0,
 
                     Complainer = dataEntity.Complainer.ToModel(),
                 };
@@ -69,8 +70,11 @@ namespace Neusoft.CCS.Repository.Mappings
                 dataEntity = new CaseInfo()
                 {
                     ID = model.ID,
-                    ArchiveDate = model.ArchiveDate,
-                    State = (int)model.State
+                    ArchiveDate = (model.ArchiveDate) == default(DateTime) ? default(Nullable<DateTime>) : model.ArchiveDate,
+                    State = (int)model.State,
+                    UnsatisfiedWithSolution = model.UnsatisfiedWithSolution,
+
+                    //Complainer = model.Complainer.ToDataEntity(),
                 };
             }
             return dataEntity;

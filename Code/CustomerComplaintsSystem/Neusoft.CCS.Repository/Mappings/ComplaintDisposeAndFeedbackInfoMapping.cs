@@ -76,8 +76,8 @@ namespace Neusoft.CCS.Repository.Mappings
                    CptDF_Solution = model.Solution,
                    CptDF_Content = model.Content,
                    CptDF_Satisfaction = (int)model.Satisfaction,
-                   CptDF_BeginTime = model.BeginTime,
-                   CptDF_EndTime = model.EndTime
+                   CptDF_BeginTime = model.BeginTime == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
+                   CptDF_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
 
 
                 };

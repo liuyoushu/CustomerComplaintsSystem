@@ -72,8 +72,8 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     IptEvt_S_ID = model.ID,
                     IptEvt_S_Content = model.Content,
-                    IptEvt_S_BeginTime = model.BeginTime,
-                    IptEvt_S_EndTime = model.EndTime,
+                    IptEvt_S_BeginTime = model.BeginTime == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
+                    IptEvt_S_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
                 };
             }
             return dataEntity;

@@ -1,12 +1,6 @@
 ﻿using Neusoft.CCS.Model.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Neusoft.CCS.Model.Repositories;
 using Neusoft.CCS.Repository.Mappings;
-using Neusoft.CCS.Model.Entities;
 
 namespace Neusoft.CCS.Repository 
 {

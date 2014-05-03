@@ -23,6 +23,10 @@ namespace Neusoft.CCS.Model.Entities
         /// 案件状态
         /// </summary>
         public CaseState State { get; set; }
+        /// <summary>
+        /// 对解决办法不满意次数
+        /// </summary>
+        public int UnsatisfiedWithSolution { get; set; }
 
         /// <summary>
         /// 案件投诉者

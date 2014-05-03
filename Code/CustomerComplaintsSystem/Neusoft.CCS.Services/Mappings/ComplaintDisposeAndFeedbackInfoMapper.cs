@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
+using Neusoft.CCS.Model.Entities;
+using Neusoft.CCS.Services.ViewModels;
+using AutoMapper;
 
 namespace Neusoft.CCS.Services.Mappings
 {

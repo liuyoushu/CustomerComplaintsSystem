@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace Neusoft.CCS.Services.ViewModels
@@ -23,19 +19,16 @@ namespace Neusoft.CCS.Services.ViewModels
         /// 投诉时间
         /// </summary>
         [DisplayName("投诉时间")]
-        //[DataType(DataType.DateTime)]
         public DateTime ComplaintDate { get; set; }
         /// <summary>
         /// 投诉类别
         /// </summary>
         [DisplayName("投诉类别")]
-        //[DataType(DataType.Text)]
         public string Class { get; set; }
         /// <summary>
         /// 投诉问题描述
         /// </summary>
         [DisplayName("投诉问题描述")]
-        //[DataType(DataType.Text)]
         public string Describe { get; set; }
         /// <summary>
         /// 业务名
@@ -49,14 +42,13 @@ namespace Neusoft.CCS.Services.ViewModels
         /// 客户满意度
         /// </summary>
         [DisplayName("客户满意度")]
-        //[DataType(DataType.Text)]
         public string Satisfaction { get; set; }
 
 
         /// <summary>
         /// 投诉回访信息编号
         /// </summary>
-        public int ID { get; set; }
+        public int CptRVInfoID { get; set; }
         /// <summary>
         /// 回访时间
         /// </summary>
@@ -68,18 +60,19 @@ namespace Neusoft.CCS.Services.ViewModels
         /// </summary>
         [DisplayName("回访内容")]
         [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "回访内容必须填写！", AllowEmptyStrings = false)]//前端模型验证，要求必填
         public string Content { get; set; }
         /// <summary>
         /// 问题本身是否解决
         /// </summary>
         [DisplayName("问题本身是否解决")]
-        //[DataType(DataType.Text)]
         public bool IsSolved { get; set; }
         /// <summary>
         /// 处理不满原因
         /// </summary>
         [DisplayName("处理不满原因")]
         [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "处理不满原因必须填写！", AllowEmptyStrings = false)]//前端模型验证，要求必填
         public string ComplaintReason { get; set; }
         /// <summary>
         /// 回访开始时间

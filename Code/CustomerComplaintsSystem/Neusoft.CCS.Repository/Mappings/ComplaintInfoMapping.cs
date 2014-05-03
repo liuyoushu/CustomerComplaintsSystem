@@ -79,8 +79,8 @@ namespace Neusoft.CCS.Repository.Mappings
                     Cpt_Area = model.Area,
                     Cpt_Class = model.Class,
                     Cpt_Describe = model.Describe,
-                    Cpt_BeginTime = model.BeginTime,
-                    Cpt_EndTime = model.EndTime
+                    Cpt_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
+                    Cpt_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
                 };
             }
             return dataEntity;

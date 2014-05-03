@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Neusoft.CCS.Model.Repositories;
 using Neusoft.CCS.Repository.Mappings;
 using Neusoft.CCS.Model.Entities;
@@ -17,7 +14,7 @@ namespace Neusoft.CCS.Repository
             using (NeusoftCCSEntities context = new NeusoftCCSEntities())
             {
                 var entities = (from cpt in context.ComplaintInfoes
-                                where cpt.CaseInfo.State != 99
+                                where cpt.CaseInfo.State != ((int)(CaseState.Archived))
                                 orderby cpt.Cpt_Date descending
                                 select cpt);
                 //result = entities.Skip(startIndex).Take(requestCount).ToList().ToModels();

@@ -60,6 +60,7 @@
     <Compile Include="CaseInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="CaseInfoRepository.cs" />
     <Compile Include="Company.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
@@ -93,6 +94,7 @@
     <Compile Include="ImportantEvent_Staff.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImptEvtCenterRepository.cs" />
     <Compile Include="Mappings\BusinessMapping.cs" />
     <Compile Include="Mappings\CaseInfoMapping.cs" />
     <Compile Include="Mappings\CompanyMapping.cs" />
@@ -129,8 +131,13 @@
     <Compile Include="Staff.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="StaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Neusoft.CCS.DI\Neusoft.CCS.DI.csproj">
+      <Project>{37e6aaa6-f3ec-4456-8c18-1bf05200960e}</Project>
+      <Name>Neusoft.CCS.DI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Neusoft.CCS.Infrastructure\Neusoft.CCS.Infrastructure.csproj">
       <Project>{f8dddf9e-0810-4867-9257-1eda6f6027a5}</Project>
       <Name>Neusoft.CCS.Infrastructure</Name>

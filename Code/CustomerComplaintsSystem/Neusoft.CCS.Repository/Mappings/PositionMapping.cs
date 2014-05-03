@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Neusoft.CCS.Repository.Mappings
 {
@@ -27,7 +23,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     Name = dataEntity.Post_Name,
                     Content = dataEntity.Post_Content,
                     Remark = dataEntity.Post_Remark,
-                    SuperiorID = dataEntity.Post_SuperiorID.Value
+                    SuperiorID = dataEntity.Post_SuperiorID.HasValue? default(int): dataEntity.Post_SuperiorID.Value
                 };
             }
             return Position;

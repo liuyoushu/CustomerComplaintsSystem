@@ -1,10 +1,4 @@
-﻿using Neusoft.CCS.Services.Implementation;
-using Neusoft.CCS.Services.Interfaces;
-using StructureMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Neusoft.CCS.Services.Interfaces;
 using System.Web.Mvc;
 
 namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
@@ -14,11 +8,6 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         //
         // GET: /RVASS/ComplaintInfo/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         /// <summary>
         /// 投诉处理总览
         /// </summary>
@@ -26,14 +15,12 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         public ActionResult ComplaintOverview()
         {
             var response = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").GetNotArchivedComplaintInfo();
-            if (response.IsSuccess)
+
+            if (!response.IsSuccess)
             {
-                return View(response.NotArchivedComplaint);
+                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
             }
-            else
-            {
-                return View(response.ErrorMessage);
-            }
+            return View(response.NotArchivedComplaint);
         }
 
         /// <summary>
@@ -45,14 +32,12 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         public ActionResult ObserveComplaintInfoDetail(int id)
         {
             var response = DI.SpringHelper.GetObject<IComplaintInfoService>("ComplaintInfoService").Detailed(id);
-            if (response.IsSuccess)
+
+            if (!response.IsSuccess)
             {
-                return View(response.DetailedComplaintInfo);
+                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
             }
-            else
-            {
-                return View(response.ErrorMessage);
-            }
+            return View(response.DetailedComplaintInfo);
         }
 
     }

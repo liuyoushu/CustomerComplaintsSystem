@@ -11,10 +11,14 @@ namespace Neusoft.CCS.Model.Entities
     /// </summary>
     public enum CaseState
     {
+        ImportantEvent = 60,
+
+        Rehandling = 70,
+
         ReturnVisiting = 80,
         ReturnVisitFailed = 81,
 
-
+        
 
         Archived = 99,
     }
