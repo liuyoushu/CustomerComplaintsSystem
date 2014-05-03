@@ -112,6 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\CHS\CHSAreaRegistration.cs" />
+    <Compile Include="Areas\CHS\Controllers\CommentController.cs" />
+    <Compile Include="Areas\CHS\Controllers\CustomerComplaintController.cs" />
     <Compile Include="Areas\DSS\DSSAreaRegistration.cs" />
     <Compile Include="Areas\RVASS\Controllers\ComplaintInfoController.cs" />
     <Compile Include="Areas\RVASS\Controllers\ComplaintReturnVisitInfoController.cs" />
@@ -275,7 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\CHS\Controllers\" />
     <Folder Include="Areas\CHS\Models\" />
     <Folder Include="Areas\CHS\Views\Shared\" />
     <Folder Include="Areas\DSS\Controllers\" />
@@ -338,6 +339,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\RVASS\Views\ComplaintReturnVisitInfo\ReturnVisiting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\CustomerComplaint\CreateComplaintView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\CustomerComplaint\SearchComplaintByUserOverView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\CustomerComplaint\ComplaintHandlingDetailView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\Comment\CommentView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\Comment\CommentedOverView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CHS\Views\Comment\CommentedCaseDetailView.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

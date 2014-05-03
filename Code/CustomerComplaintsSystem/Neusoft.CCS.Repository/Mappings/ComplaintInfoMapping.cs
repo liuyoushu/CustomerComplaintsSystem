@@ -29,6 +29,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     Area = dataEntity.Cpt_Area,
                     Class = dataEntity.Cpt_Class,
                     Describe = dataEntity.Cpt_Describe,
+                    Comment = dataEntity.Cpt_Comment, 
                     BeginTime = dataEntity.Cpt_BeginTime.HasValue ? dataEntity.Cpt_BeginTime.Value : default(DateTime),
                     EndTime = dataEntity.Cpt_EndTime.HasValue ? dataEntity.Cpt_EndTime.Value : default(DateTime),
 

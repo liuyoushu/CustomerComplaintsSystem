@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "发起投诉";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@section title{
+    发起投诉
+}
+@model Neusoft.CCS.Services.ViewModels.CreateComplaintViewModel
+
+@{
+    List<SelectListItem> items = new List<SelectListItem>();
+    if(Model.Businesses != null)
+    {
+        foreach (var item in Model.Businesses)
+        {
+            items.Add(new SelectListItem(){ Text =item, Value = item});
+        }
+    }
+    Model.Way = "网上投诉";
+  }
+
+<h2>发起投诉</h2>
+@using (Html.BeginForm("CreateComplaint","CustomerComplaint")) {
+    <table>
+        <tr>
+            <td>
+                <strong>姓名：</strong>
+                @Html.HiddenFor(model => model.Way, "网上投诉")
+            </td>
+            <td>
+                
+                @Html.EditorFor(model => model.Cmp_Name)
+            </td>
+            <td>
+                <strong>Email：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>投诉地域：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Cmp_Area)
+            </td>
+            <td>
+                <strong>投诉类别：</strong>
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Class, items);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>手机号码：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Phone)
+            </td>
+            <td>
+                <strong>问题描述：</strong>
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.Describe)
+            </td>
+        </tr>
+    </table>
+    <input id="btn_CreateComplaint" type ="submit" value="提交" />
+}

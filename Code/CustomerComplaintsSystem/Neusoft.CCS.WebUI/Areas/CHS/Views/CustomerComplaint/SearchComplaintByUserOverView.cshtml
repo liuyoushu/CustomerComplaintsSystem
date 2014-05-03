@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "查看投诉处理结果";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@section title{
+    查看投诉处理结果
+}
+@model List<Neusoft.CCS.Services.ViewModels.RetrieveComplaintInfoByUserViewModel>
+
+
+<h2>查看投诉处理结果</h2>
+@using (Html.BeginForm("GetComplaintByUser", "CustomerComplaint"))
+{
+    <table>
+        <tr>
+            <td>
+                <strong>姓名</strong>
+            </td>
+            <td>
+                @Html.TextBox("name")
+            </td>
+            <td>
+                <strong>电话</strong>
+            </td>
+            <td>
+                @Html.TextBox("phone")
+            </td>
+            <td>
+                <strong>Email</strong>
+            </td>
+            <td>
+                @Html.TextBox("email")
+            </td>
+        </tr>
+    </table>@*
+    <table>
+        <tr>
+            <td>
+                <strong>姓名：</strong>
+                @Html.HiddenFor(model => model.Way, "网上投诉")
+            </td>
+            <td>
+                
+                @Html.EditorFor(model => model.Cmp_Name)
+            </td>
+            <td>
+                <strong>Email：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>投诉地域：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Cmp_Area)
+            </td>
+            <td>
+                <strong>投诉类别：</strong>
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Class, items);
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>手机号码：</strong>
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Phone)
+            </td>
+            <td>
+                <strong>问题描述：</strong>
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.Describe)
+            </td>
+        </tr>
+    </table>*@
+    <input id="btn_CreateComplaint" type ="submit" value="提交" />
+}
+@{
+   if(Model!=null)
+   {
+       <table border="1px" bordercolor="#000000" cellspacing="0px" style="border-collapse:collapse">
+           <tr>
+               <td>
+                   <strong>姓名</strong>
+               </td>
+               <td>
+                   <strong>电话</strong>
+               </td>
+               <td>
+                   <strong>Email</strong>
+               </td>
+               <td>
+                   <strong>投诉地域</strong>
+               </td>
+               <td>
+                   <strong>投诉类别</strong>
+               </td>
+               <td>
+                   <strong>投诉方式</strong>
+               </td>
+               <td>
+                   <strong>投诉时间</strong>
+               </td>
+               <td>
+                   <strong>操作</strong>
+               </td>
+           </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>@item.ComplainerName</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.Area</td>
+                <td>@item.Class</td>
+                <td>@item.Way</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@Html.ActionLink("查看详情","GetComplaintDetailByID", new { ID = item.ID})</td>
+                </tr>
+            }
+       </table>
+   }
+}

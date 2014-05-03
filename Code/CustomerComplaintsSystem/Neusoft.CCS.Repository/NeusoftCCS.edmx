@@ -4,8 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Neusoft.CCS.Repository.DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Neusoft.CCS.Repository.DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="NeusoftCCSRepositoryDataModelStoreContainer">
+          <EntitySet Name="ActionInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ActionInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Business" EntityType="Neusoft.CCS.Repository.DataModel.Store.Business" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CaseInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Company" EntityType="Neusoft.CCS.Repository.DataModel.Store.Company" store:Type="Tables" Schema="dbo" />
@@ -14,11 +15,13 @@
           <EntitySet Name="ComplaintInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ComplaintInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ComplaintReturnVisitInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.ComplaintReturnVisitInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Department" EntityType="Neusoft.CCS.Repository.DataModel.Store.Department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FlowInfo" EntityType="Neusoft.CCS.Repository.DataModel.Store.FlowInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="History" EntityType="Neusoft.CCS.Repository.DataModel.Store.History" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ImportantEvent_Center" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ImportantEvent_Department" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ImportantEvent_Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Position" EntityType="Neusoft.CCS.Repository.DataModel.Store.Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProcessDetail" EntityType="Neusoft.CCS.Repository.DataModel.Store.ProcessDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.Staff" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CASEINFO_START_COMPLAIN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_CASEINFO_START_COMPLAIN">
             <End Role="Complainer" EntitySet="Complainer" />
@@ -96,6 +99,10 @@
             <End Role="Staff" EntitySet="Staff" />
             <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProcessDetail_CaseInfo" Association="Neusoft.CCS.Repository.DataModel.Store.FK_ProcessDetail_CaseInfo">
+            <End Role="CaseInfo" EntitySet="CaseInfo" />
+            <End Role="ProcessDetail" EntitySet="ProcessDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_STAFF_BELONG_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.Store.FK_STAFF_BELONG_BUSINESS">
             <End Role="Business" EntitySet="Business" />
             <End Role="Staff" EntitySet="Staff" />
@@ -105,6 +112,26 @@
             <End Role="Staff" EntitySet="Staff" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ActionInfo">
+          <Key>
+            <PropertyRef Name="actionID" />
+          </Key>
+          <Property Name="actionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="flowID" Type="int" Nullable="false" />
+          <Property Name="actionName" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="createDate" Type="datetime" Nullable="false" />
+          <Property Name="modifyDate" Type="datetime" />
+          <Property Name="createEmpID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="modifyEmpID" Type="char" MaxLength="11" />
+          <Property Name="orderNo" Type="int" Nullable="false" />
+          <Property Name="available" Type="bit" Nullable="false" />
+          <Property Name="stepRepeatNo" Type="int" Nullable="false" />
+          <Property Name="stepType" Type="int" Nullable="false" />
+          <Property Name="isMulty" Type="bit" Nullable="false" />
+          <Property Name="isLast" Type="bit" Nullable="false" />
+          <Property Name="prefixActionIDs" Type="varchar" MaxLength="256" />
+          <Property Name="actionVersion" Type="int" />
+        </EntityType>
         <EntityType Name="Business">
           <Key>
             <PropertyRef Name="BussinessID" />
@@ -171,6 +198,7 @@
           <Property Name="Cpt_Describe" Type="text" Nullable="false" />
           <Property Name="Cpt_BeginTime" Type="datetime" />
           <Property Name="Cpt_EndTime" Type="datetime" />
+          <Property Name="Cpt_Comment" Type="varchar" MaxLength="2048" />
         </EntityType>
         <EntityType Name="ComplaintReturnVisitInfo">
           <Key>
@@ -196,6 +224,19 @@
           <Property Name="Describe" Type="text" Nullable="false" />
           <Property Name="DepartmentPhoneNum" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="DepartmentRemark" Type="text" />
+        </EntityType>
+        <EntityType Name="FlowInfo">
+          <Key>
+            <PropertyRef Name="flowID" />
+          </Key>
+          <Property Name="flowID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="flowName" Type="varchar" Nullable="false" MaxLength="256" />
+          <Property Name="createDate" Type="datetime" Nullable="false" />
+          <Property Name="modifyDate" Type="datetime" />
+          <Property Name="createEmpID" Type="char" Nullable="false" MaxLength="11" />
+          <Property Name="modifyEmpID" Type="char" MaxLength="11" />
+          <Property Name="orderNo" Type="int" Nullable="false" />
+          <Property Name="available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="History">
           <Key>
@@ -253,6 +294,22 @@
           <Property Name="Post_Content" Type="text" Nullable="false" />
           <Property Name="Post_Remark" Type="text" />
           <Property Name="Post_SuperiorID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProcessDetail">
+          <Key>
+            <PropertyRef Name="processID" />
+          </Key>
+          <Property Name="processID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="actionID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="processEmpID" Type="char" MaxLength="11" />
+          <Property Name="processNote" Type="varchar" MaxLength="1024" />
+          <Property Name="processRoleID" Type="char" MaxLength="11" />
+          <Property Name="isDone" Type="bit" Nullable="false" />
+          <Property Name="createDate" Type="datetime" Nullable="false" />
+          <Property Name="finishDate" Type="datetime" />
+          <Property Name="isLast" Type="bit" Nullable="false" />
+          <Property Name="isRollBack" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -495,6 +552,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProcessDetail_CaseInfo">
+          <End Role="CaseInfo" Type="Neusoft.CCS.Repository.DataModel.Store.CaseInfo" Multiplicity="1" />
+          <End Role="ProcessDetail" Type="Neusoft.CCS.Repository.DataModel.Store.ProcessDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProcessDetail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STAFF_BELONG_BUSINESS">
           <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Store.Business" Multiplicity="0..1" />
           <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="*" />
@@ -519,8 +588,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Neusoft.CCS.Repository.DataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -623,6 +691,21 @@
             <End Role="Position" EntitySet="Positions" />
             <End Role="Staff" EntitySet="Staffs" />
           </AssociationSet>
+          <EntitySet Name="ActionInfoes" EntityType="Neusoft.CCS.Repository.DataModel.ActionInfo" />
+          <EntitySet Name="FlowInfoes" EntityType="Neusoft.CCS.Repository.DataModel.FlowInfo" />
+          <EntitySet Name="ProcessDetails" EntityType="Neusoft.CCS.Repository.DataModel.ProcessDetail" />
+          <AssociationSet Name="FK_ProcessDetail_CaseInfo" Association="Neusoft.CCS.Repository.DataModel.FK_ProcessDetail_CaseInfo">
+            <End Role="CaseInfo" EntitySet="CaseInfoes" />
+            <End Role="ProcessDetail" EntitySet="ProcessDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FlowInfoActionInfo" Association="Neusoft.CCS.Repository.DataModel.FlowInfoActionInfo">
+            <End Role="FlowInfo" EntitySet="FlowInfoes" />
+            <End Role="ActionInfo" EntitySet="ActionInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="ActionInfoProcessDetail" Association="Neusoft.CCS.Repository.DataModel.ActionInfoProcessDetail">
+            <End Role="ActionInfo" EntitySet="ActionInfoes" />
+            <End Role="ProcessDetail" EntitySet="ProcessDetails" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Business">
           <Key>
@@ -651,6 +734,7 @@
           <NavigationProperty Name="ImportantEvent_Center" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_SPECIALHA_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Center" />
           <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Staff" />
           <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Department" />
+          <NavigationProperty Name="ProcessDetails" Relationship="Neusoft.CCS.Repository.DataModel.FK_ProcessDetail_CaseInfo" FromRole="CaseInfo" ToRole="ProcessDetail" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -707,6 +791,7 @@
           <Property Name="Cpt_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Business" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_COMPLAINT_BUSINESS" FromRole="ComplaintInfo" ToRole="Business" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_COMPLAIN_RECEIVE_CASEINFO" FromRole="ComplaintInfo" ToRole="CaseInfo" />
+          <Property Type="String" Name="Cpt_Comment" MaxLength="2048" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ComplaintReturnVisitInfo">
           <Key>
@@ -1080,6 +1165,96 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ActionInfo">
+          <Key>
+            <PropertyRef Name="actionID" />
+          </Key>
+          <Property Type="Int32" Name="actionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="flowID" Nullable="false" />
+          <Property Type="String" Name="actionName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="modifyDate" Precision="3" />
+          <Property Type="String" Name="createEmpID" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="modifyEmpID" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="orderNo" Nullable="false" />
+          <Property Type="Boolean" Name="available" Nullable="false" />
+          <Property Type="Int32" Name="stepRepeatNo" Nullable="false" />
+          <Property Type="Int32" Name="stepType" Nullable="false" />
+          <Property Type="Boolean" Name="isMulty" Nullable="false" />
+          <Property Type="Boolean" Name="isLast" Nullable="false" />
+          <Property Type="String" Name="prefixActionIDs" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="actionVersion" />
+          <NavigationProperty Name="FlowInfo" Relationship="Neusoft.CCS.Repository.DataModel.FlowInfoActionInfo" FromRole="ActionInfo" ToRole="FlowInfo" />
+          <NavigationProperty Name="ProcessDetails" Relationship="Neusoft.CCS.Repository.DataModel.ActionInfoProcessDetail" FromRole="ActionInfo" ToRole="ProcessDetail" />
+        </EntityType>
+        <EntityType Name="FlowInfo">
+          <Key>
+            <PropertyRef Name="flowID" />
+          </Key>
+          <Property Type="Int32" Name="flowID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="flowName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="modifyDate" Precision="3" />
+          <Property Type="String" Name="createEmpID" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="modifyEmpID" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="orderNo" Nullable="false" />
+          <Property Type="Boolean" Name="available" Nullable="false" />
+          <NavigationProperty Name="ActionInfoes" Relationship="Neusoft.CCS.Repository.DataModel.FlowInfoActionInfo" FromRole="FlowInfo" ToRole="ActionInfo" />
+        </EntityType>
+        <EntityType Name="ProcessDetail">
+          <Key>
+            <PropertyRef Name="processID" />
+          </Key>
+          <Property Type="Int32" Name="processID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="actionID" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="processEmpID" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="processNote" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="processRoleID" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="isDone" Nullable="false" />
+          <Property Type="DateTime" Name="createDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="finishDate" Precision="3" />
+          <Property Type="Boolean" Name="isLast" Nullable="false" />
+          <Property Type="Boolean" Name="isRollBack" Nullable="false" />
+          <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_ProcessDetail_CaseInfo" FromRole="ProcessDetail" ToRole="CaseInfo" />
+          <NavigationProperty Name="ActionInfo" Relationship="Neusoft.CCS.Repository.DataModel.ActionInfoProcessDetail" FromRole="ProcessDetail" ToRole="ActionInfo" />
+        </EntityType>
+        <Association Name="FK_ProcessDetail_CaseInfo">
+          <End Type="Neusoft.CCS.Repository.DataModel.CaseInfo" Role="CaseInfo" Multiplicity="1" />
+          <End Type="Neusoft.CCS.Repository.DataModel.ProcessDetail" Role="ProcessDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseInfo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProcessDetail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FlowInfoActionInfo">
+          <End Type="Neusoft.CCS.Repository.DataModel.FlowInfo" Role="FlowInfo" Multiplicity="1" />
+          <End Type="Neusoft.CCS.Repository.DataModel.ActionInfo" Role="ActionInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlowInfo">
+              <PropertyRef Name="flowID" />
+            </Principal>
+            <Dependent Role="ActionInfo">
+              <PropertyRef Name="flowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActionInfoProcessDetail">
+          <End Type="Neusoft.CCS.Repository.DataModel.ActionInfo" Role="ActionInfo" Multiplicity="1" />
+          <End Type="Neusoft.CCS.Repository.DataModel.ProcessDetail" Role="ProcessDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionInfo">
+              <PropertyRef Name="actionID" />
+            </Principal>
+            <Dependent Role="ProcessDetail">
+              <PropertyRef Name="actionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1146,6 +1321,7 @@
           <EntitySetMapping Name="ComplaintInfoes">
             <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ComplaintInfo">
               <MappingFragment StoreEntitySet="ComplaintInfo">
+                <ScalarProperty Name="Cpt_Comment" ColumnName="Cpt_Comment" />
                 <ScalarProperty Name="Cpt_InfoID" ColumnName="Cpt_InfoID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
@@ -1259,6 +1435,58 @@
                 <ScalarProperty Name="Stf_Age" ColumnName="Stf_Age" />
                 <ScalarProperty Name="Stf_IdentifyCardNum" ColumnName="Stf_IdentifyCardNum" />
                 <ScalarProperty Name="Stf_EntryTime" ColumnName="Stf_EntryTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ActionInfo">
+              <MappingFragment StoreEntitySet="ActionInfo">
+                <ScalarProperty Name="actionVersion" ColumnName="actionVersion" />
+                <ScalarProperty Name="prefixActionIDs" ColumnName="prefixActionIDs" />
+                <ScalarProperty Name="isLast" ColumnName="isLast" />
+                <ScalarProperty Name="isMulty" ColumnName="isMulty" />
+                <ScalarProperty Name="stepType" ColumnName="stepType" />
+                <ScalarProperty Name="stepRepeatNo" ColumnName="stepRepeatNo" />
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="modifyEmpID" ColumnName="modifyEmpID" />
+                <ScalarProperty Name="createEmpID" ColumnName="createEmpID" />
+                <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="actionName" ColumnName="actionName" />
+                <ScalarProperty Name="flowID" ColumnName="flowID" />
+                <ScalarProperty Name="actionID" ColumnName="actionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlowInfoes">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.FlowInfo">
+              <MappingFragment StoreEntitySet="FlowInfo">
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="modifyEmpID" ColumnName="modifyEmpID" />
+                <ScalarProperty Name="createEmpID" ColumnName="createEmpID" />
+                <ScalarProperty Name="modifyDate" ColumnName="modifyDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="flowName" ColumnName="flowName" />
+                <ScalarProperty Name="flowID" ColumnName="flowID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProcessDetails">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.ProcessDetail">
+              <MappingFragment StoreEntitySet="ProcessDetail">
+                <ScalarProperty Name="isRollBack" ColumnName="isRollBack" />
+                <ScalarProperty Name="isLast" ColumnName="isLast" />
+                <ScalarProperty Name="finishDate" ColumnName="finishDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="isDone" ColumnName="isDone" />
+                <ScalarProperty Name="processRoleID" ColumnName="processRoleID" />
+                <ScalarProperty Name="processNote" ColumnName="processNote" />
+                <ScalarProperty Name="processEmpID" ColumnName="processEmpID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="actionID" ColumnName="actionID" />
+                <ScalarProperty Name="processID" ColumnName="processID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

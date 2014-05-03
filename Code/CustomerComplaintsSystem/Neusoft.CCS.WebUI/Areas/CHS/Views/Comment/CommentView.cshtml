@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "评价投诉处理结果";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@section title{
+    评价投诉处理结果
+}
+@model Neusoft.CCS.Services.ViewModels.ComplaintHandlingDetailInfoViewModel
+
+
+<h2>评价投诉处理结果</h2>
+
+@if(Model!= null && Model.BasicInfo!= null)
+{
+ <table border="1px" bordercolor="#000000" cellspacing="0px" style="border-collapse:collapse">
+        <tr>
+            <td>
+                <strong>姓名</strong>
+            </td>
+            <td>
+               @Model.BasicInfo.ComplainerName
+            </td>
+            <td>
+                <strong>电话</strong>
+            </td>
+            <td>
+               @Model.BasicInfo.Phone
+            </td>
+            <td>
+                <strong>Email</strong>
+            </td>
+            <td>
+                 @Model.BasicInfo.Email
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <strong>投诉方式</strong>
+            </td>
+            <td>
+                 @Model.BasicInfo.Way
+            </td>
+            <td>
+                <strong>投诉地域</strong>
+            </td>
+            <td>
+                 @Model.BasicInfo.Area
+            </td>
+            <td>
+                <strong>投诉类别</strong>
+            </td>
+            <td>
+                 @Model.BasicInfo.Class
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>投诉时间</strong>
+            </td>
+            <td>
+                @Model.BasicInfo.Date.ToShortDateString()
+            </td>
+            <td>
+                <strong>开始受理时间</strong>
+            </td>
+            <td>
+                @if(Model.StartTime.Year>1)
+                {
+                  @Model.StartTime.ToShortDateString()
+                }
+            </td>
+            <td>
+                <strong>完成受理时间</strong>
+            </td>
+            <td>
+                @if (Model.EndTime.Year > 1)
+                {
+                @Model.EndTime.ToShortDateString()
+                }
+            </td>
+        </tr>
+        <tr>
+           <td>
+                <strong>客户问题描述</strong>
+           </td>
+           <td colspan="5">
+                @Model.Describe
+           </td>
+        </tr>
+        <tr>
+           <td>
+                <strong>解决方案</strong>
+           </td>
+           <td colspan="5">
+                @Model.Solution
+           </td>
+        </tr>
+      @*  <tr>
+           <td>
+                <strong>处理过程</strong>
+           </td>
+           <td colspan="5">
+                @Model.Process
+           </td>
+        </tr>*@
+    </table>
+    using (Html.BeginForm("Comment", "Comment", new { ID = @Model.BasicInfo.ID}))
+    {
+        <table>
+            <tr>
+                <td>
+                    <strong>评价内容：</strong>
+                </td>
+            
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextArea("Comment")
+                </td>
+            </tr>
+        </table>
+     <input type ="submit" value="提交评价" />
+    }
+}
+

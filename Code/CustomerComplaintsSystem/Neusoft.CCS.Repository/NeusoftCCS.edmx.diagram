@@ -40,6 +40,12 @@
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" ManuallyRouted="false" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" ManuallyRouted="false" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ActionInfo" Width="1.5" PointX="2.3734052639330763" PointY="24.050837796205112" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.FlowInfo" Width="1.5" PointX="2.1428814130569256" PointY="23.634157832541575" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.ProcessDetail" Width="1.5" PointX="6.4646647975149865" PointY="10.031446908615273" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_ProcessDetail_CaseInfo" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FlowInfoActionInfo" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.ActionInfoProcessDetail" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

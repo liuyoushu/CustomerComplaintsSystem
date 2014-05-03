@@ -47,21 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\CommentService.cs" />
     <Compile Include="Implementation\ComplaintInfoService.cs" />
     <Compile Include="Implementation\ComplaintReturnVisitInfoService.cs" />
+    <Compile Include="Implementation\ComplaintService.cs" />
+    <Compile Include="Interfaces\ICommentService.cs" />
     <Compile Include="Interfaces\IComplaintInfoService.cs" />
     <Compile Include="Interfaces\IComplaintReturnVisitInfoService.cs" />
+    <Compile Include="Interfaces\IComplaintService.cs" />
     <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
+    <Compile Include="Mappings\ComplaintMapper.cs" />
     <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
     <Compile Include="Messages\ComplaintInfoDetailResponse.cs" />
     <Compile Include="Messages\ComplaintInfoOverviewResponse.cs" />
+    <Compile Include="Messages\CreateComplaintResponse.cs" />
+    <Compile Include="Messages\FinishCaseResponse.cs" />
+    <Compile Include="Messages\GetAllBusinessesResponse.cs" />
+    <Compile Include="Messages\GetCommentedResponse.cs" />
+    <Compile Include="Messages\GetComplaintByUserResponse.cs" />
+    <Compile Include="Messages\GetComplaintDetailByIDResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitBoxResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitFormResponse.cs" />
     <Compile Include="Messages\ResponseBase.cs" />
+    <Compile Include="Messages\SaveCommentResponse.cs" />
+    <Compile Include="Messages\SaveSolutionResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ComplaintHandlingDetailInfoViewModel.cs" />
     <Compile Include="ViewModels\ComplaintInfoOverviewViewModel.cs" />
     <Compile Include="ViewModels\ComplaintInfoDetailViewModel.cs" />
+    <Compile Include="ViewModels\CreateComplaintViewModel.cs" />
+    <Compile Include="ViewModels\RetrieveComplaintInfoByUserViewModel.cs" />
     <Compile Include="ViewModels\ReturnVisitFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

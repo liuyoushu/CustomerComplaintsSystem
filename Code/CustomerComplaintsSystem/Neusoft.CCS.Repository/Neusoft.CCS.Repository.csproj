@@ -54,12 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionInfo.cs">
+      <DependentUpon>NeusoftCCS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Business.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="CaseInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
+    <Compile Include="CommentRepository.cs" />
     <Compile Include="Company.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
@@ -74,11 +78,15 @@
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="ComplaintInfoRepository.cs" />
+    <Compile Include="ComplaintRepository.cs" />
     <Compile Include="ComplaintReturnVisitInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="ComplaintReturnVisitInfoRepository.cs" />
     <Compile Include="Department.cs">
+      <DependentUpon>NeusoftCCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FlowInfo.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="History.cs">
@@ -123,6 +131,9 @@
       <DependentUpon>NeusoftCCS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
+      <DependentUpon>NeusoftCCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessDetail.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

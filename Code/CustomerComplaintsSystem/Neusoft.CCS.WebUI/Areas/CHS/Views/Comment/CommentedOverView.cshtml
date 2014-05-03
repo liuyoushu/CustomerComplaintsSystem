@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "已评价案件列表";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@section title{
+    已评价案件列表
+}
+@model List<Neusoft.CCS.Services.ViewModels.RetrieveComplaintInfoByUserViewModel>
+
+
+<h2>已评价案件列表</h2>
+@{
+   if(Model!=null)
+   {
+       <table border="1px" bordercolor="#000000" cellspacing="0px" style="border-collapse:collapse">
+           <tr>
+               <td>
+                   <strong>姓名</strong>
+               </td>
+               <td>
+                   <strong>电话</strong>
+               </td>
+               <td>
+                   <strong>Email</strong>
+               </td>
+               <td>
+                   <strong>投诉地域</strong>
+               </td>
+               <td>
+                   <strong>投诉类别</strong>
+               </td>
+               <td>
+                   <strong>投诉方式</strong>
+               </td>
+               <td>
+                   <strong>投诉时间</strong>
+               </td>
+               <td>
+                   <strong>操作</strong>
+               </td>
+           </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>@item.ComplainerName</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.Area</td>
+                <td>@item.Class</td>
+                <td>@item.Way</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@Html.ActionLink("查看详情","GetCommentedCaseDetail", new { ID = item.ID})</td>
+                </tr>
+            }
+       </table>
+   }
+}

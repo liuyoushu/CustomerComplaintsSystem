@@ -36,6 +36,10 @@ namespace Neusoft.CCS.Model.Entities
         /// </summary>
         public string Describe { get; set; }
         /// <summary>
+        /// 客户评价
+        /// </summary>
+        public string Comment { get; set; }
+        /// <summary>
         /// 受理开始时间
         /// </summary>
         public DateTime BeginTime { get; set; }

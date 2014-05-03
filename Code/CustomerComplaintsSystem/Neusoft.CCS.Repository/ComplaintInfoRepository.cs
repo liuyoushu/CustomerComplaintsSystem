@@ -9,7 +9,7 @@ using Neusoft.CCS.Model.Entities;
 
 namespace Neusoft.CCS.Repository
 {
-    public class ComplaintInfoRepository:IComplaintInfoRepository
+    public class ComplaintInfoRepository : IComplaintInfoRepository
     {
         public List<Model.Entities.ComplaintInfo> GetNotArchivedComplaintInfoList()
         {
