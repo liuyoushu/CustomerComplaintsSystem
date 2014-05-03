@@ -71,13 +71,13 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new Company()
                 {
-                   CompanyID = model.ID,
-                   CompanyName = model.Name,
-                   Province = model.Province,
-                   City = model.City,
-                   County = model.County,
-                   DetailedAddress = model.DetailedAddress,
-                   SuperiorComID = model.SuperiorCompany
+                    CompanyID = model.ID,
+                    CompanyName = model.Name,
+                    Province = model.Province,
+                    City = model.City,
+                    County = model.County,
+                    DetailedAddress = model.DetailedAddress,
+                    SuperiorComID = model.SuperiorCompany == null ? default(int) : model.SuperiorCompany,
                 };
             }
             return dataEntity;

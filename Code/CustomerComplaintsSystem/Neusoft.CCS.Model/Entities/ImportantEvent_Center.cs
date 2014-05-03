@@ -40,5 +40,9 @@ namespace Neusoft.CCS.Model.Entities
         /// 员工
         /// </summary>
         public Staff Staff { get; set; }
+        /// <summary>
+        /// 相关重大事件（部门）处理单
+        /// </summary>
+        public List<ImportantEvent_Department> ImportantEvent_Departments { get; set; }
     }
 }

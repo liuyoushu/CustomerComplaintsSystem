@@ -30,5 +30,10 @@ namespace Neusoft.CCS.Model.Entities
         /// 上级职位ID
         /// </summary>
         public int SuperiorID { get; set; }
+
+        /// <summary>
+        /// 该职位员工
+        /// </summary>
+        public List<Staff> Staffs { get; set; }
     }
 }

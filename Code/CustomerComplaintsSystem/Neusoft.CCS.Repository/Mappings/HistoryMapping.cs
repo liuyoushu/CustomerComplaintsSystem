@@ -71,7 +71,10 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     History_ID = model.ID,
                     History_Process = model.Process,
-                    History_HandleTime = model.HandleTime
+                    History_HandleTime = model.HandleTime,
+
+                    ID = model.CaseInfo.ID,
+                    Stf_ID = model.Staff.ID,
                 };
             }
             return dataEntity;

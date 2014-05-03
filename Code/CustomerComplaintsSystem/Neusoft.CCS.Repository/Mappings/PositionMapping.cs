@@ -24,6 +24,8 @@ namespace Neusoft.CCS.Repository.Mappings
                     Content = dataEntity.Post_Content,
                     Remark = dataEntity.Post_Remark,
                     SuperiorID = dataEntity.Post_SuperiorID.HasValue? default(int): dataEntity.Post_SuperiorID.Value
+
+                    Staffs = dataEntity.Staffs.ToModels(),
                 };
             }
             return Position;
@@ -67,7 +69,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     Post_Name = model.Name,
                     Post_Content = model.Content,
                     Post_Remark = model.Remark,
-                    Post_SuperiorID = model.SuperiorID
+                    Post_SuperiorID = model.SuperiorID,
+
+
                 };
             }
             return dataEntity;

@@ -28,8 +28,6 @@ namespace Neusoft.CCS.Repository.Mappings
                     Describe = dataEntity.Describe,
                     PhoneNumber = dataEntity.DepartmentPhoneNum,
                     Remark = dataEntity.DepartmentRemark,
-
-                    Businesses = new List<Model.Entities.Business>(),
                 };
             }
             return Department;
@@ -40,7 +38,7 @@ namespace Neusoft.CCS.Repository.Mappings
         /// </summary>
         /// <param name="entities">数据实体集合List_Repository.Department</param>
         /// <returns>业务实体集合List_Model.Entities.Department</returns>
-        public static List<Model.Entities.Department> ToModels(this List<Department> entities)
+        public static List<Model.Entities.Department> ToModels(this ICollection<Department> entities)
         {
             List<Model.Entities.Department> result = new List<Model.Entities.Department>();
             if (entities != null && entities.Count > 0)
@@ -73,7 +71,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     DepartmentName = model.Name,
                     Describe = model.Describe,
                     DepartmentPhoneNum = model.PhoneNumber,
-                    DepartmentRemark = model.Remark                    
+                    DepartmentRemark = model.Remark,           
+                    
+                    BussinessID = model.BusinessID,
                 };
             }
             return dataEntity;

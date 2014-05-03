@@ -74,7 +74,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     State = (int)model.State,
                     UnsatisfiedWithSolution = model.UnsatisfiedWithSolution,
 
-                    //Complainer = model.Complainer.ToDataEntity(),
+                    Com_ID = model.Complainer.ID,
                 };
             }
             return dataEntity;

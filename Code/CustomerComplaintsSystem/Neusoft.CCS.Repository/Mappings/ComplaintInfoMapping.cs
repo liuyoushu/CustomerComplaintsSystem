@@ -73,7 +73,7 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new ComplaintInfo()
                 {
-                    ID = model.ID,
+                    Cpt_InfoID = model.ID,
                     Cpt_Way = model.Way,
                     Cpt_Date = model.Date,
                     Cpt_Area = model.Area,
@@ -81,6 +81,9 @@ namespace Neusoft.CCS.Repository.Mappings
                     Cpt_Describe = model.Describe,
                     Cpt_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                     Cpt_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
+
+                    ID = model.CaseInfo.ID,
+                    BussinessID = model.Business.ID,
                 };
             }
             return dataEntity;

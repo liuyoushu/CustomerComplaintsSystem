@@ -22,5 +22,11 @@ namespace Neusoft.CCS.Model.Entities
         /// 业务描述
         /// </summary>
         public string Describe { get; set; }
+
+
+        /// <summary>
+        /// 业务部门
+        /// </summary>
+        public List<Department> Departments { get; set; }
     }
 }

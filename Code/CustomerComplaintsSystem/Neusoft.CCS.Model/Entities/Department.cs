@@ -31,9 +31,10 @@ namespace Neusoft.CCS.Model.Entities
         /// </summary>
         public string Remark { get; set; }
 
+
         /// <summary>
-        /// 部门业务
+        /// 业务ID
         /// </summary>
-        public List<Business> Businesses { get; set; }
+        public int BusinessID { get; set; }
     }
 }

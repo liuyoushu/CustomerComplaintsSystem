@@ -37,6 +37,11 @@ namespace Neusoft.CCS.Model.Entities
         /// </summary>
         public DateTime EntryTime { get; set; }
 
+
+        /// <summary>
+        /// 负责业务
+        /// </summary>
+        public Business Business { get; set; }
         /// <summary>
         /// 职位
         /// </summary>
