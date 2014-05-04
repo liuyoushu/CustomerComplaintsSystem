@@ -5,6 +5,7 @@ using Neusoft.CCS.Infrastructure.Logging;
 using Neusoft.CCS.Services.Mappings;
 using Neusoft.CCS.Services.ViewModels;
 using System;
+using System.Linq;
 
 namespace Neusoft.CCS.Services.Implementation
 {
@@ -36,11 +37,11 @@ namespace Neusoft.CCS.Services.Implementation
         public LoadingReturnVisitBoxResponse LoadingReturnVisitBox()
         {
             LoadingReturnVisitBoxResponse result = new LoadingReturnVisitBoxResponse();
-            var cptInfo = _cptRVInfoRepository.RetrieveReturnVistingList();
-            if (cptInfo != null && cptInfo.Count >= 0)
+            var cptRVDict = _cptRVInfoRepository.RetrieveReturnVistingList();
+            if (cptRVDict != null && cptRVDict.Count >= 0)
             {
                 result.IsSuccess = true;
-                result.RetrunVisitBox = cptInfo.ToOverviewViewModels();
+                result.RetrunVisitBox = cptRVDict.ToBoxViewModels();
             }
             else
             {
@@ -60,9 +61,9 @@ namespace Neusoft.CCS.Services.Implementation
         public LoadingReturnVisitFormResponse LoadingReturnVisitForm(int id)
         {
             LoadingReturnVisitFormResponse result = new LoadingReturnVisitFormResponse();
-            var cptInfo = _cptInfoRepository.GetDetailedInfoById(id);
             var cptRVInfo = _cptRVInfoRepository.RetrieveById(id);
-            var cptDAFInfo = _cptDAFInfoRepository.RetrieveById(id);
+            var cptDAFInfo = _cptDAFInfoRepository.RetrieveListByCaseId(cptRVInfo.CaseInfo.ID).First();
+            var cptInfo = _cptInfoRepository.RetrieveListByCaseId(cptRVInfo.CaseInfo.ID).First();
             if (cptRVInfo != null && cptDAFInfo != null && cptInfo != null)
             {
                 result.IsSuccess = true;

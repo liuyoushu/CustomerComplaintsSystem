@@ -5,6 +5,6 @@ namespace Neusoft.CCS.Model.Repositories
 {
     public interface IComplaintDisposeAndFeedbackInfoRepository
     {
-        ComplaintDisposeAndFeedbackInfo RetrieveById(int id);
+        List<ComplaintDisposeAndFeedbackInfo> RetrieveListByCaseId(int caseId);
     }
 }

@@ -79,8 +79,7 @@ namespace Neusoft.CCS.Repository.Mappings
                    CptDF_BeginTime = model.BeginTime == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                    CptDF_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
 
-                   ID = model.CaseInfo.ID,
-                   Stf_ID = model.Staff.ID,
+
                 };
             }
             return dataEntity;

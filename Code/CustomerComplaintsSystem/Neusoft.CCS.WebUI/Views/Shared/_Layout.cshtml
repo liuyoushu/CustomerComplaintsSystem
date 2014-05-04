@@ -115,7 +115,14 @@
                                                     @*<a href="http://www.865171.cn" target="main">投诉反馈回访</a>*@
                                                     @Html.ActionLink("投诉反馈回访", "ComplaintReturnVisitBox", "ComplaintReturnVisitInfo")
                                                 </li>
-                                                <li><a href="http://www.865171.cn" target="main">重大事件督办</a></li>
+                                                <li>
+                                                    @*<a href="http://www.865171.cn" target="main">重大事件督办</a>*@
+                                                    @Html.ActionLink("重大事件督办", "ImportantEventBox", "ImportantEventCenter")
+                                                </li>
+                                                <li>
+                                                    @*<a href="http://www.865171.cn" target="main">重大事件指派</a>*@
+                                                    @Html.ActionLink("重大事件指派", "ImportantEventBox", "ImportantEventDepartment")
+                                                </li>
                                                 <li>@*<a href="http://www.865171.cn" target="main">投诉处理总览</a>*@
                                                     @Html.ActionLink("投诉处理总览", "ComplaintOverview", "ComplaintInfo")
                                                 </li>

@@ -25,9 +25,7 @@ namespace Neusoft.CCS.Repository.Mappings
                 {
                     ID = dataEntity.BussinessID,
                     Name = dataEntity.BussinessName,
-                    Describe = dataEntity.BussinessDescribe,
-
-                    Departments = dataEntity.Departments.ToModels(),
+                    Describe = dataEntity.BussinessDescribe
                 };
             }
             return Business;
@@ -38,7 +36,7 @@ namespace Neusoft.CCS.Repository.Mappings
         /// </summary>
         /// <param name="entities">数据实体集合List_Repository.Business</param>
         /// <returns>业务实体集合List_Model.Entities.Business</returns>
-        public static List<Model.Entities.Business> ToModels(this ICollection<Business> entities)
+        public static List<Model.Entities.Business> ToModels(this List<Business> entities)
         {
             List<Model.Entities.Business> result = new List<Model.Entities.Business>();
             if (entities != null && entities.Count > 0)
@@ -70,7 +68,6 @@ namespace Neusoft.CCS.Repository.Mappings
                     BussinessID = model.ID,
                     BussinessName = model.Name,
                     BussinessDescribe = model.Describe
-
                 };
             }
             return dataEntity;

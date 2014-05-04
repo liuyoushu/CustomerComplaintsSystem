@@ -5,8 +5,9 @@ namespace Neusoft.CCS.Model.Repositories
 {
     public interface IComplaintReturnVisitInfoRepository
     {
-        List<ComplaintInfo> RetrieveReturnVistingList();
+        Dictionary<int, ComplaintInfo> RetrieveReturnVistingList();
         ComplaintReturnVisitInfo RetrieveById(int id);
         bool Update(ComplaintReturnVisitInfo cptRVInfo);
+        List<ComplaintReturnVisitInfo> RetrieveListByCaseId(int caseId);
     }
 }

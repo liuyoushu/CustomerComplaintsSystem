@@ -18,9 +18,9 @@ namespace Neusoft.CCS.Repository
             _logger = DI.SpringHelper.GetObject<ILogger>("DefaultLogger");
         }
 
-        public List<Model.Entities.ComplaintInfo> RetrieveReturnVistingList()
+        public Dictionary<int, Model.Entities.ComplaintInfo> RetrieveReturnVistingList()
         {
-            List<Model.Entities.ComplaintInfo> result = new List<Model.Entities.ComplaintInfo>();
+            Dictionary<int, Model.Entities.ComplaintInfo> result = new Dictionary<int,Model.Entities.ComplaintInfo>();
             using (NeusoftCCSEntities context = new NeusoftCCSEntities())
             {
                 var entities = (from cpt in context.ComplaintInfoes
@@ -30,24 +30,11 @@ namespace Neusoft.CCS.Repository
                                 where (caseInfo.State == ((int)CaseState.ReturnVisiting)
                                 && cptDAFInfo.CptDF_Satisfaction == ((int)Satisfaction.Unsatisfied)
                                 || cptDAFInfo.CptDF_Satisfaction == ((int)Satisfaction.Normal))
-                                select cpt);
-                result = entities.ToList().ToModels();
+                                select new { CptReVst_ID = cptRVInfo.CptReVst_ID, ComplaintInfo = cpt })
+                                .ToDictionary(s=>s.CptReVst_ID, s=>s.ComplaintInfo);
+                result = entities.ToBoxModels();
             }
 
-            return result;
-        }
-
-
-        public Model.Entities.ComplaintReturnVisitInfo RetrieveById(int id)
-        {
-            Model.Entities.ComplaintReturnVisitInfo result = new Model.Entities.ComplaintReturnVisitInfo();
-            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
-            {
-                var entity = (from cptRVInfo in context.ComplaintReturnVisitInfoes
-                              where cptRVInfo.ID == id
-                              select cptRVInfo);
-                result = entity.FirstOrDefault().ToModel();
-            }
             return result;
         }
 
@@ -86,6 +73,35 @@ namespace Neusoft.CCS.Repository
             }
 
             return true;
+        }
+
+
+        public Model.Entities.ComplaintReturnVisitInfo RetrieveById(int id)
+        {
+            Model.Entities.ComplaintReturnVisitInfo result = new Model.Entities.ComplaintReturnVisitInfo();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entity = (from cptRVInfo in context.ComplaintReturnVisitInfoes
+                              where cptRVInfo.CptReVst_ID == id
+                              select cptRVInfo);
+                result = entity.FirstOrDefault().ToModel();
+            }
+            return result;
+        }
+
+
+        public List<Model.Entities.ComplaintReturnVisitInfo> RetrieveListByCaseId(int caseId)
+        {
+            List<Model.Entities.ComplaintReturnVisitInfo> result = new List<Model.Entities.ComplaintReturnVisitInfo>();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entities = (from cptRVInfo in context.ComplaintReturnVisitInfoes
+                                where cptRVInfo.ID == caseId
+                                orderby cptRVInfo.CptReVst_Date descending
+                                select cptRVInfo);
+                result = entities.ToList().ToModels();
+            }
+            return result;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Neusoft.CCS.Repository.Mappings
         /// </summary>
         /// <param name="entities">数据实体集合List_Repository.Staff</param>
         /// <returns>业务实体集合List_Model.Entities.Staff</returns>
-        public static List<Model.Entities.Staff> ToModels(this ICollection<Staff> entities)
+        public static List<Model.Entities.Staff> ToModels(this List<Staff> entities)
         {
             List<Model.Entities.Staff> result = new List<Model.Entities.Staff>();
             if (entities != null && entities.Count > 0)
@@ -75,10 +75,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     Stf_Gender = model.Gender == "男" ? true : false,
                     Stf_Age = model.Age,
                     Stf_IdentifyCardNum = model.IdentifyCardNumber,
-                    Stf_EntryTime = model.EntryTime,
-
-                    BussinessID = model.Business.ID,
-                    Post_ID = model.Position.ID,
+                    Stf_EntryTime = model.EntryTime
                 };
             }
             return dataEntity;

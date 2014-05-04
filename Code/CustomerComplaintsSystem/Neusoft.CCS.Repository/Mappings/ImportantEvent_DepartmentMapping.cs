@@ -42,7 +42,7 @@ namespace Neusoft.CCS.Repository.Mappings
         /// </summary>
         /// <param name="entities">数据实体集合List_Repository.ImportantEvent_Department</param>
         /// <returns>业务实体集合List_Model.Entities.ImportantEvent_Department</returns>
-        public static List<Model.Entities.ImportantEvent_Department> ToModels(this ICollection<ImportantEvent_Department> entities)
+        public static List<Model.Entities.ImportantEvent_Department> ToModels(this List<ImportantEvent_Department> entities)
         {
             List<Model.Entities.ImportantEvent_Department> result = new List<Model.Entities.ImportantEvent_Department>();
             if (entities != null && entities.Count > 0)
@@ -75,11 +75,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     IptEvt_D_Duty = model.Duty,
                     IptEvt_D_Conclusion = model.Conclusion,
                     IptEvt_D_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
-                    IptEvt_D_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
-
-                    IptEvt_C_ID = model.ImportantEvent_Center.ID,
-                    ID = model.CaseInfo.ID,
-                    Stf_ID = model.Staff.ID,
+                    IptEvt_D_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime
                 };
             }
             return dataEntity;

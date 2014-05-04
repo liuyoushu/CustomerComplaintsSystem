@@ -31,8 +31,6 @@ namespace Neusoft.CCS.Repository.Mappings
 
                     CaseInfo = dataEntity.CaseInfo.ToModel(),
                     Staff = dataEntity.Staff.ToModel(),
-
-                    ImportantEvent_Departments = dataEntity.ImportantEvent_Department.ToModels()
                 };
             }
             return ImportantEvent_Center;

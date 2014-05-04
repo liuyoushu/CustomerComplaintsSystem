@@ -11,7 +11,11 @@ namespace Neusoft.CCS.Model.Entities
     /// </summary>
     public enum CaseState
     {
+        //重大事件相关
         ImportantEvent = 60,
+        ImptEvt_DeptDecided = 61,
+        ImptEvt_StaffAllocated = 62,
+        ImptEvt_Handled = 63,
 
         Rehandling = 70,
 

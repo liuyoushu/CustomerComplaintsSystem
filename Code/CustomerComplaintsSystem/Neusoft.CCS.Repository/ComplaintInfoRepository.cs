@@ -6,7 +6,7 @@ using Neusoft.CCS.Model.Entities;
 
 namespace Neusoft.CCS.Repository
 {
-    public class ComplaintInfoRepository:IComplaintInfoRepository
+    public class ComplaintInfoRepository : IComplaintInfoRepository
     {
         public List<Model.Entities.ComplaintInfo> GetNotArchivedComplaintInfoList()
         {
@@ -32,6 +32,21 @@ namespace Neusoft.CCS.Repository
                               where cpt.ID == id
                               select cpt).FirstOrDefault();
                 result = entity.ToModel();
+            }
+            return result;
+        }
+
+
+        public List<Model.Entities.ComplaintInfo> RetrieveListByCaseId(int caseId)
+        {
+            List<Model.Entities.ComplaintInfo> result = new List<Model.Entities.ComplaintInfo>();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entities = (from cpt in context.ComplaintInfoes
+                                where cpt.ID == caseId
+                                orderby cpt.Cpt_EndTime descending
+                                select cpt);
+                result = entities.ToList().ToModels();
             }
             return result;
         }

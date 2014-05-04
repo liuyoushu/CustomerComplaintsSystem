@@ -7,5 +7,6 @@ namespace Neusoft.CCS.Model.Repositories
     {
         List<ComplaintInfo> GetNotArchivedComplaintInfoList();
         ComplaintInfo GetDetailedInfoById(int id);
+        List<ComplaintInfo> RetrieveListByCaseId(int caseId);
     }
 }

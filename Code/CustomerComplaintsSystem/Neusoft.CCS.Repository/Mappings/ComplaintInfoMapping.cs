@@ -61,6 +61,23 @@ namespace Neusoft.CCS.Repository.Mappings
             return result;
         }
 
+        public static Dictionary<int, Model.Entities.ComplaintInfo> ToBoxModels(this Dictionary<int, ComplaintInfo> dataEntities)
+        {
+            Dictionary<int, Model.Entities.ComplaintInfo> result = new Dictionary<int, Model.Entities.ComplaintInfo>();
+            if (dataEntities != null && dataEntities.Count > 0)
+            {
+                foreach (var item in dataEntities)
+                {
+                    var model = item.Value.ToModel();
+                    if (model != null)
+                    {
+                        result.Add(item.Key, model);
+                    }
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// 业务实体Model.Entities.ComplaintInfo到数据实体Repository.ComplaintInfo的映射
         /// </summary>
@@ -73,7 +90,7 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new ComplaintInfo()
                 {
-                    Cpt_InfoID = model.ID,
+                    ID = model.ID,
                     Cpt_Way = model.Way,
                     Cpt_Date = model.Date,
                     Cpt_Area = model.Area,
@@ -81,9 +98,6 @@ namespace Neusoft.CCS.Repository.Mappings
                     Cpt_Describe = model.Describe,
                     Cpt_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                     Cpt_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
-
-                    ID = model.CaseInfo.ID,
-                    BussinessID = model.Business.ID,
                 };
             }
             return dataEntity;

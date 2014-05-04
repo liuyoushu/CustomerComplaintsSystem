@@ -79,9 +79,6 @@ namespace Neusoft.CCS.Repository.Mappings
                     CptReVst_Content = model.Content,
                     CptReVst_BeginTime = model.BeginTime  == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                     CptReVst_EndTime = model.EndTime  == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
-
-                    ID = model.CaseInfo.ID,
-                    Stf_ID = model.Staff.ID,
                 };
             }
             return dataEntity;

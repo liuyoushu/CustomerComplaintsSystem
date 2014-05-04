@@ -1,13 +1,14 @@
 ﻿@{
-    ViewBag.Title = "ComplaintReturnVisitBox";
+    ViewBag.Title = "ImportantEventBox";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Neusoft.CCS.Services.ViewModels; @*导入视图模型所在命名空间*@
 @using Neusoft.CCS.Services.Messages;@*导入SOA基本模式“请求-相应”模型消息所在命名空间*@
 
 @section title{
-待回访
+重大事件列表
 }
+
 @model Dictionary<int, ComplaintInfoOverviewViewModel>
 
 <table border="1px">
@@ -25,7 +26,7 @@
             <td>@item.Value.ComplainerName</td>
             <td>@item.Value.Date</td>
             <td>@item.Value.Way</td>
-            <td>@Html.ActionLink("回访", "ReturnVisiting", new { id = item.Key })</td>
+            <td>@Html.ActionLink("督办", "ImptEvtCenterHanding", new { id = item.Key })</td>
         </tr>
     }
 </table>

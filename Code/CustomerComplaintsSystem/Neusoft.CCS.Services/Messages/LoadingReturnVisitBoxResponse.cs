@@ -5,6 +5,6 @@ namespace Neusoft.CCS.Services.Messages
 {
     public class LoadingReturnVisitBoxResponse : ResponseBase
     {
-        public List<ComplaintInfoOverviewViewModel> RetrunVisitBox { get; set; }
+        public Dictionary<int, ComplaintInfoOverviewViewModel> RetrunVisitBox { get; set; }
     }
 }

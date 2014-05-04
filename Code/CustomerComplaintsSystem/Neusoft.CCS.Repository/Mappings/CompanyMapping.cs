@@ -31,7 +31,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     DetailedAddress = dataEntity.DetailedAddress,
                     SuperiorCompany = dataEntity.SuperiorComID.Value,
 
-                    Departments = new List<Model.Entities.Department>(),
+                    //Departments = new List<Model.Entities.Department>(),
                 };
             }
             return Company;
@@ -71,13 +71,13 @@ namespace Neusoft.CCS.Repository.Mappings
             {
                 dataEntity = new Company()
                 {
-                    CompanyID = model.ID,
-                    CompanyName = model.Name,
-                    Province = model.Province,
-                    City = model.City,
-                    County = model.County,
-                    DetailedAddress = model.DetailedAddress,
-                    SuperiorComID = model.SuperiorCompany == null ? default(int) : model.SuperiorCompany,
+                   CompanyID = model.ID,
+                   CompanyName = model.Name,
+                   Province = model.Province,
+                   City = model.City,
+                   County = model.County,
+                   DetailedAddress = model.DetailedAddress,
+                   SuperiorComID = model.SuperiorCompany
                 };
             }
             return dataEntity;

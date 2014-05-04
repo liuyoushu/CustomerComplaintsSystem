@@ -40,6 +40,20 @@ namespace Neusoft.CCS.Services.Mappings
             return result;
         }
 
+        public static Dictionary<int, ComplaintInfoOverviewViewModel> ToBoxViewModels(this Dictionary<int, Model.Entities.ComplaintInfo> dict)
+        {
+            Dictionary<int, ComplaintInfoOverviewViewModel> result = null;
+            if (dict != null && dict.Count > 0)
+            {
+                result = new Dictionary<int, ComplaintInfoOverviewViewModel>();
+                foreach (var item in dict)
+                {
+                    result.Add(item.Key, item.Value.ToOverviewViewModel());
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// 投诉处理督办用例 中Complaint到视图模型的Mapping
         /// </summary>
