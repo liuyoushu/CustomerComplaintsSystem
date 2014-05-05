@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "ImptEvtHanding";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*指定该页面模型的类型*@
+@model Neusoft.CCS.Services.ViewModels.ImptEvtCenterFormViewModel
+
+@section title{
+投诉回访单
+}
+
+@*客户端模型验证脚本开启*@
+@{Html.EnableClientValidation(true);}
+
+@using (Html.BeginForm("ImportantEventtHanding", "ImportantEventCenter", FormMethod.Post))//TODO
+{
+    <table border="1px">
+        @Html.HiddenFor(s => s.CaseID)
+        @Html.HiddenFor(s => s.ImptEvtCenterID)
+        @Html.HiddenFor(s => s.BeginTime)
+        <tr>
+            <td>@Html.LabelFor(s => s.ComplaintDate)</td>
+            <td>@Model.ComplaintDate</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s => s.Class)</td>
+            <td>@Model.Class</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s => s.Describe)</td>
+            <td>@Model.Describe</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s => s.Name)</td>
+            <td>@Model.Name</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(s => s.Satisfaction)</td>
+            <td>@Model.Satisfaction</td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(s => s.Content)
+            </td>
+            <td>
+                @Model.Content
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                @Html.LabelFor(s => s.ComplaintReason)
+            </td>
+            <td>
+                @Model.ComplaintReason
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(s => s.Solution)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(s => s.Solution)
+                    @Html.ValidationMessageFor(s => s.Solution)
+                </div>
+            </td>
+        </tr>
+
+        @if (@Model.IsHandled)
+        {
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(s => s.Solution)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(s => s.Solution)
+                        @Html.ValidationMessageFor(s => s.Solution)
+                    </div>
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="2" align="right">
+                @*按钮没有相应的HtmlHelper方法，故必须自己写*@
+                <input type="submit" id="btnSure" value="提 交" />
+                <input type="reset" id="btnCancel" value="取 消" />
+            </td>
+        </tr>
+
+    </table>
+}

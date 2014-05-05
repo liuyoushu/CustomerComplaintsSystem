@@ -66,7 +66,7 @@ namespace Neusoft.CCS.Services.Implementation
             var cptInfo = _cptInfoRepository.RetrieveListByCaseId(cptRVInfo.CaseInfo.ID).First();
             if (cptRVInfo != null && cptDAFInfo != null && cptInfo != null)
             {
-                result.IsSuccess = true;
+                
                 result.ReturnVisitForm = cptRVInfo.ToReturnVisitFormViewModel();
                 result.ReturnVisitForm.BeginTime = DateTime.Now;//记录开始回访时间
                 //投诉回访单的其他项
@@ -75,6 +75,8 @@ namespace Neusoft.CCS.Services.Implementation
                 result.ReturnVisitForm.Describe = cptInfo.Describe;
                 result.ReturnVisitForm.Name = cptInfo.Business.Name;
                 result.ReturnVisitForm.Satisfaction = cptDAFInfo.SatisfactionToString();
+
+                result.IsSuccess = true;
             }
             else
             {
@@ -148,6 +150,7 @@ namespace Neusoft.CCS.Services.Implementation
             catch (Exception ex)
             {
                 _logger.Error(this, "投诉反馈回访单提交失败", ex);
+                return false;
             }
 
 

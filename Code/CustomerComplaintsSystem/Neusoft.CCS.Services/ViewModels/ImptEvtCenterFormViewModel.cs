@@ -70,7 +70,7 @@ namespace Neusoft.CCS.Services.ViewModels
         /// <summary>
         /// 重大事件（中心）处理信息ID
         /// </summary>
-        public int ID { get; set; }
+        public int ImptEvtCenterID { get; set; }
         /// <summary>
         /// 总解决方案
         /// </summary>

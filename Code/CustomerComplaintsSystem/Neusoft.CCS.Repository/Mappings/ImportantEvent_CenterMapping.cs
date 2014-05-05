@@ -75,8 +75,8 @@ namespace Neusoft.CCS.Repository.Mappings
                     IptEvt_C_BeginDate = model.BeginTime == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                     IptEvt_C_EndDate = model.EndTime  == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
                     IptEvt_C_Conclusion = model.Conclusion,
-                    ID = model.CaseInfo.ID,
-                    Stf_ID = model.Staff.ID
+                    //ID = model.CaseInfo.ID,
+                    //Stf_ID = model.Staff.ID
 
                     //CaseInfo = model.CaseInfo.ToDataEntity(),
                     //Staff = model.Staff.ToDataEntity(),

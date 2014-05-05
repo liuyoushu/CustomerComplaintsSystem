@@ -56,6 +56,7 @@
     <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
+    <Compile Include="Mappings\ImptEvtCenterMapper.cs" />
     <Compile Include="Messages\ComplaintInfoDetailResponse.cs" />
     <Compile Include="Messages\ComplaintInfoOverviewResponse.cs" />
     <Compile Include="Messages\LoadingImptEventBoxForCenterResponse.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ComplaintInfoOverviewViewModel.cs" />
     <Compile Include="ViewModels\ComplaintInfoDetailViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentResponsibilitiesViewModel.cs" />
     <Compile Include="ViewModels\ImptEvtCenterFormViewModel.cs" />
     <Compile Include="ViewModels\ReturnVisitFormViewModel.cs" />
   </ItemGroup>

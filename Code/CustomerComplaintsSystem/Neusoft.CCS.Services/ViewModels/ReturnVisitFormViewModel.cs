@@ -52,7 +52,7 @@ namespace Neusoft.CCS.Services.ViewModels
         /// <summary>
         /// 回访时间
         /// </summary>
-        [DisplayName("投诉类别")]
+        [DisplayName("回访时间")]
         [DataType(DataType.DateTime)]
         public DateTime ReturnVisitDate { get; set; }
         /// <summary>
