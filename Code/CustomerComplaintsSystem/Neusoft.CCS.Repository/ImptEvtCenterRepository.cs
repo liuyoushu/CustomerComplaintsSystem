@@ -48,7 +48,8 @@ namespace Neusoft.CCS.Repository
             {
                 var imptEvtCenterList = (from item in context.ImportantEvent_Center
                                          join caseInfo in context.CaseInfoes on item.ID equals caseInfo.ID
-                                         where (caseInfo.State == ((int)CaseState.ImportantEvent))
+                                         where (caseInfo.State == ((int)CaseState.ImportantEvent) || 
+                                                caseInfo.State == ((int)CaseState.ImptEvt_Handled))
                                          select item).ToList();
                 foreach (var imptEvt in imptEvtCenterList)
                 {

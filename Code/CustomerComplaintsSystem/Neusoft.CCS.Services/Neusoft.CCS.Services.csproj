@@ -69,6 +69,7 @@
     <Compile Include="ViewModels\ComplaintInfoDetailViewModel.cs" />
     <Compile Include="ViewModels\DepartmentResponsibilitiesViewModel.cs" />
     <Compile Include="ViewModels\ImptEvtCenterFormViewModel.cs" />
+    <Compile Include="Messages\LoadingBizNameWithLeaderIdResponse.cs" />
     <Compile Include="ViewModels\ReturnVisitFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

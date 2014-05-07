@@ -64,13 +64,54 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             }
 
             if (model.IsHandled)//已经处理完毕
-                return RedirectToAction("ImportantEventBox", "ImportantEventCenterController");
+                return RedirectToAction("ImportantEventBox", "ImportantEventCenter");
             else
-                return RedirectToAction("DecideResponsibilities", "ImportantEventCenterController", new { id = model.ImptEvtCenterID });
+                return RedirectToAction("DecideResponsibilities", "ImportantEventCenter", new { id = model.ImptEvtCenterID });
         }
 
+
+        /// <summary>
+        /// 读取业务部门和
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
         public PartialViewResult DecideResponsibilities(int id)
         {
+            var response = DI.SpringHelper.GetObject<IImptEvtCenterService>("ImptEvtCenterService").LoadingBizNameWithLeaderId(id);
+            if (!response.IsSuccess)
+            {
+                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
+            }
+
+            //1.2将数据封装到 SelectList中，并指定 要生成下拉框选项的 value 和 text 属性
+            SelectList bizNameWithLeaderIdA = new SelectList(response.BizNameWithLeaderId.BizNameWithLeaderId, "Key", "Value");
+            ViewData["bizNameWithLeaderIdA"] = bizNameWithLeaderIdA.AsEnumerable();
+
+            return PartialView(response.BizNameWithLeaderId);
         }
+
+        //[HttpPost]
+        //public void DecideResponsibility(ResponsibilityViewModel model)
+        //{
+        //    if (true)
+        //    {
+        //        Response.Write("<script>alert('提交部门职责信息失败！')</script>");
+        //    }
+        //    //throw new NotImplementedException();
+        //}
+
+        [HttpPost]
+        public ActionResult DecideResponsibilities(DepartmentResponsibilitiesViewModel model)
+        {
+            if (!DI.SpringHelper.GetObject<IImptEvtCenterService>("ImptEvtCenterService").DecideResponsibilities(model))
+            {
+                Response.Write("<script>alert('提交部门间职责信息失败！')</script>");
+            }
+
+            return RedirectToAction("ImportantEventBox", "ImportantEventCenter");
+        }
+
+
     }
 }

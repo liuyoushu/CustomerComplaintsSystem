@@ -95,6 +95,7 @@
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="ImptEvtCenterRepository.cs" />
+    <Compile Include="ImptEvtDeptRepository.cs" />
     <Compile Include="Mappings\BusinessMapping.cs" />
     <Compile Include="Mappings\CaseInfoMapping.cs" />
     <Compile Include="Mappings\CompanyMapping.cs" />

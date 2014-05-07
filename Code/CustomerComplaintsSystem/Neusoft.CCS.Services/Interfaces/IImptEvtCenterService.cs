@@ -11,5 +11,9 @@ namespace Neusoft.CCS.Services.Interfaces
         LoadingImptEvtCenterFormResponse LoadingImptEvtCenterForm(int id);
 
         bool SubmitImptEvtCenterForm(ImptEvtCenterFormViewModel imptEvtCenterForm);
+
+        LoadingBizNameWithLeaderIdResponse LoadingBizNameWithLeaderId(int id);
+
+        bool DecideResponsibilities(DepartmentResponsibilitiesViewModel model);
     }
 }

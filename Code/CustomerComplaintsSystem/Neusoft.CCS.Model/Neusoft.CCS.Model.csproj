@@ -65,6 +65,7 @@
     <Compile Include="Repositories\IComplaintInfoRepository.cs" />
     <Compile Include="Repositories\IComplaintReturnVisitInfoRepository.cs" />
     <Compile Include="Repositories\IImptEvtCenterRepository.cs" />
+    <Compile Include="Repositories\IImptEvtDeptRepository.cs" />
     <Compile Include="Repositories\IStaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>

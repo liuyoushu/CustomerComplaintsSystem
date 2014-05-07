@@ -6,6 +6,7 @@ using Neusoft.CCS.Services.Mappings;
 using Neusoft.CCS.Services.ViewModels;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Neusoft.CCS.Services.Implementation
 {
@@ -16,6 +17,7 @@ namespace Neusoft.CCS.Services.Implementation
         private IComplaintInfoRepository _cptInfoRepository;
         private ICaseInfoRepository _caseInfoRepository;
         private IImptEvtCenterRepository _imptEvtCenterRepository;
+        private IImptEvtDeptRepository _imptEvtDeptRepository;
         private IStaffRepository _staffRepository;
         private ILogger _logger;
 
@@ -27,6 +29,8 @@ namespace Neusoft.CCS.Services.Implementation
             _caseInfoRepository = DI.SpringHelper.GetObject<ICaseInfoRepository>("CaseInfoRepository");
             _imptEvtCenterRepository = DI.SpringHelper.GetObject<IImptEvtCenterRepository>("ImptEvtCenterRepository");
             _staffRepository = DI.SpringHelper.GetObject<IStaffRepository>("StaffRepository");
+            _imptEvtDeptRepository = DI.SpringHelper.GetObject<IImptEvtDeptRepository>("ImptEvtDeptRepository");
+
             _logger = DI.SpringHelper.GetObject<ILogger>("DefaultLogger");
         }
 
@@ -93,9 +97,14 @@ namespace Neusoft.CCS.Services.Implementation
         }
 
 
+        /// <summary>
+        /// 保存重大事件（中心）处理单
+        /// </summary>
+        /// <param name="imptEvtCenterForm"></param>
+        /// <returns></returns>
         public bool SubmitImptEvtCenterForm(ImptEvtCenterFormViewModel imptEvtCenterForm)
         {
-            imptEvtCenterForm.EndTime = DateTime.Now;//记录结束时间
+            //imptEvtCenterForm.EndTime = DateTime.Now;//记录结束时间
 
             Model.Entities.ImportantEvent_Center imptEvtCenter = imptEvtCenterForm.ImptEvtCenterViewModelToEntity();//转换为业务对象
             imptEvtCenter.CaseInfo = _caseInfoRepository.RetrieveById(imptEvtCenterForm.CaseID);//查询出相应案件信息
@@ -111,6 +120,103 @@ namespace Neusoft.CCS.Services.Implementation
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 读取业务部门名称及其第一负责人名
+        /// </summary>
+        /// <returns></returns>
+        public LoadingBizNameWithLeaderIdResponse LoadingBizNameWithLeaderId(int id)
+        {
+            LoadingBizNameWithLeaderIdResponse result = new LoadingBizNameWithLeaderIdResponse();
+            result.BizNameWithLeaderId = new DepartmentResponsibilitiesViewModel();
+            //result.BizNameWithLeaderId.Responsibilities = new Dictionary<string, ResponsibilityViewModel>();
+            //result.BizNameWithLeaderId.Duties = new Dictionary<string, string>();
+
+            var imptEvtCenter = _imptEvtCenterRepository.RetrieveById(id);
+            //var bizNameWithLeaderIdDict = _staffRepository.RetrieveListWithChargingBizName();
+
+
+            result.BizNameWithLeaderId.ImptEvtCenterID = imptEvtCenter.ID;
+            result.BizNameWithLeaderId.CaseID = imptEvtCenter.CaseInfo.ID;
+
+            result.BizNameWithLeaderId.BizNameWithLeaderId = _staffRepository.RetrieveListWithChargingBizName();
+            //foreach (var item in bizNameWithLeaderIdDict)
+            //{
+
+            //    //result.BizNameWithLeaderId.Responsibilities.Add(item.Key, new ResponsibilityViewModel()
+            //    //{
+            //    //    LeaderId = item.Key,
+            //    //    BizName = item.Value
+            //    //});
+            //    //result.BizNameWithLeaderId.Duties.Add(item.Key, string.Empty);
+            //}
+
+
+            result.IsSuccess = true;
+            return result;
+        }
+
+
+        public bool DecideResponsibilities(DepartmentResponsibilitiesViewModel model)
+        {
+
+
+            try
+            {
+                if (!string.IsNullOrEmpty(model.DutyA))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdA, model.ImptEvtCenterID, model.CaseID, model.DutyA);
+                }
+
+                if (!string.IsNullOrEmpty(model.DutyB))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdB, model.ImptEvtCenterID, model.CaseID, model.DutyB);
+                }
+
+                if (!string.IsNullOrEmpty(model.DutyC))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdC, model.ImptEvtCenterID, model.CaseID, model.DutyC);
+                }
+
+                if (!string.IsNullOrEmpty(model.DutyD))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdD, model.ImptEvtCenterID, model.CaseID, model.DutyD);
+                }
+
+                if (!string.IsNullOrEmpty(model.DutyE))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdE, model.ImptEvtCenterID, model.CaseID, model.DutyE);
+                }
+
+                if (!string.IsNullOrEmpty(model.DutyF))
+                {
+                    this.CreteImptEvtDept(model.LeaderIdF, model.ImptEvtCenterID, model.CaseID, model.DutyF);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(this, "部门间沟通协调失败", ex);
+                return false;
+            }
+
+            //TODO:next step
+
+            return true;
+
+        }
+
+        private void CreteImptEvtDept(string staffId, int imptEvtCenterId, int caseId, string duty)
+        {
+            Model.Entities.ImportantEvent_Department imptEvtDept = new Model.Entities.ImportantEvent_Department()
+            {
+                Duty = duty
+            };
+            imptEvtDept.CaseInfo = _caseInfoRepository.RetrieveById(caseId);
+            imptEvtDept.Staff = _staffRepository.RetrieveById(staffId);
+            imptEvtDept.ImportantEvent_Center = _imptEvtCenterRepository.RetrieveById(imptEvtCenterId);
+
+            _imptEvtDeptRepository.Create(imptEvtDept);
         }
     }
 }
