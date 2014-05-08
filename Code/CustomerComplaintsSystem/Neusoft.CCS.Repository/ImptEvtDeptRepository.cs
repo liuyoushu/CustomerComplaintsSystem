@@ -41,5 +41,28 @@ namespace Neusoft.CCS.Repository
 
             return true;
         }
+
+
+        public Dictionary<int, Model.Entities.ComplaintInfo> RetrieveList()//string staffId
+        {
+            Dictionary<int, Model.Entities.ComplaintInfo> result = new Dictionary<int, Model.Entities.ComplaintInfo>();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var imptEvtDeptList = (from item in context.ImportantEvent_Department
+                                         join caseInfo in context.CaseInfoes on item.ID equals caseInfo.ID
+                                         where caseInfo.State == ((int)CaseState.ImptEvt_DeptDecided)
+                                               //&& item.Stf_ID == staffId)
+                                         select item).ToList();
+                foreach (var imptEvt in imptEvtDeptList)
+                {
+                    var cptInfo = (from item in context.ComplaintInfoes
+                                   where item.ID == imptEvt.CaseInfo.ID
+                                   orderby item.Cpt_EndTime descending
+                                   select item).FirstOrDefault().ToModel();
+                    result.Add(imptEvt.IptEvt_D_ID, cptInfo);
+                }
+            }
+            return result;
+        }
     }
 }

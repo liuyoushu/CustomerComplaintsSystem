@@ -116,6 +116,7 @@
     <Compile Include="Areas\RVASS\Controllers\ComplaintInfoController.cs" />
     <Compile Include="Areas\RVASS\Controllers\ComplaintReturnVisitInfoController.cs" />
     <Compile Include="Areas\RVASS\Controllers\ImportantEventCenterController.cs" />
+    <Compile Include="Areas\RVASS\Controllers\ImportantEventDepartmentController.cs" />
     <Compile Include="Areas\RVASS\RVASSAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +265,7 @@
     <Content Include="Areas\RVASS\Views\ImportantEventCenter\ImportantEventBox.cshtml" />
     <Content Include="Areas\RVASS\Views\ImportantEventCenter\ImportantEventtHanding.cshtml" />
     <Content Include="Areas\RVASS\Views\ImportantEventCenter\DecideResponsibilities.cshtml" />
+    <Content Include="Areas\RVASS\Views\ImportantEventDepartment\ImportantEventBox.cshtml" />
     <None Include="js\jquery-1.7.1.intellisense.js" />
     <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-1.7.1.min.js" />

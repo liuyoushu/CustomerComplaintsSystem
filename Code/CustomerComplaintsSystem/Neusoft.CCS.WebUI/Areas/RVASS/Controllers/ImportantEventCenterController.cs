@@ -15,10 +15,6 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         //
         // GET: /RVASS/ImportantEventCenter/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         /// <summary>
         /// 重大事件（中心）处理单列表
@@ -27,11 +23,7 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         public ActionResult ImportantEventBox()
         {
             var response = DI.SpringHelper.GetObject<IImptEvtCenterService>("ImptEvtCenterService").LoadingImptEventBoxForCenter();
-            if (!response.IsSuccess)
-            {
-                Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
-            }
-            return View(response.ImptEventBoxForCenter);
+            return View(response);
         }
 
         /// <summary>
@@ -91,15 +83,6 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             return PartialView(response.BizNameWithLeaderId);
         }
 
-        //[HttpPost]
-        //public void DecideResponsibility(ResponsibilityViewModel model)
-        //{
-        //    if (true)
-        //    {
-        //        Response.Write("<script>alert('提交部门职责信息失败！')</script>");
-        //    }
-        //    //throw new NotImplementedException();
-        //}
 
         [HttpPost]
         public ActionResult DecideResponsibilities(DepartmentResponsibilitiesViewModel model)

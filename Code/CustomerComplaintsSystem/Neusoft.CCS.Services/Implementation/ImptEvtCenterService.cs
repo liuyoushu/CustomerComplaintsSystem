@@ -43,10 +43,15 @@ namespace Neusoft.CCS.Services.Implementation
         {
             LoadingImptEventBoxForCenterResponse result = new LoadingImptEventBoxForCenterResponse();
             var cptInfoDict = _imptEvtCenterRepository.RetrieveList();
-            if (cptInfoDict != null && cptInfoDict.Count >= 0)
+            if (cptInfoDict != null && cptInfoDict.Count > 0)
             {
                 result.IsSuccess = true;
                 result.ImptEventBoxForCenter = cptInfoDict.ToBoxViewModels();
+            }
+            else if (cptInfoDict != null && cptInfoDict.Count == 0)
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "无重大事件待督办";
             }
             else
             {
@@ -179,7 +184,6 @@ namespace Neusoft.CCS.Services.Implementation
                     this.CreteImptEvtDept(model.LeaderIdF, model.ImptEvtCenterID, model.CaseID, model.DutyF);
                 }
 
-                //TODO:next step
 
                 CaseInfo caseInfo = _caseInfoRepository.RetrieveById(model.CaseID);
                 //更新案件状态
@@ -194,10 +198,7 @@ namespace Neusoft.CCS.Services.Implementation
                 return false;
             }
 
-
-
             return true;
-
         }
 
         private void CreteImptEvtDept(string staffId, int imptEvtCenterId, int caseId, string duty)
