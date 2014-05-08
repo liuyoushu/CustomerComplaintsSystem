@@ -6,7 +6,7 @@ using Neusoft.CCS.Services.Mappings;
 using Neusoft.CCS.Services.ViewModels;
 using System;
 using System.Linq;
-using System.Collections.Generic;
+using Neusoft.CCS.Model.Entities;
 
 namespace Neusoft.CCS.Services.Implementation
 {
@@ -130,27 +130,14 @@ namespace Neusoft.CCS.Services.Implementation
         {
             LoadingBizNameWithLeaderIdResponse result = new LoadingBizNameWithLeaderIdResponse();
             result.BizNameWithLeaderId = new DepartmentResponsibilitiesViewModel();
-            //result.BizNameWithLeaderId.Responsibilities = new Dictionary<string, ResponsibilityViewModel>();
-            //result.BizNameWithLeaderId.Duties = new Dictionary<string, string>();
 
             var imptEvtCenter = _imptEvtCenterRepository.RetrieveById(id);
-            //var bizNameWithLeaderIdDict = _staffRepository.RetrieveListWithChargingBizName();
 
 
             result.BizNameWithLeaderId.ImptEvtCenterID = imptEvtCenter.ID;
             result.BizNameWithLeaderId.CaseID = imptEvtCenter.CaseInfo.ID;
 
             result.BizNameWithLeaderId.BizNameWithLeaderId = _staffRepository.RetrieveListWithChargingBizName();
-            //foreach (var item in bizNameWithLeaderIdDict)
-            //{
-
-            //    //result.BizNameWithLeaderId.Responsibilities.Add(item.Key, new ResponsibilityViewModel()
-            //    //{
-            //    //    LeaderId = item.Key,
-            //    //    BizName = item.Value
-            //    //});
-            //    //result.BizNameWithLeaderId.Duties.Add(item.Key, string.Empty);
-            //}
 
 
             result.IsSuccess = true;
@@ -160,8 +147,6 @@ namespace Neusoft.CCS.Services.Implementation
 
         public bool DecideResponsibilities(DepartmentResponsibilitiesViewModel model)
         {
-
-
             try
             {
                 if (!string.IsNullOrEmpty(model.DutyA))
@@ -193,6 +178,15 @@ namespace Neusoft.CCS.Services.Implementation
                 {
                     this.CreteImptEvtDept(model.LeaderIdF, model.ImptEvtCenterID, model.CaseID, model.DutyF);
                 }
+
+                //TODO:next step
+
+                CaseInfo caseInfo = _caseInfoRepository.RetrieveById(model.CaseID);
+                //更新案件状态
+                caseInfo.State = Model.Entities.CaseState.ImptEvt_DeptDecided;//更新案件状态至部门间沟通协调完毕
+
+                //更新案件信息状态
+                _caseInfoRepository.Update(caseInfo);
             }
             catch (Exception ex)
             {
@@ -200,7 +194,7 @@ namespace Neusoft.CCS.Services.Implementation
                 return false;
             }
 
-            //TODO:next step
+
 
             return true;
 
