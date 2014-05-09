@@ -109,7 +109,7 @@ namespace Neusoft.CCS.Services.Implementation
         /// <returns></returns>
         public bool SubmitImptEvtCenterForm(ImptEvtCenterFormViewModel imptEvtCenterForm)
         {
-            //imptEvtCenterForm.EndTime = DateTime.Now;//记录结束时间
+            imptEvtCenterForm.EndTime = DateTime.Now;//记录结束时间
 
             Model.Entities.ImportantEvent_Center imptEvtCenter = imptEvtCenterForm.ImptEvtCenterViewModelToEntity();//转换为业务对象
             imptEvtCenter.CaseInfo = _caseInfoRepository.RetrieveById(imptEvtCenterForm.CaseID);//查询出相应案件信息

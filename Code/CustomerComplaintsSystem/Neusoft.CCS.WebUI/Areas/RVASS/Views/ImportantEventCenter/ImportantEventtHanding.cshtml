@@ -13,7 +13,7 @@
 @*客户端模型验证脚本开启*@
 @{Html.EnableClientValidation(true);}
 
-@using (Html.BeginForm("ImportantEventtHanding", "ImportantEventCenter", FormMethod.Post))//TODO
+@using (Html.BeginForm("ImportantEventtHanding", "ImportantEventCenter", FormMethod.Post))
 {
     <table border="1px">
         @Html.HiddenFor(s => s.CaseID)

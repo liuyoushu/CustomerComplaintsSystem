@@ -38,5 +38,23 @@ namespace Neusoft.CCS.Repository
 
             return result;
         }
+
+
+        public Dictionary<string, string> RetrieveListBySuperiorPositionId(int positionId)
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var staffs = (from position in context.Positions
+                                     where position.Post_SuperiorID == positionId
+                                     select position).FirstOrDefault().Staffs;
+                //var query = (from staff in context.Staffs
+                //             where staff.Post_ID == positionQuery.Post_ID
+                //             select new { StaffId = staff.Stf_ID, StaffName = staff.Stf_Name });
+                //result = query.ToDictionary(s => s.StaffId, s => s.StaffName);
+                result = staffs.ToDictionary(s => s.Stf_ID, s => s.Stf_Name);
+            }
+            return result;
+        }
     }
 }

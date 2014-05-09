@@ -20,12 +20,6 @@ namespace Neusoft.CCS.Services.ViewModels
         /// </summary>
         public int ImptEvtCenterID { get; set; }
 
-        ///// <summary>
-        ///// 部门职责<para />
-        ///// 业务部门第一负责人ID为键
-        ///// </summary>
-        //public Dictionary<string, ResponsibilityViewModel> Responsibilities { get; set; }
-
 
         public Dictionary<string, string> BizNameWithLeaderId { get; set; }
 

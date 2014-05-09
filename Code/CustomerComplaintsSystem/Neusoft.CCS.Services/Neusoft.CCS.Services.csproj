@@ -59,11 +59,13 @@
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
     <Compile Include="Mappings\ImptEvtCenterMapper.cs" />
+    <Compile Include="Mappings\ImptEvtDeptMapper.cs" />
     <Compile Include="Messages\ComplaintInfoDetailResponse.cs" />
     <Compile Include="Messages\ComplaintInfoOverviewResponse.cs" />
     <Compile Include="Messages\LoadingImptEventBoxForCenterResponse.cs" />
     <Compile Include="Messages\LoadingImptEventBoxForDeptResponse.cs" />
     <Compile Include="Messages\LoadingImptEvtCenterFormResponse.cs" />
+    <Compile Include="Messages\LoadingImptEvtDeptFormResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitBoxResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitFormResponse.cs" />
     <Compile Include="Messages\ResponseBase.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="ViewModels\DepartmentResponsibilitiesViewModel.cs" />
     <Compile Include="ViewModels\ImptEvtCenterFormViewModel.cs" />
     <Compile Include="Messages\LoadingBizNameWithLeaderIdResponse.cs" />
+    <Compile Include="ViewModels\ImptEvtDeptFormViewModel.cs" />
     <Compile Include="ViewModels\ReturnVisitFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

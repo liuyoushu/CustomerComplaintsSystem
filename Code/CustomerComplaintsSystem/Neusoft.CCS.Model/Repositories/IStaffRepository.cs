@@ -7,5 +7,6 @@ namespace Neusoft.CCS.Model.Repositories
     {
         Staff RetrieveById(string id);
         Dictionary<string, string> RetrieveListWithChargingBizName();
+        Dictionary<string, string> RetrieveListBySuperiorPositionId(int positionId);
     }
 }

@@ -9,7 +9,7 @@
 重大事件列表
 }
 
-//@model Dictionary<int, ComplaintInfoOverviewViewModel>
+@*@model Dictionary<int, ComplaintInfoOverviewViewModel>*@
 @model LoadingImptEventBoxForDeptResponse
 
 @if (Model.IsSuccess)
@@ -29,7 +29,7 @@
             <td>@item.Value.ComplainerName</td>
             <td>@item.Value.Date</td>
             <td>@item.Value.Way</td>
-            <td>@Html.ActionLink("指派", "ImportantEventtHanding", new { id = item.Key })</td>
+            <td>@Html.ActionLink("指派", "AllocateTaskForStaff", new { id = item.Key })</td>
         </tr>
     }
 </table>

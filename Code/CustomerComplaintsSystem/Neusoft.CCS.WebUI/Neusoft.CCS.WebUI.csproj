@@ -266,6 +266,7 @@
     <Content Include="Areas\RVASS\Views\ImportantEventCenter\ImportantEventtHanding.cshtml" />
     <Content Include="Areas\RVASS\Views\ImportantEventCenter\DecideResponsibilities.cshtml" />
     <Content Include="Areas\RVASS\Views\ImportantEventDepartment\ImportantEventBox.cshtml" />
+    <Content Include="Areas\RVASS\Views\ImportantEventDepartment\AllocateTaskForStaff.cshtml" />
     <None Include="js\jquery-1.7.1.intellisense.js" />
     <Content Include="js\jquery-1.7.1.js" />
     <Content Include="js\jquery-1.7.1.min.js" />

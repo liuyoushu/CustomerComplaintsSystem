@@ -64,5 +64,24 @@ namespace Neusoft.CCS.Repository
             }
             return result;
         }
+
+
+        public Model.Entities.ImportantEvent_Department RetrieveById(int id)
+        {
+            Model.Entities.ImportantEvent_Department result = new Model.Entities.ImportantEvent_Department();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entity = (from item in context.ImportantEvent_Department
+                              where item.IptEvt_D_ID == id
+                              select item);
+                result = entity.FirstOrDefault().ToModel();
+            }
+            return result;
+        }
+
+        public bool Update(Model.Entities.ImportantEvent_Department imptEvtDept)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

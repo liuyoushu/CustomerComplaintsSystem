@@ -1,4 +1,7 @@
-﻿using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Neusoft.CCS.Services.Implementation;
 using Neusoft.CCS.Services.Interfaces;
@@ -24,6 +27,16 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             //{
             //    Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
             //}
+            return View(response);
+        }
+
+        public ActionResult AllocateTaskForStaff(int id)
+        {
+            var response = DI.SpringHelper.GetObject<IImptEvtDeptService>("ImptEvtDeptService").LoadingImptEvtDeptForm(id);
+
+            //1.2将数据封装到 SelectList中，并指定 要生成下拉框选项的 value 和 text 属性
+            SelectList complaintHandlerNameWithStaffId = new SelectList(response.ImptEvtDeptForm.ComplaintHandlerNameWithStaffId, "Key", "Value");
+            ViewData["complaintHandlerNameWithStaffId"] = complaintHandlerNameWithStaffId.AsEnumerable();
             return View(response);
         }
     }

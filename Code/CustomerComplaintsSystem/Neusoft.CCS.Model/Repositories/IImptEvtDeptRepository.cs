@@ -12,5 +12,9 @@ namespace Neusoft.CCS.Model.Repositories
         bool Create(ImportantEvent_Department imptEvtCenter);
 
         Dictionary<int, ComplaintInfo> RetrieveList();
+
+        ImportantEvent_Department RetrieveById(int id);
+
+        bool Update(ImportantEvent_Department imptEvtDept);
     }
 }
