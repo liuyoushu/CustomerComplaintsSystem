@@ -30,6 +30,7 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             return View(response);
         }
 
+        [HttpGet]
         public ActionResult AllocateTaskForStaff(int id)
         {
             var response = DI.SpringHelper.GetObject<IImptEvtDeptService>("ImptEvtDeptService").LoadingImptEvtDeptForm(id);
@@ -38,6 +39,17 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
             SelectList complaintHandlerNameWithStaffId = new SelectList(response.ImptEvtDeptForm.ComplaintHandlerNameWithStaffId, "Key", "Value");
             ViewData["complaintHandlerNameWithStaffId"] = complaintHandlerNameWithStaffId.AsEnumerable();
             return View(response);
+        }
+        
+        [HttpPost]
+        public ActionResult AllocateTaskForStaff(ImptEvtDeptFormViewModel model)
+        {
+            if (!DI.SpringHelper.GetObject<IImptEvtDeptService>("ImptEvtDeptService").AllocateTask(model))
+            {
+                Response.Write("<script>alert('提交部门间职责信息失败！')</script>");
+            }
+
+            return RedirectToAction("ImportantEventBox", "ImportantEventDepartment");
         }
     }
 }

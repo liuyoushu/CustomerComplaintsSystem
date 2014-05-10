@@ -73,6 +73,7 @@ namespace Neusoft.CCS.Repository.Mappings
                     ArchiveDate = (model.ArchiveDate) == default(DateTime) ? default(Nullable<DateTime>) : model.ArchiveDate,
                     State = (int)model.State,
                     UnsatisfiedWithSolution = model.UnsatisfiedWithSolution,
+                    ImptEvtWaitHandledCounter = model.ImptEvtWaitHandledCounter,
 
                     //Complainer = model.Complainer.ToDataEntity(),
                 };

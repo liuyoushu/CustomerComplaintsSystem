@@ -32,5 +32,10 @@ namespace Neusoft.CCS.Model.Entities
         /// 案件投诉者
         /// </summary>
         public Complainer Complainer { get; set; }
+
+        /// <summary>
+        /// 重大事件处理计数器
+        /// </summary>
+        public int ImptEvtWaitHandledCounter { get; set; }
     }
 }

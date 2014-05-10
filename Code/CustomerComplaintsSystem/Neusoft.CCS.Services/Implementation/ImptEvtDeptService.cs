@@ -18,6 +18,7 @@ namespace Neusoft.CCS.Services.Implementation
         private ICaseInfoRepository _caseInfoRepository;
         private IImptEvtCenterRepository _imptEvtCenterRepository;
         private IImptEvtDeptRepository _imptEvtDeptRepository;
+        private IImptEvtStaffRepository _imptEvtStaffRepository;
         private IStaffRepository _staffRepository;
         private ILogger _logger;
 
@@ -30,6 +31,7 @@ namespace Neusoft.CCS.Services.Implementation
             _imptEvtCenterRepository = DI.SpringHelper.GetObject<IImptEvtCenterRepository>("ImptEvtCenterRepository");
             _staffRepository = DI.SpringHelper.GetObject<IStaffRepository>("StaffRepository");
             _imptEvtDeptRepository = DI.SpringHelper.GetObject<IImptEvtDeptRepository>("ImptEvtDeptRepository");
+            _imptEvtStaffRepository = DI.SpringHelper.GetObject<IImptEvtStaffRepository>("ImptEvtStaffRepository");
 
             _logger = DI.SpringHelper.GetObject<ILogger>("DefaultLogger");
         }
@@ -96,6 +98,45 @@ namespace Neusoft.CCS.Services.Implementation
                 result.ErrorMessage = "读取重大事件（中心）处理单错误";
             }
             return result;
+        }
+
+
+        public bool AllocateTask(ImptEvtDeptFormViewModel imptEvtDeptForm)
+        {
+            imptEvtDeptForm.EndTime = DateTime.Now;//记录结束时间
+
+            Model.Entities.ImportantEvent_Department imptEvtDept = imptEvtDeptForm.ImptEvtDeptViewModelToEntity();//转换为业务对象
+            imptEvtDept.CaseInfo = _caseInfoRepository.RetrieveById(imptEvtDeptForm.CaseID);//查询出相应案件信息
+
+            imptEvtDept.CaseInfo.ImptEvtWaitHandledCounter--;
+
+            //if (imptEvtCenter.CaseInfo.ImptEvtWaitHandledCounter <= 0)
+            //{
+            //    imptEvtCenter.CaseInfo.State = CaseState.ImptEvt_StaffAllocated;
+            //}
+
+
+            //新建重大事件（员工）处理单
+            Model.Entities.ImportantEvent_Staff imptEvtStaff = new ImportantEvent_Staff();
+            imptEvtStaff.CaseInfo = imptEvtDept.CaseInfo;
+            imptEvtStaff.Staff = _staffRepository.RetrieveById(imptEvtDeptForm.AllocatedStaffId);
+            imptEvtStaff.ImportantEvent_Department = imptEvtDept;
+
+
+
+            try
+            {
+                _caseInfoRepository.Update(imptEvtDept.CaseInfo);
+                _imptEvtStaffRepository.Create(imptEvtStaff);
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(this, "指派受理员处理重大事件失败", ex);
+                return false;
+            }
+
+            return true;
         }
     }
 }

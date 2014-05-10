@@ -38,6 +38,7 @@ namespace Neusoft.CCS.Repository
                     entry.Property("ArchiveDate").IsModified = true;
                     entry.Property("State").IsModified = true;
                     entry.Property("UnsatisfiedWithSolution").IsModified = true;
+                    entry.Property("ImptEvtWaitHandledCounter").IsModified = true;
 
                     context.SaveChanges();
                 }

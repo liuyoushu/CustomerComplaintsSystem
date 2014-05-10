@@ -1,4 +1,5 @@
 ﻿using Neusoft.CCS.Services.Messages;
+using Neusoft.CCS.Services.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Neusoft.CCS.Services.Interfaces
         LoadingImptEventBoxForDeptResponse LoadingImptEventBoxForDept();
 
         LoadingImptEvtDeptFormResponse LoadingImptEvtDeptForm(int id);
+
+        bool AllocateTask(ImptEvtDeptFormViewModel imptEvtDeptForm);
     }
 }

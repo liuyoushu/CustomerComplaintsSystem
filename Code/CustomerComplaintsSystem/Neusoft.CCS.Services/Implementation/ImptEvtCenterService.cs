@@ -154,40 +154,48 @@ namespace Neusoft.CCS.Services.Implementation
         {
             try
             {
+                int count = 0;
                 if (!string.IsNullOrEmpty(model.DutyA))
                 {
                     this.CreteImptEvtDept(model.LeaderIdA, model.ImptEvtCenterID, model.CaseID, model.DutyA);
+                    count++;
                 }
 
                 if (!string.IsNullOrEmpty(model.DutyB))
                 {
                     this.CreteImptEvtDept(model.LeaderIdB, model.ImptEvtCenterID, model.CaseID, model.DutyB);
+                    count++;
                 }
 
                 if (!string.IsNullOrEmpty(model.DutyC))
                 {
                     this.CreteImptEvtDept(model.LeaderIdC, model.ImptEvtCenterID, model.CaseID, model.DutyC);
+                    count++;
                 }
 
                 if (!string.IsNullOrEmpty(model.DutyD))
                 {
                     this.CreteImptEvtDept(model.LeaderIdD, model.ImptEvtCenterID, model.CaseID, model.DutyD);
+                    count++;
                 }
 
                 if (!string.IsNullOrEmpty(model.DutyE))
                 {
                     this.CreteImptEvtDept(model.LeaderIdE, model.ImptEvtCenterID, model.CaseID, model.DutyE);
+                    count++;
                 }
 
                 if (!string.IsNullOrEmpty(model.DutyF))
                 {
                     this.CreteImptEvtDept(model.LeaderIdF, model.ImptEvtCenterID, model.CaseID, model.DutyF);
+                    count++;
                 }
 
 
                 CaseInfo caseInfo = _caseInfoRepository.RetrieveById(model.CaseID);
                 //更新案件状态
                 caseInfo.State = Model.Entities.CaseState.ImptEvt_DeptDecided;//更新案件状态至部门间沟通协调完毕
+                caseInfo.ImptEvtWaitHandledCounter = count;
 
                 //更新案件信息状态
                 _caseInfoRepository.Update(caseInfo);

@@ -20,7 +20,7 @@ namespace Neusoft.CCS.Services.Mappings
         /// </summary>
         /// <param name="rvFormVM"></param>
         /// <returns></returns>
-        public static Model.Entities.ImportantEvent_Department ImptEvtCenterViewModelToEntity(this ImptEvtDeptFormViewModel iedFormVM)
+        public static Model.Entities.ImportantEvent_Department ImptEvtDeptViewModelToEntity(this ImptEvtDeptFormViewModel iedFormVM)
         {
             var map = Mapper.CreateMap<ImptEvtDeptFormViewModel, ImportantEvent_Department>();
             map.ForMember(d => d.ID, opt => opt.MapFrom(s => s.ImptEvtDeptID));

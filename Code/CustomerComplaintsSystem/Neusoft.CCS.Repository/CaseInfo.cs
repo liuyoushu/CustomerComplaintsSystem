@@ -30,6 +30,7 @@ namespace Neusoft.CCS.Repository
         public Nullable<System.DateTime> ArchiveDate { get; set; }
         public int State { get; set; }
         public Nullable<int> UnsatisfiedWithSolution { get; set; }
+        public Nullable<int> ImptEvtWaitHandledCounter { get; set; }
     
         public virtual Complainer Complainer { get; set; }
         public virtual ICollection<ComplaintDisposeAndFeedbackInfo> ComplaintDisposeAndFeedbackInfoes { get; set; }

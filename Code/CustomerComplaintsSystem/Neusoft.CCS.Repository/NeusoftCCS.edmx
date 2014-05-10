@@ -122,6 +122,7 @@
           <Property Name="ArchiveDate" Type="datetime" />
           <Property Name="State" Type="int" Nullable="false" />
           <Property Name="UnsatisfiedWithSolution" Type="int" />
+          <Property Name="ImptEvtWaitHandledCounter" Type="int" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -250,7 +251,7 @@
             <PropertyRef Name="Post_ID" />
           </Key>
           <Property Name="Post_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Post_Name" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="Post_Name" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Post_Content" Type="text" Nullable="false" />
           <Property Name="Post_Remark" Type="text" />
           <Property Name="Post_SuperiorID" Type="int" />
@@ -652,6 +653,7 @@
           <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Staff" />
           <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="CaseInfo" ToRole="ImportantEvent_Department" />
           <Property Type="Int32" Name="UnsatisfiedWithSolution" />
+          <Property Type="Int32" Name="ImptEvtWaitHandledCounter" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -802,7 +804,7 @@
             <PropertyRef Name="Post_ID" />
           </Key>
           <Property Name="Post_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Post_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="Post_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Post_Content" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Post_Remark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Post_SuperiorID" Type="Int32" />
@@ -1099,6 +1101,7 @@
           <EntitySetMapping Name="CaseInfoes">
             <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.CaseInfo">
               <MappingFragment StoreEntitySet="CaseInfo">
+                <ScalarProperty Name="ImptEvtWaitHandledCounter" ColumnName="ImptEvtWaitHandledCounter" />
                 <ScalarProperty Name="UnsatisfiedWithSolution" ColumnName="UnsatisfiedWithSolution" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Com_ID" ColumnName="Com_ID" />

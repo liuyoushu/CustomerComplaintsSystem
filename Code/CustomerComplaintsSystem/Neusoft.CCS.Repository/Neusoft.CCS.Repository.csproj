@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="ImptEvtCenterRepository.cs" />
     <Compile Include="ImptEvtDeptRepository.cs" />
+    <Compile Include="ImptEvtStaffRepository.cs" />
     <Compile Include="Mappings\BusinessMapping.cs" />
     <Compile Include="Mappings\CaseInfoMapping.cs" />
     <Compile Include="Mappings\CompanyMapping.cs" />
