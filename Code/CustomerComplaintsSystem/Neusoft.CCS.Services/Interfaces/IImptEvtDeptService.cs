@@ -10,7 +10,7 @@ namespace Neusoft.CCS.Services.Interfaces
 {
     public interface IImptEvtDeptService
     {
-        LoadingImptEventBoxForDeptResponse LoadingImptEventBoxForDept();
+        LoadingImptEventBoxForDeptResponse LoadingImptEventBoxForDept();//string staffId
 
         LoadingImptEvtDeptFormResponse LoadingImptEvtDeptForm(int id);
 

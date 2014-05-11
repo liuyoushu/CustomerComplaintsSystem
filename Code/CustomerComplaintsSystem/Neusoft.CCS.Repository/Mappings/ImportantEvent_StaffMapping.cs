@@ -74,6 +74,14 @@ namespace Neusoft.CCS.Repository.Mappings
                     IptEvt_S_Content = model.Content,
                     IptEvt_S_BeginTime = model.BeginTime == default(DateTime) ? default(Nullable<DateTime>) : model.BeginTime,
                     IptEvt_S_EndTime = model.EndTime == default(DateTime) ? default(Nullable<DateTime>) : model.EndTime,
+
+                   //CaseInfo = model.CaseInfo.ToDataEntity(),
+                   //ImportantEvent_Department = model.ImportantEvent_Department.ToDataEntity(),
+                   //Staff = model.Staff.ToDataEntity(),
+                   ID = model.CaseInfo.ID,
+                   IptEvt_D_ID = model.ImportantEvent_Department.ID,
+                   Stf_ID = model.Staff.ID,
+                    
                 };
             }
             return dataEntity;

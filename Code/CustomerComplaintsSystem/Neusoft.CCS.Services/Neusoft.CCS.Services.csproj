@@ -51,10 +51,12 @@
     <Compile Include="Implementation\ComplaintReturnVisitInfoService.cs" />
     <Compile Include="Implementation\ImptEvtCenterService.cs" />
     <Compile Include="Implementation\ImptEvtDeptService.cs" />
+    <Compile Include="Implementation\ImptEvtStaffService.cs" />
     <Compile Include="Interfaces\IComplaintInfoService.cs" />
     <Compile Include="Interfaces\IComplaintReturnVisitInfoService.cs" />
     <Compile Include="Interfaces\IImptEvtCenterService.cs" />
     <Compile Include="Interfaces\IImptEvtDeptService.cs" />
+    <Compile Include="Interfaces\IImptEvtStaffService.cs" />
     <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Messages\ComplaintInfoOverviewResponse.cs" />
     <Compile Include="Messages\LoadingImptEventBoxForCenterResponse.cs" />
     <Compile Include="Messages\LoadingImptEventBoxForDeptResponse.cs" />
+    <Compile Include="Messages\LoadingImptEventBoxForStaffResponse.cs" />
     <Compile Include="Messages\LoadingImptEvtCenterFormResponse.cs" />
     <Compile Include="Messages\LoadingImptEvtDeptFormResponse.cs" />
     <Compile Include="Messages\LoadingReturnVisitBoxResponse.cs" />

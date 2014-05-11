@@ -10,5 +10,7 @@ namespace Neusoft.CCS.Model.Repositories
     public interface IImptEvtStaffRepository
     {
         bool Create(ImportantEvent_Staff imptEvtCenter);
+
+        Dictionary<int, ComplaintInfo> RetrieveList();
     }
 }

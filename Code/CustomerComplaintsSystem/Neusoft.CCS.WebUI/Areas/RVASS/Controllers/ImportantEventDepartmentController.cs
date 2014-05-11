@@ -7,6 +7,7 @@ using Neusoft.CCS.Services.Implementation;
 using Neusoft.CCS.Services.Interfaces;
 using Neusoft.CCS.Services.ViewModels;
 using Neusoft.CCS.Services.Mappings;
+using Neusoft.CCS.Services.Messages;
 
 namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
 {
@@ -42,9 +43,9 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         }
         
         [HttpPost]
-        public ActionResult AllocateTaskForStaff(ImptEvtDeptFormViewModel model)
+        public ActionResult AllocateTaskForStaff(LoadingImptEvtDeptFormResponse model)
         {
-            if (!DI.SpringHelper.GetObject<IImptEvtDeptService>("ImptEvtDeptService").AllocateTask(model))
+            if (!DI.SpringHelper.GetObject<IImptEvtDeptService>("ImptEvtDeptService").AllocateTask(model.ImptEvtDeptForm))
             {
                 Response.Write("<script>alert('提交部门间职责信息失败！')</script>");
             }

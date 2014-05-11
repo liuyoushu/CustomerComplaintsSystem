@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "ImportantEventBox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Neusoft.CCS.Services.ViewModels; @*导入视图模型所在命名空间*@
+@using Neusoft.CCS.Services.Messages;@*导入SOA基本模式“请求-相应”模型消息所在命名空间*@
+
+@section title{
+重大事件列表
+}
+
+@*@model Dictionary<int, ComplaintInfoOverviewViewModel>*@
+@model LoadingImptEventBoxForStaffResponse
+
+@if (Model.IsSuccess)
+{
+    <table border="1px">
+    <tr>
+        <th>投诉业务</th>
+        <th>投诉客户</th>
+        <th>投诉时间</th>
+        <th>投诉方式</th>
+        <th>操作</th>
+    </tr>
+    @foreach (var item in Model.ImptEventBoxForStaff)
+    {
+        <tr>
+            <td>@item.Value.BusinessName</td>
+            <td>@item.Value.ComplainerName</td>
+            <td>@item.Value.Date</td>
+            <td>@item.Value.Way</td>
+            <td>@Html.ActionLink("处理", "ImportantHandled", new { id = item.Key })</td>
+        </tr>
+    }
+</table>
+}
+else
+{
+    <text>@Model.ErrorMessage</text>
+}
+
+
