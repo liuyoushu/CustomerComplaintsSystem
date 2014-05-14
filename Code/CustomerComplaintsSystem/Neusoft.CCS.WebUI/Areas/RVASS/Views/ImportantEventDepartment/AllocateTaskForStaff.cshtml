@@ -18,7 +18,7 @@
 
 @if (Model.IsSuccess)
 {
-    @using (Html.BeginForm("AllocateTaskForStaff", "ImportantEventDepartment", FormMethod.Post))
+    using (Html.BeginForm("AllocateTaskForStaff", "ImportantEventDepartment", FormMethod.Post))
     {
         <table border="1px">
             @Html.HiddenFor(s => s.ImptEvtDeptForm.CaseID)
@@ -87,6 +87,7 @@
             </tr>
 
             <tr>
+                <td>指派受理员</td>
                 <td>@Html.DropDownListFor(s => s.ImptEvtDeptForm.AllocatedStaffId, ViewData["complaintHandlerNameWithStaffId"] as IEnumerable<SelectListItem>)</td>
             </tr>
 

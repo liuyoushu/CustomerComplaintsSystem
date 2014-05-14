@@ -60,10 +60,58 @@ namespace Neusoft.CCS.Repository
                                    where item.ID == imptEvt.CaseInfo.ID
                                    orderby item.Cpt_EndTime descending
                                    select item).FirstOrDefault().ToModel();
-                    result.Add(imptEvt.IptEvt_D_ID, cptInfo);
+                    result.Add(imptEvt.IptEvt_S_ID, cptInfo);
                 }
             }
             return result;
+        }
+
+
+        public Model.Entities.ImportantEvent_Staff RetrieveById(int id)
+        {
+            Model.Entities.ImportantEvent_Staff result = new Model.Entities.ImportantEvent_Staff();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var entity = (from item in context.ImportantEvent_Staff
+                              where item.IptEvt_S_ID == id
+                              select item);
+                result = entity.FirstOrDefault().ToModel();
+            }
+            return result;
+        }
+
+
+        public bool Update(Model.Entities.ImportantEvent_Staff imptEvtStaff)
+        {
+            //0.0 创建修改的 数据实体对象
+            var model = imptEvtStaff.ToDataEntity();
+            try
+            {
+                using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+                {
+                    //为修改关闭 EF 验证（不然会根据配置文件中EF对象的Nullable属性进行验证）
+                    context.Configuration.ValidateOnSaveEnabled = false;
+                    //0.1添加到EF管理容器中，并获取 实体对象 的伪包装类对象
+                    DbEntityEntry entry = context.Entry<ImportantEvent_Staff>(model);
+                    //**如果使用 Entry 附加 实体对象到数据容器中，则需要手动 设置 实体包装类的对象 的 状态为 Unchanged**
+                    //**如果使用 Attach 就不需要这句
+                    entry.State = System.Data.EntityState.Unchanged;
+
+                    //0.2标识 实体对象 某些属性 已经被修改了
+                    entry.Property("IptEvt_S_Content").IsModified = true;
+                    entry.Property("IptEvt_S_BeginTime").IsModified = true;
+                    entry.Property("IptEvt_S_EndTime").IsModified = true;
+
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(this, "ImportantEvent_Center Update Error", ex);
+                return false;
+            }
+
+            return true;
         }
     }
 }

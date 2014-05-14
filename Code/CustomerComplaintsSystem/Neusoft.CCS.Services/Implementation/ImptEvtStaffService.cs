@@ -58,5 +58,81 @@ namespace Neusoft.CCS.Services.Implementation
             }
             return result;
         }
+
+
+        public LoadingImptEvtStaffFormResponse LoadingImptEvtStaffForm(int id)
+        {
+            LoadingImptEvtStaffFormResponse result = new LoadingImptEvtStaffFormResponse();
+            var imptEvtStaff = _imptEvtStaffRepository.RetrieveById(id);
+            var cptRVInfo = _cptRVInfoRepository.RetrieveListByCaseId(imptEvtStaff.CaseInfo.ID).First();
+            var cptDAFInfo = _cptDAFInfoRepository.RetrieveListByCaseId(imptEvtStaff.CaseInfo.ID).First();
+            var cptInfo = _cptInfoRepository.RetrieveListByCaseId(imptEvtStaff.CaseInfo.ID).First();
+            if (cptInfo != null && cptDAFInfo != null && cptDAFInfo != null && imptEvtStaff != null)
+            {
+
+                result.ImptEvtStaffForm = imptEvtStaff.ToImptEvtStaffViewModel();
+                result.ImptEvtStaffForm.BeginTime = DateTime.Now;//记录重大事件（员工）处理开始时间
+                //重大事件（中心）处理单的其他项
+                result.ImptEvtStaffForm.ComplaintDate = cptInfo.Date;
+                result.ImptEvtStaffForm.Class = cptInfo.Class;
+                result.ImptEvtStaffForm.Describe = cptInfo.Describe;
+                result.ImptEvtStaffForm.Name = cptInfo.Business.Name;
+                result.ImptEvtStaffForm.Satisfaction = cptDAFInfo.SatisfactionToString();
+                result.ImptEvtStaffForm.ReturnVisitContent = cptRVInfo.Content;
+                result.ImptEvtStaffForm.ComplaintReason = cptRVInfo.ComplaintReason;
+
+
+                result.IsSuccess = true;
+            }
+            else
+            {
+                result.IsSuccess = false;
+                result.ErrorMessage = "读取重大事件（员工）处理单错误";
+            }
+            return result;
+        }
+
+
+        public bool ImptEvtHandled(ImptEvtStaffFormViewModel imptEvtStaffForm)
+        {
+            imptEvtStaffForm.EndTime = DateTime.Now;//记录结束时间
+
+            Model.Entities.ImportantEvent_Staff imptEvtStaff = imptEvtStaffForm.ImptEvtStaffViewModelToEntity();//转换为业务对象
+            imptEvtStaff.CaseInfo = _caseInfoRepository.RetrieveById(imptEvtStaffForm.CaseID);//查询出相应案件信息
+
+            //imptEvtDept.CaseInfo.ImptEvtWaitHandledCounter--;
+
+            if (imptEvtStaff.CaseInfo.ImptEvtWaitHandledCounter <= 0)
+            {
+                imptEvtStaff.CaseInfo.State = CaseState.ImptEvt_Handled;
+            }
+
+
+
+
+            try
+            {
+                _caseInfoRepository.Update(imptEvtStaff.CaseInfo);
+                _imptEvtStaffRepository.Update(imptEvtStaff);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(this, "指派受理员处理重大事件失败", ex);
+                return false;
+            }
+
+            try
+            {
+                //TODO:发送邮件给客户反馈结果
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(this, "发送邮件失败", ex);
+                return false;
+            }
+
+            return true;
+        }
     }
 }

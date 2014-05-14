@@ -23,11 +23,26 @@ namespace Neusoft.CCS.WebUI.Areas.RVASS.Controllers
         public ActionResult ImportantEventBox()
         {
             var response = DI.SpringHelper.GetObject<IImptEvtStaffService>("ImptEvtStaffService").LoadingImptEventBoxForStaff();//staffId
-            //if (!response.IsSuccess)
-            //{
-            //    Response.Write("<script>alert('" + response.ErrorMessage + "')</script>");
-            //}
             return View(response);
+        }
+
+
+        [HttpGet]
+        public ActionResult ImportantEventHandled(int id)
+        {
+            var response = DI.SpringHelper.GetObject<IImptEvtStaffService>("ImptEvtStaffService").LoadingImptEvtStaffForm(id);
+            return View(response);
+        }
+
+        [HttpPost]
+        public ActionResult ImportantEventHandled(LoadingImptEvtStaffFormResponse model)
+        {
+            if (!DI.SpringHelper.GetObject<IImptEvtStaffService>("ImptEvtStaffService").ImptEvtHandled(model.ImptEvtStaffForm))
+            {
+                Response.Write("<script>alert('提交部门间职责信息失败！')</script>");
+            }
+
+            return RedirectToAction("ImportantEventBox", "ImportantEventDepartment");
         }
 
     }

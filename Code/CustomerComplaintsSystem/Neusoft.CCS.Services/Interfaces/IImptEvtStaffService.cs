@@ -11,6 +11,8 @@ namespace Neusoft.CCS.Services.Interfaces
     {
         LoadingImptEventBoxForStaffResponse LoadingImptEventBoxForStaff();//string staffId
 
-        //LoadingImptEvtDeptFormResponse LoadingImptEvtDeptForm(int id);
+        LoadingImptEvtStaffFormResponse LoadingImptEvtStaffForm(int id);
+
+        bool ImptEvtHandled(ViewModels.ImptEvtStaffFormViewModel imptEvtStaffFormViewModel);
     }
 }
