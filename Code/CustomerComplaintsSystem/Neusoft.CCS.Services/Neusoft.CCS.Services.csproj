@@ -52,11 +52,14 @@
     <Compile Include="Implementation\ImptEvtCenterService.cs" />
     <Compile Include="Implementation\ImptEvtDeptService.cs" />
     <Compile Include="Implementation\ImptEvtStaffService.cs" />
+    <Compile Include="Implementation\StaffService.cs" />
+    <Compile Include="Interfaces\IStaffService.cs" />
     <Compile Include="Interfaces\IComplaintInfoService.cs" />
     <Compile Include="Interfaces\IComplaintReturnVisitInfoService.cs" />
     <Compile Include="Interfaces\IImptEvtCenterService.cs" />
     <Compile Include="Interfaces\IImptEvtDeptService.cs" />
     <Compile Include="Interfaces\IImptEvtStaffService.cs" />
+    <Compile Include="Mappings\AccountMapper.cs" />
     <Compile Include="Mappings\ComplaintDisposeAndFeedbackInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintInfoMapper.cs" />
     <Compile Include="Mappings\ComplaintReturnVisitInfoMapper.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="ViewModels\ImptEvtDeptFormViewModel.cs" />
     <Compile Include="ViewModels\ImptEvtStaffFormViewModel.cs" />
     <Compile Include="ViewModels\ReturnVisitFormViewModel.cs" />
+    <Compile Include="ViewModels\LoginedStaffViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Neusoft.CCS.DI\Neusoft.CCS.DI.csproj">

@@ -12,21 +12,19 @@ namespace Neusoft.CCS.Repository
     using System;
     using System.Collections.Generic;
     
-    public partial class Position
+    public partial class Permission
     {
-        public Position()
+        public Permission()
         {
-            this.Staffs = new HashSet<Staff>();
-            this.Permissions = new HashSet<Permission>();
+            this.Positions = new HashSet<Position>();
         }
     
-        public int Post_ID { get; set; }
-        public string Post_Name { get; set; }
-        public string Post_Content { get; set; }
-        public string Post_Remark { get; set; }
-        public Nullable<int> Post_SuperiorID { get; set; }
+        public int PermissionID { get; set; }
+        public string PermissionDisplayName { get; set; }
+        public string PermissionActionName { get; set; }
+        public string PermissionControllerName { get; set; }
+        public string PermissionCategory { get; set; }
     
-        public virtual ICollection<Staff> Staffs { get; set; }
-        public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<Position> Positions { get; set; }
     }
 }

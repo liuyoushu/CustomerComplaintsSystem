@@ -18,7 +18,14 @@
           <EntitySet Name="ImportantEvent_Center" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Center" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ImportantEvent_Department" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Department" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ImportantEvent_Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.ImportantEvent_Staff" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Permission" EntityType="Neusoft.CCS.Repository.DataModel.Store.Permission" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Position" EntityType="Neusoft.CCS.Repository.DataModel.Store.Position" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PositionPermission" EntityType="Neusoft.CCS.Repository.DataModel.Store.PositionPermission" store:Type="Tables" store:Schema="dbo" store:Name="PositionPermission">
+            <DefiningQuery>SELECT 
+      [PositionPermission].[PostID] AS [PostID], 
+      [PositionPermission].[PermissionID] AS [PermissionID]
+      FROM [dbo].[PositionPermission] AS [PositionPermission]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Staff" EntityType="Neusoft.CCS.Repository.DataModel.Store.Staff" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CASEINFO_START_COMPLAIN" Association="Neusoft.CCS.Repository.DataModel.Store.FK_CASEINFO_START_COMPLAIN">
             <End Role="Complainer" EntitySet="Complainer" />
@@ -95,6 +102,14 @@
           <AssociationSet Name="FK_IMPORTAN_重大事件部门处理_STAFF" Association="Neusoft.CCS.Repository.DataModel.Store.FK_IMPORTAN_重大事件部门处理_STAFF">
             <End Role="Staff" EntitySet="Staff" />
             <End Role="ImportantEvent_Department" EntitySet="ImportantEvent_Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionPermission_Permission" Association="Neusoft.CCS.Repository.DataModel.Store.FK_PositionPermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="PositionPermission" EntitySet="PositionPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PositionPermission_Position" Association="Neusoft.CCS.Repository.DataModel.Store.FK_PositionPermission_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="PositionPermission" EntitySet="PositionPermission" />
           </AssociationSet>
           <AssociationSet Name="FK_STAFF_BELONG_BUSINESS" Association="Neusoft.CCS.Repository.DataModel.Store.FK_STAFF_BELONG_BUSINESS">
             <End Role="Business" EntitySet="Business" />
@@ -229,8 +244,8 @@
           <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
           <Property Name="IptEvt_C_ID" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="IptEvt_D_Duty" Type="text" />
-          <Property Name="IptEvt_D_Conclusion" Type="text" />
+          <Property Name="IptEvt_D_Duty" Type="nvarchar(max)" />
+          <Property Name="IptEvt_D_Conclusion" Type="nvarchar(max)" />
           <Property Name="IptEvt_D_BeginTime" Type="datetime" />
           <Property Name="IptEvt_D_EndTime" Type="datetime" />
         </EntityType>
@@ -242,9 +257,19 @@
           <Property Name="Stf_ID" Type="char" Nullable="false" MaxLength="11" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="IptEvt_D_ID" Type="int" Nullable="false" />
-          <Property Name="IptEvt_S_Content" Type="text" />
+          <Property Name="IptEvt_S_Content" Type="nvarchar(max)" />
           <Property Name="IptEvt_S_BeginTime" Type="datetime" />
           <Property Name="IptEvt_S_EndTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionDisplayName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PermissionActionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PermissionControllerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PermissionCategory" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -255,6 +280,17 @@
           <Property Name="Post_Content" Type="text" Nullable="false" />
           <Property Name="Post_Remark" Type="text" />
           <Property Name="Post_SuperiorID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'NeusoftCCS.dbo.PositionPermission' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PositionPermission">
+          <Key>
+            <PropertyRef Name="PostID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -268,6 +304,7 @@
           <Property Name="Stf_Age" Type="int" Nullable="false" />
           <Property Name="Stf_IdentifyCardNum" Type="char" Nullable="false" MaxLength="18" />
           <Property Name="Stf_EntryTime" Type="datetime" Nullable="false" />
+          <Property Name="Stf_Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CASEINFO_START_COMPLAIN">
           <End Role="Complainer" Type="Neusoft.CCS.Repository.DataModel.Store.Complainer" Multiplicity="1" />
@@ -497,6 +534,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PositionPermission_Permission">
+          <End Role="Permission" Type="Neusoft.CCS.Repository.DataModel.Store.Permission" Multiplicity="1" />
+          <End Role="PositionPermission" Type="Neusoft.CCS.Repository.DataModel.Store.PositionPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="PermissionID" />
+            </Principal>
+            <Dependent Role="PositionPermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PositionPermission_Position">
+          <End Role="Position" Type="Neusoft.CCS.Repository.DataModel.Store.Position" Multiplicity="1" />
+          <End Role="PositionPermission" Type="Neusoft.CCS.Repository.DataModel.Store.PositionPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="PositionPermission">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STAFF_BELONG_BUSINESS">
           <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Store.Business" Multiplicity="0..1" />
           <End Role="Staff" Type="Neusoft.CCS.Repository.DataModel.Store.Staff" Multiplicity="*" />
@@ -623,6 +684,11 @@
           <AssociationSet Name="FK_STAFF_OCCUPY_POSITION" Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION">
             <End Role="Position" EntitySet="Positions" />
             <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <EntitySet Name="Permissions" EntityType="Neusoft.CCS.Repository.DataModel.Permission" />
+          <AssociationSet Name="PositionPermission" Association="Neusoft.CCS.Repository.DataModel.PositionPermission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Position" EntitySet="Positions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Business">
@@ -775,8 +841,8 @@
           <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
           <Property Name="IptEvt_C_ID" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="IptEvt_D_Duty" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="IptEvt_D_Conclusion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_D_Duty" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IptEvt_D_Conclusion" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="IptEvt_D_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_D_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_部门负责_CASEINFO" FromRole="ImportantEvent_Department" ToRole="CaseInfo" />
@@ -792,7 +858,7 @@
           <Property Name="Stf_ID" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="true" />
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="IptEvt_D_ID" Type="Int32" Nullable="false" />
-          <Property Name="IptEvt_S_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IptEvt_S_Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="IptEvt_S_BeginTime" Type="DateTime" Precision="3" />
           <Property Name="IptEvt_S_EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CaseInfo" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_特殊处理_员工_CASEINFO" FromRole="ImportantEvent_Staff" ToRole="CaseInfo" />
@@ -809,6 +875,7 @@
           <Property Name="Post_Remark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="Post_SuperiorID" Type="Int32" />
           <NavigationProperty Name="Staffs" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" FromRole="Position" ToRole="Staff" />
+          <NavigationProperty Name="Permissions" Relationship="Neusoft.CCS.Repository.DataModel.PositionPermission" FromRole="Position" ToRole="Permission" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -830,6 +897,7 @@
           <NavigationProperty Name="ImportantEvent_Department" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" FromRole="Staff" ToRole="ImportantEvent_Department" />
           <NavigationProperty Name="ImportantEvent_Staff" Relationship="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" FromRole="Staff" ToRole="ImportantEvent_Staff" />
           <NavigationProperty Name="Position" Relationship="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" FromRole="Staff" ToRole="Position" />
+          <Property Type="String" Name="Stf_Password" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_COMPLAIN_COMPLAINT_BUSINESS">
           <End Role="Business" Type="Neusoft.CCS.Repository.DataModel.Business" Multiplicity="0..1" />
@@ -1083,6 +1151,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Type="Int32" Name="PermissionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PermissionDisplayName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionActionName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionControllerName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PermissionCategory" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Positions" Relationship="Neusoft.CCS.Repository.DataModel.PositionPermission" FromRole="Permission" ToRole="Position" />
+        </EntityType>
+        <Association Name="PositionPermission">
+          <End Type="Neusoft.CCS.Repository.DataModel.Permission" Role="Permission" Multiplicity="*" />
+          <End Type="Neusoft.CCS.Repository.DataModel.Position" Role="Position" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1256,6 +1339,7 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Stf_Password" ColumnName="Stf_Password" />
                 <ScalarProperty Name="Stf_ID" ColumnName="Stf_ID" />
                 <ScalarProperty Name="BussinessID" ColumnName="BussinessID" />
                 <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
@@ -1267,6 +1351,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="Neusoft.CCS.Repository.DataModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="PermissionCategory" ColumnName="PermissionCategory" />
+                <ScalarProperty Name="PermissionControllerName" ColumnName="PermissionControllerName" />
+                <ScalarProperty Name="PermissionActionName" ColumnName="PermissionActionName" />
+                <ScalarProperty Name="PermissionDisplayName" ColumnName="PermissionDisplayName" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PositionPermission" TypeName="Neusoft.CCS.Repository.DataModel.PositionPermission" StoreEntitySet="PositionPermission">
+            <EndProperty Name="Position">
+              <ScalarProperty Name="Post_ID" ColumnName="PostID" />
+            </EndProperty>
+            <EndProperty Name="Permission">
+              <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f290ed0e6c484238b0ae4697e91ac611" Name="Diagram1">
+      <Diagram DiagramId="f290ed0e6c484238b0ae4697e91ac611" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Business" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.CaseInfo" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Company" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
@@ -40,6 +40,12 @@
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件部门处理_STAFF" ManuallyRouted="false" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_IMPORTAN_重大事件处理_STAFF" ManuallyRouted="false" />
         <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_STAFF_OCCUPY_POSITION" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Accounts_Permissions" Width="1.5" PointX="7.987680844956861" PointY="16.583789743754913" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Accounts_Roles" Width="1.5" PointX="7.756537420561787" PointY="2.1215561638220941" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Accounts_Users" Width="1.5" PointX="10" PointY="28.5" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.FK_ACCOUNTS_REFERENCE_STAFF" />
+        <EntityTypeShape EntityType="Neusoft.CCS.Repository.DataModel.Permission" Width="1.5" PointX="1" PointY="7.875" />
+        <AssociationConnector Association="Neusoft.CCS.Repository.DataModel.PositionPermission" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

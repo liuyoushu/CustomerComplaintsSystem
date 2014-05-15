@@ -32,6 +32,7 @@ namespace Neusoft.CCS.Repository
         public int Stf_Age { get; set; }
         public string Stf_IdentifyCardNum { get; set; }
         public System.DateTime Stf_EntryTime { get; set; }
+        public string Stf_Password { get; set; }
     
         public virtual Business Business { get; set; }
         public virtual ICollection<ComplaintDisposeAndFeedbackInfo> ComplaintDisposeAndFeedbackInfoes { get; set; }

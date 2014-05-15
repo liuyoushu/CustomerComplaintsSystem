@@ -29,6 +29,8 @@ namespace Neusoft.CCS.Repository.Mappings
                     Age = dataEntity.Stf_Age,
                     IdentifyCardNumber = dataEntity.Stf_IdentifyCardNum,
                     EntryTime = dataEntity.Stf_EntryTime,
+                    Password = dataEntity.Stf_Password,
+                    
 
                     Position = dataEntity.Position.ToModel(),
                 };
@@ -75,7 +77,8 @@ namespace Neusoft.CCS.Repository.Mappings
                     Stf_Gender = model.Gender == "男" ? true : false,
                     Stf_Age = model.Age,
                     Stf_IdentifyCardNum = model.IdentifyCardNumber,
-                    Stf_EntryTime = model.EntryTime
+                    Stf_EntryTime = model.EntryTime,
+                    Stf_Password = model.Password
                 };
             }
             return dataEntity;

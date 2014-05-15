@@ -35,5 +35,7 @@ namespace Neusoft.CCS.Model.Entities
         /// 该职位员工
         /// </summary>
         public List<Staff> Staffs { get; set; }
+
+        public List<Permission> Permissions { get; set; }
     }
 }

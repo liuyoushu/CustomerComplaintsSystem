@@ -31,7 +31,7 @@ namespace Neusoft.CCS.Repository
                 var query = (from staff in context.Staffs
                              join position in context.Positions on staff.Post_ID equals position.Post_ID
                              join biz in context.Businesses on staff.BussinessID equals biz.BussinessID
-                             where position.Post_SuperiorID == -1
+                             where position.Post_SuperiorID < 0
                              select new { LeaderId = staff.Stf_ID, BizName = biz.BussinessName });
                 result = query.ToDictionary(s => s.LeaderId, s => s.BizName);
             }
@@ -53,6 +53,20 @@ namespace Neusoft.CCS.Repository
                 //             select new { StaffId = staff.Stf_ID, StaffName = staff.Stf_Name });
                 //result = query.ToDictionary(s => s.StaffId, s => s.StaffName);
                 result = staffs.ToDictionary(s => s.Stf_ID, s => s.Stf_Name);
+            }
+            return result;
+        }
+
+
+        public Model.Entities.Staff RetrieveByIdAndPwd(string staffId, string pwd)
+        {
+            Model.Entities.Staff result = new Model.Entities.Staff();
+            using (NeusoftCCSEntities context = new NeusoftCCSEntities())
+            {
+                var staff = (from item in context.Staffs
+                             where item.Stf_ID == staffId && item.Stf_Password == pwd
+                             select item).FirstOrDefault();
+                result =  staff.ToModel();
             }
             return result;
         }

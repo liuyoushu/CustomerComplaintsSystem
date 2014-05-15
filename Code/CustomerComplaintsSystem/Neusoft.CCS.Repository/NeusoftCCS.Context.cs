@@ -39,5 +39,6 @@ namespace Neusoft.CCS.Repository
         public DbSet<ImportantEvent_Staff> ImportantEvent_Staff { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
     }
 }

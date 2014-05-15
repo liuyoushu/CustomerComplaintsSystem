@@ -56,6 +56,7 @@
     <Compile Include="Entities\ImportantEvent_Center.cs" />
     <Compile Include="Entities\ImportantEvent_Department.cs" />
     <Compile Include="Entities\ImportantEvent_Staff.cs" />
+    <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Position.cs" />
     <Compile Include="Entities\Satisfaction.cs" />
     <Compile Include="Entities\Staff.cs" />

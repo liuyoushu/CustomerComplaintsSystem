@@ -109,6 +109,7 @@
     <Compile Include="Mappings\ImportantEvent_CenterMapping.cs" />
     <Compile Include="Mappings\ImportantEvent_DepartmentMapping.cs" />
     <Compile Include="Mappings\ImportantEvent_StaffMapping.cs" />
+    <Compile Include="Mappings\PermissionMapping.cs" />
     <Compile Include="Mappings\PositionMapping.cs" />
     <Compile Include="Mappings\StaffMapping.cs" />
     <Compile Include="NeusoftCCS.Context.cs">
@@ -125,6 +126,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NeusoftCCS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
+      <DependentUpon>NeusoftCCS.tt</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
       <DependentUpon>NeusoftCCS.tt</DependentUpon>
